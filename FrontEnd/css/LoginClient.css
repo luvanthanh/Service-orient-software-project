@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #74b9ff, #0984e3);
+  background: linear-gradient(135deg, #6c3483, #512e5f);
   height: 100vh;
   margin: 0;
   display: flex;
@@ -10,11 +10,16 @@ body {
 
 .login-container {
   background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  width: 320px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(108, 52, 131, 0.2);
+  width: 600px;
+  max-width: 90vw;
   text-align: center;
+  min-height: 420px; /* tăng chiều cao tối thiểu */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .login-container h2 {
@@ -51,7 +56,7 @@ body {
 }
 
 .login-container button:hover {
-  background: #74b9ff;
+  background: linear-gradient(135deg, #6c3483, #512e5f);
 }
 
 .login-container p {
