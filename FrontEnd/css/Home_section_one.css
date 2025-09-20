@@ -1,0 +1,20 @@
+.section-one{
+    margin-left: 290px;
+    width: 70%;
+    margin-top : 10px;
+}
+
+.section-one .section-one-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section-one .section-one-content .section-one-left{
+    display :flex;
+    flex-direction: column;
+    gap:5px;
+}
+.section-one .section-one-content .section-one-left img{
+    border-radius: 3px ;
+    border: 2px;
+}

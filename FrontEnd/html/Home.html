@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanThanhShop</title>
-    <link rel="stylesheet" href="../css/Home.css">
-    <link rel="stylesheet" href="../css/Home_section.css">
+    <title>ThanhGiangShop.com</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/Home_header.css">
+    <link rel="stylesheet" href="../css/Home_section_one.css">
+    <link rel="stylesheet" href="../css/Home_slide.css">
+    <script src="../javascript/Home_slide.js"></script>
 </head>
 <body>
+
+  <!-- header -->
      <header class="navbar">
    <div class="top-bar">
       <div class="top-bar-content">
-        <span>Thu cũ giá ngon - Lên đời tiết kiệm</span>
-        <span> | Sản phẩm Chính hãng - Xuất VAT đầy đủ</span>
+        <span>Xin chào mọi người tới với Thành Giang Shop</span>
+        <span> | Sản phẩm Chính hãng - Uy tín- Chất lượng cao</span>
         <span> | Giao nhanh - Miễn phí cho đơn 300k</span>
         <span> | Tra cứu đơn hàng</span>
         <span> | Hotline: 9999999 99</span>
@@ -22,283 +27,70 @@
     <div class="main-bar">
       <!-- Logo -->
       <div class="logo">
-        <span></span><span class="logo-s">VanThanh Shop</span>
+        <a href="Home.html">
+        <span class="logo-s">ThanhGiangShop</span>
+        </a>
       </div>
 
       <!-- Menu -->
       <button class="btn">
-        <i class="fa fa-th"></i> Danh mục <i class="fa fa-caret-down"></i>
+        <i class="fa-solid fa-house-user"></i><a href="Home.html">Trang Chủ </a> 
       </button>
 
       <!-- Location -->
       <button class="btn">
-        <i class="fa fa-map-marker-alt"></i> Lào Cai <i class="fa fa-caret-down"></i>
+        <i class="fa-solid fa-location-dot"></i> Lào Cai 
       </button>
 
       <!-- Search -->
       <div class="search-box">
         <input type="text" placeholder="Bạn muốn mua gì hôm nay?">
-        <i class="fa fa-search"></i>
+        <i class="fa-solid fa-magnifying-glass"></i>
       </div>
 
       <!-- Cart -->
       <div class="cart">
-        <i class="fa fa-shopping-cart"></i> Giỏ hàng
+        <a href="GioHang.html"> <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
       </div>
 
-      <!-- Login -->
+      <!-- Login nút đăng nhập  -->
        <a href="LoginClient.html"><button class="btn login">
         <i class="fa fa-user"></i> Đăng nhập
       </button></a>
     </div>
   </header>
-  <section class="product-section">
-    <h2>ĐIỆN THOẠI NỔI BẬT NHẤT</h2>
-    <div class="filter-bar">
-      <button>Apple</button>
-      <button>Samsung</button>
-      <button>Xiaomi</button>
-      <button>OPPO</button>
-      <button>vivo</button>
-      <button>realme</button>
-      <button>ASUS</button>
-      <button>TECNO</button>
-      <button>Nokia</button>
-      <button>Xem tất cả</button>
-    </div>
 
-    <div class="product-list">
-      <!-- Sản phẩm 1 -->
-      <div class="product-card">
-        <div class="discount">Giảm 9%</div>
-        <img src="/images/1.png" alt="Samsung Galaxy A26">
-        <h3>Samsung Galaxy A26 5G 8GB 128GB</h3>
-        <div class="price">
-          <span class="new-price">6.270.000đ</span>
-          <span class="old-price">6.870.000đ</span>
-        </div>
-        <p class="desc">Không phí chuyển đổi khi trả góp 0%...</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.8</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
+  
+  <!-- section 1 -->
+  <div class="section-one">
+    <div class="section-one-content">
+      <div class="section-one-left">
+        <img src="../images/section_one_img1.png" alt="anh1">
+        <img src="../images/section_one_img2.png" alt="anh2">
+        <img src="../images/section_one_img3.png" alt="anh3">
       </div>
 
-      <!-- Sản phẩm 2 -->
-      <div class="product-card">
-        <div class="discount">Giảm 7%</div>
-        <img src="images/phone2.jpg" alt="Xiaomi Pad 7 Pro">
-        <h3>Xiaomi Pad 7 Pro 8GB 256GB</h3>
-        <div class="price">
-          <span class="new-price">12.740.000đ</span>
-          <span class="old-price">13.740.000đ</span>
-        </div>
-        <p class="desc">Trả góp 0% qua thẻ tín dụng...</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 5</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
+      <div class="section-one-right">
+        <div class="slider">
+          <div class="slides">
+              <img src="../images/1.png" alt="iPhone 17">
+              <img src="../images/1.png" alt="Galaxy S25">
+              <img src="" alt="AirPods Pro 3">
+              <img src="" alt="Xiaomi 15T">
+              <img src="" alt="Asus Vivobook">
+          </div>
 
-      <!-- Sản phẩm 3 -->
-      <div class="product-card">
-        <div class="discount">Giảm 14%</div>
-        <img src="images/phone3.jpg" alt="iPhone 16 Pro Max">
-        <h3>iPhone 16 Pro Max 256GB | Chính hãng</h3>
-        <div class="price">
-          <span class="new-price">30.090.000đ</span>
-          <span class="old-price">34.990.000đ</span>
-        </div>
-        <p class="desc">Smember giảm đến 301.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 5</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
+        <div class="slide-names">
+            <span>IPHONE 17 SERIES</span>
+            <span>GALAXY S25 FE</span>
+            <span>AIRPODS PRO 3</span>
+            <span>XIAOMI 15T SERIES</span>
+            <span>ASUS VIVOBOOK</span>
         </div>
       </div>
-
-      <!-- Sản phẩm 4 -->
-      <div class="product-card">
-        <div class="discount">Giảm 24%</div>
-        <img src="images/phone4.jpg" alt="iPhone 15 128GB">
-        <h3>iPhone 15 128GB | Chính hãng VN/A</h3>
-        <div class="price">
-          <span class="new-price">15.190.000đ</span>
-          <span class="old-price">19.990.000đ</span>
-        </div>
-        <p class="desc">Smember giảm đến 152.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.8</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-
-        <!-- Thêm các sản phẩm khác tương tự -->
-         <!-- Sản phẩm 5 -->
-      <div class="product-card">
-        <div class="discount">Giảm 24%</div>
-        <img src="images/phone5.jpg" alt="iPhone 15 128GB">
-        <h3>iPhone 15 128GB | Chính hãng VN/A</h3>
-        <div class="price">
-          <span class="new-price">15.190.000đ</span>
-          <span class="old-price">19.990.000đ</span>
-        </div>
-        <p class="desc">Smember giảm đến 152.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.8</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 6 -->
-      <div class="product-card">
-        <div class="discount">Giảm 24%</div>
-        <img src="images/phone4.jpg" alt="iPhone 15 128GB">
-        <h3>iPhone 15 128GB | Chính hãng VN/A</h3>
-        <div class="price">
-          <span class="new-price">15.190.000đ</span>
-          <span class="old-price">19.990.000đ</span>
-        </div>
-        <p class="desc">Smember giảm đến 152.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.8</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 7 -->
-      <div class="product-card">
-        <div class="discount">Giảm 24%</div>
-        <img src="images/phone4.jpg" alt="iPhone 15 128GB">
-        <h3>iPhone 15 128GB | Chính hãng VN/A</h3>
-        <div class="price">
-          <span class="new-price">15.190.000đ</span>
-          <span class="old-price">19.990.000đ</span>
-        </div>
-        <p class="desc">Smember giảm đến 152.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.8</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 8 -->
-      <div class="product-card">
-        <div class="discount">Giảm 24%</div>
-        <img src="images/phone4.jpg" alt="iPhone 15 128GB">
-        <h3>iPhone 15 128GB | Chính hãng VN/A</h3>
-        <div class="price">
-          <span class="new-price">15.190.000đ</span>
-          <span class="old-price">19.990.000đ</span>
-        </div>
-        <p class="desc">Smember giảm đến 152.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.8</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-       <!-- Sản phẩm 9 -->
-      <div class="product-card">
-        <div class="discount">Giảm 12%</div>
-        <img src="images/phone9.jpg" alt="vivo V30e">
-        <h3>vivo V30e 8GB 256GB</h3>
-        <div class="price">
-          <span class="new-price">7.490.000đ</span>
-          <span class="old-price">8.490.000đ</span>
-        </div>
-        <p class="desc">Tặng phiếu mua hàng 500.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.6</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 10 -->
-      <div class="product-card">
-        <div class="discount">Giảm 15%</div>
-        <img src="images/phone10.jpg" alt="realme 12 Pro+">
-        <h3>realme 12 Pro+ 5G 12GB 256GB</h3>
-        <div class="price">
-          <span class="new-price">12.990.000đ</span>
-          <span class="old-price">15.290.000đ</span>
-        </div>
-        <p class="desc">Tặng loa Bluetooth realme</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.9</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 11 -->
-      <div class="product-card">
-        <div class="discount">Giảm 8%</div>
-        <img src="images/phone11.jpg" alt="ASUS ROG Phone 8">
-        <h3>ASUS ROG Phone 8 16GB 512GB</h3>
-        <div class="price">
-          <span class="new-price">24.990.000đ</span>
-          <span class="old-price">27.190.000đ</span>
-        </div>
-        <p class="desc">Tặng balo gaming ASUS</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 5</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 12 -->
-      <div class="product-card">
-        <div class="discount">Giảm 11%</div>
-        <img src="images/phone12.jpg" alt="Nokia G42">
-        <h3>Nokia G42 5G 6GB 128GB</h3>
-        <div class="price">
-          <span class="new-price">3.990.000đ</span>
-          <span class="old-price">4.490.000đ</span>
-        </div>
-        <p class="desc">Tặng phiếu mua hàng 200.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.5</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 13 -->
-      <div class="product-card">
-        <div class="discount">Giảm 10%</div>
-        <img src="images/phone13.jpg" alt="TECNO POVA 6 Pro">
-        <h3>TECNO POVA 6 Pro 8GB 256GB</h3>
-        <div class="price">
-          <span class="new-price">5.990.000đ</span>
-          <span class="old-price">6.690.000đ</span>
-        </div>
-        <p class="desc">Tặng phiếu mua hàng 300.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.7</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 14 -->
-      <div class="product-card">
-        <div class="discount">Giảm 8%</div>
-        <img src="images/phone14.jpg" alt="realme C65">
-        <h3>realme C65 8GB 128GB</h3>
-        <div class="price">
-          <span class="new-price">4.490.000đ</span>
-          <span class="old-price">4.890.000đ</span>
-        </div>
-        <p class="desc">Tặng phiếu mua hàng 200.000đ</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.6</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
-      </div>
-      <!-- Sản phẩm 15 -->
-      <div class="product-card">
-        <div class="discount">Giảm 12%</div>
-        <img src="images/phone15.jpg" alt="Samsung Galaxy S24 Ultra">
-        <h3>Samsung Galaxy S24 Ultra 12GB 256GB</h3>
-        <div class="price">
-          <span class="new-price">27.990.000đ</span>
-          <span class="old-price">31.990.000đ</span>
-        </div>
-        <p class="desc">Tặng tai nghe Galaxy Buds FE</p>
-        <div class="rating">
-          <span><i class="fa fa-star"></i> 4.9</span>
-          <span class="fav"><i class="fa fa-heart"></i> Yêu thích</span>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
+
 </body>
 </html>
