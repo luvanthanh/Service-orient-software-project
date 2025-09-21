@@ -39,7 +39,7 @@
 .section-one .section-one-content .section-one-right .list-slides img{
     width: 1090px;
     height: auto;
-    border-radius: 2px ;
+    border-radius: 4px ;
     flex-shrink: 0;
 }
 
