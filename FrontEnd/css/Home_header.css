@@ -14,12 +14,15 @@ body {
 /* Header tổng */
 .navbar {
   width: 100%;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
   background: linear-gradient(135deg, #6c3483, #512e5f);
   color: white;
   font-size: 14px;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 5px 5px 15px rgba(48, 197, 18, 0.3);
 }
 
 /* Thanh top nhỏ */
@@ -29,11 +32,13 @@ body {
   width: 70%;
   overflow: hidden;
   white-space: nowrap;
-   background: linear-gradient(to bottom, #6c3483, #512e5f);
+  background: linear-gradient(to bottom, #6c3483, #512e5f);
   position: relative;
   height: 30px;
   display: flex;
   align-items: center;
+  border-radius: 15px;
+
 }
 
 .top-bar-content {

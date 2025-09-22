@@ -1,7 +1,7 @@
 .section-two{
     margin-left:290px;
     margin-top: 3px;
-    padding: 20px 20px 0px 0px;
+    padding: 20px 0px 0px 0px;
     width:1300px;
 }
 
@@ -38,4 +38,122 @@
 }
 .section-two .top .top-list a:hover{
     background: rgb(66, 153, 120);
+}
+
+
+
+
+
+/* danh sách sản phẩm  */
+.section-two .list-products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 10px;
+    width:100%;
+}
+.section-two .list-products .product{
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(108, 52, 131, 0.08);
+    padding: 18px 16px 16px 16px;
+    width: 18%;
+    height: 450px;
+    transition: box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.section-two .list-products .product .branch_product{
+  display: none;
+}
+
+.section-two .list-products .product a {
+  display :inline-block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  overflow: hidden;
+}
+.section-two .list-products .product a:hover img{
+  transform: scale(1.2);
+}
+
+
+.product img {
+  width: 198px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 5px;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+.product img:hover{
+  width: 198px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.product-describe {
+  display : flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 3px;
+  text-align: left;
+}
+.product-describe-button{
+  border: solid 1px rgb(88, 24, 104);
+  border-radius: 7px;
+  padding: 2px 6px;
+  font-weight: 500;
+  color:red;
+}
+
+.product-price {
+  font-size: 1.15rem;
+  color: #d63031;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.add-cart {
+  background: #6c3483;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.add-cart:hover {
+  background: #512e5f;
+}
+
+.product .fav {
+  color: #6c3483;
+  font-size: 1.05rem;
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
