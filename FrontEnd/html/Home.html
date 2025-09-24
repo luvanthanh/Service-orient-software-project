@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/Home_section_one.css">
     <link rel="stylesheet" href="../css/Home_section_two.css">
     <script src="../javascript/Home.js"></script>
+    <script src="../javaScript/Home_pagination.js"></script>
 </head>
 <body>
 
@@ -35,12 +36,12 @@
 
       <!-- Menu -->
       <button class="btn">
-        <i class="fa-solid fa-house-user"></i><a href="Home.html">Trang Chủ </a> 
+        <i class="fa-solid fa-house-user"></i><a href="Home.html">Trang Chủ </a>
       </button>
 
       <!-- Location -->
       <button class="btn">
-        <i class="fa-solid fa-location-dot"></i> Lào Cai 
+        <i class="fa-solid fa-location-dot"></i> Lào Cai
       </button>
 
       <!-- Search -->
@@ -78,19 +79,22 @@
           </div>
           <div class="list-slides">
               <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/690x300_Home_iPhone_17_%20Pro_Opensale_v2.png" alt="iPhone 17">
-              <img src="../images/slide2.png" alt="Galaxy S25">
-              <img src="../images/slide3.png" alt="AirPods Pro 3">
-              <img src="../images/slide4.png" alt="Xiaomi 15T">
-              <img src="../images/slide5.png" alt="Asus Vivobook">
+              <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/galaxy-s25-fe-home-0925.png" alt="Galaxy S25">
+              <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/app3-home.jpg" alt="AirPods Pro 3">
+              <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/690x300_Home_iPhone_17_%20Air_Opensale_v2.png" alt="Xiaomi 15T">
+              <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:90/plain/https://dashboard.cellphones.com.vn/storage/xiaomi-15t-5g-home-3.png" alt="Asus Vivobook">
           </div>
       </div>
     </div>
   </div>
 
+
+  <!-- section two  -->
   <div class="section-two">
     <div class="top">
       <div class="top-content">ĐIỆN THOẠI NỔI BẬT</div>
       <div class="top-list">
+        <a href="">All</a>
         <a href="">Apple</a>
         <a href="">Samsung</a>
         <a href="">Xiaomi</a>
@@ -99,7 +103,6 @@
         <a href="">Asus</a>
         <a href="">Nokia</a>
         <a href="">Nothing</a>
-        <a href="">All</a>
       </div>
     </div>
 
@@ -121,13 +124,13 @@
         </div>
         <div class="product-price">33.990.000₫</div>
       </a>
-      <button id="Phone" class ="product-phone">Xem thêm</button>
+      <button id="Phone" class ="product-phone">Mua ngay</button>
       </div>
 <!-- 2 -->
       <div class="product">
         <div class="branch_product">Iphone</div>
         <a href="">
-        <img id="image_product" src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone_air.jpg" alt="sp1">
+        <img id="image_product" src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-plus_1_.png" alt="sp1">
         <div id="name_product" class="product-name">iPhone 15 Pro Max 512GB</div>
         <div  class="product-describe">
           <div class="product-describe-button">6.9 inches</div>
@@ -146,7 +149,7 @@
       <div class="product">
         <div class="branch_product">Iphone</div>
         <a href="">
-        <img id="image_product" src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone_air.jpg" alt="sp1">
+        <img id="image_product" src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-256-gb.png" alt="sp1">
         <div id="name_product" class="product-name">iPhone 15 Pro Max 512GB</div>
         <div  class="product-describe">
           <div class="product-describe-button">6.9 inches</div>
@@ -164,7 +167,7 @@
       <div class="product">
         <div class="branch_product">Iphone</div>
         <a href="">
-        <img id="image_product" src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone_air.jpg" alt="sp1">
+        <img id="image_product" src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/a/samsung-galaxy-s25-fe-1.jpg" alt="sp1">
         <div id="name_product" class="product-name">iPhone 15 Pro Max 512GB</div>
         <div  class="product-describe">
           <div class="product-describe-button">6.9 inches</div>
@@ -216,6 +219,12 @@
       <button id="Phone" class ="product-phone">Xem thêm</button>
       </div>
     </div>
+
+    <div class="pagination">
+  <button id="prev-page">&lt;</button>
+  <span id="page-numbers"></span>
+  <button id="next-page">&gt;</button>
+</div>
 
   </div>
 
