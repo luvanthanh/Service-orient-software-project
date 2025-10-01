@@ -42,7 +42,7 @@
     "warranty": 24,
     "price":29990000,
     "formattedPrice": "29.990.000",
-    "imageUrl": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-plus_1_.png"
+    "imageUrl": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/d/i/dien-thoai-nothing-phone-2a-plus_1_.png"
 },
 {
     "id": 4,
@@ -57,7 +57,7 @@
     "warranty": 24,
     "price":29990000,
     "formattedPrice": "29.990.000",
-    "imageUrl": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-plus_1_.png"
+    "imageUrl": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/s/s/ss-tab-s9_1.png"
 },
 {
     "id": 5,
@@ -193,5 +193,35 @@
     "price":29990000,
     "formattedPrice": "29.990.000",
     "imageUrl": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-plus_1_.png"
+},
+{
+    "id": 14,
+    "brand": "Xiaomi",
+    "productName": "Xiaomi 15 Ultra 512GB",
+    "screenSize": 6.73,
+    "ram": 12,
+    "rom": 512,
+    "description": "Camera Leica, pin 5000mAh, sạc nhanh 120W, màn hình AMOLED 120Hz siêu mượt.",
+    "releaseDate": "2025-08-15",
+    "stockQuantity": 60,
+    "warranty": 24,
+    "price": 24990000,
+    "formattedPrice": "24.990.000",
+    "imageUrl": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-15-ultra.jpg"
+},
+{
+    "id": 14,
+    "brand": "Xiaomi",
+    "productName": "Xiaomi 15 Ultra 512GB",
+    "screenSize": 6.73,
+    "ram": 12,
+    "rom": 512,
+    "description": "Camera Leica, pin 5000mAh, sạc nhanh 120W, màn hình AMOLED 120Hz siêu mượt.",
+    "releaseDate": "2025-08-15",
+    "stockQuantity": 60,
+    "warranty": 24,
+    "price": 24990000,
+    "formattedPrice": "24.990.000",
+    "imageUrl": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/x/i/xiaomi-15-ultra.jpg"
 }
 ]

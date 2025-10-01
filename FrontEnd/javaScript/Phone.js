@@ -45,3 +45,25 @@ document.addEventListener("DOMContentLoaded", function () {
   showSlide(currentIndex);
   startAutoSlide();
 });
+const params = new URLSearchParams(window.location.search);
+const productId = params.get('id');
+
+fetch("../FakeJson/product.json")
+  .then(res => res.json())
+  .then(products => {
+    const product = products.find(p => String(p.id) === String(productId));
+    const detailDiv = document.getElementById("Phone");
+    if (product) {
+      detailDiv.innerHTML = `
+        <h2>${product.productName}</h2>
+        <img src="${product.imageUrl}" alt="${product.productName}" style="width:300px;">
+        <div><b>Màn hình:</b> ${product.screenSize} inches</div>
+        <div><b>RAM:</b> ${product.ram} GB</div>
+        <div><b>ROM:</b> ${product.rom} GB</div>
+        <div><b>Mô tả:</b> ${product.description}</div>
+        <div><b>Giá:</b> ${product.formattedPrice}₫</div>
+      `;
+    } else {
+      detailDiv.textContent = "Không tìm thấy sản phẩm!";
+    }
+  });

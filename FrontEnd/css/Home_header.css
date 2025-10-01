@@ -16,13 +16,13 @@ body {
   width: 100%;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
-  background: linear-gradient(135deg, #6c3483, #512e5f);
+  background: linear-gradient(135deg, #530f5c, #512e5f);
   color: white;
   font-size: 14px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 5px 5px 15px rgba(48, 197, 18, 0.3);
+  box-shadow: 5px 5px 15px linear-gradient(135deg, #b25bd4, #8c0fbd);;
 }
 
 /* Thanh top nhỏ */
@@ -32,7 +32,7 @@ body {
   width: 70%;
   overflow: hidden;
   white-space: nowrap;
-  background: linear-gradient(to bottom, #6c3483, #512e5f);
+  background: linear-gradient(to bottom, #592a6b, #6a2f81);
   position: relative;
   height: 30px;
   display: flex;
@@ -69,7 +69,7 @@ body {
   font-weight: bold;
 }
 .logo-s {
-  color: red;
+  color: #ffff;
   padding: 0 5px;
   border-radius: 4px;
   font-weight: bold;
@@ -77,7 +77,7 @@ body {
 
 /* Nút */
 .btn {
-  background: rgba(255,255,255,0.1);
+  background: linear-gradient(135deg, #6c3483, #512e5f);
   border: none;
   color: white;
   padding: 8px 12px;
@@ -124,6 +124,8 @@ body {
   gap: 5px;
   cursor: pointer;
 }
+
+
 .cart i {
   font-size: 18px;
 }
@@ -132,12 +134,18 @@ body {
   border-radius: 6px;
   align-items: center;
   gap: 5px;
-  background: rgba(255,255,255,0.2);
+  background: linear-gradient(135deg, #6c3483, #512e5f);
   padding: 5px 10px;
+}
+.cart a:hover{
+  background: rgba(255,255,255,0.2);
 }
 
 /* Login */
 .login {
+  background: linear-gradient(135deg, #6c3483, #512e5f);
+}
+.login:hover{
   background: rgba(255,255,255,0.2);
 }
 

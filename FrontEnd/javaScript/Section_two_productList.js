@@ -7,7 +7,7 @@ const listContainer = document.getElementById("list-products");
 const prevBtn = document.getElementById('prev-page');
 const nextBtn = document.getElementById('next-page');
 const pageNumbers = document.getElementById('page-numbers');
-const productsPerPage = 10;
+const productsPerPage = 8;
 let currentPage = 1;
 const totalPages = Math.ceil(products.length / productsPerPage);
 
@@ -21,7 +21,7 @@ function renderProducts(page) {
     const productDiv = document.createElement("div");
     productDiv.classList.add("product");
     productDiv.innerHTML = `
-        <a href="${product.link}">
+        <a href="Phone.html?id=${product.id}">
             <img src="${product.imageUrl}" alt="${product.productName}">
             <div class="product-name">${product.productName}</div>
             <div class="configuration-product">
