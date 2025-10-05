@@ -60,6 +60,7 @@ fetch("../FakeJson/product.json")
         <div><b>Màn hình:</b> ${product.screenSize} inches</div>
         <div><b>RAM:</b> ${product.ram} GB</div>
         <div><b>ROM:</b> ${product.rom} GB</div>
+        <div><b>Màu sắc:</b> ${product.color}</div>
         <div><b>Mô tả:</b> ${product.description}</div>
         <div><b>Giá:</b> ${product.formattedPrice}₫</div>
       `;

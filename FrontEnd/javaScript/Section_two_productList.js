@@ -1,4 +1,4 @@
-// JavaScript to load products from JSON and display them
+// Javascript lấy dữ liệu từ file Json và hiện thị chúng theo id 
 
 fetch("../FakeJson/product.json")
 .then(response => response.json())
@@ -34,6 +34,12 @@ function renderProducts(page) {
         </a>
         <button class="product-phone">Xem thêm</button>
     `;
+
+    // Thêm sự kiện cho nút "Xem thêm" khi ấn vào nút xem thêm thì sẽ chuyển sang màn hình chi tiết sản phẩm;
+    const btn = productDiv.querySelector('.product-phone');
+    btn.addEventListener('click', function() {
+    window.location.href = `Phone.html?id=${product.id}`;
+});
     listContainer.appendChild(productDiv);
     });
 }

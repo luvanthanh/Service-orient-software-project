@@ -56,7 +56,7 @@
   margin-right: 20px;
   border: solid 1px rgb(88, 24, 104);
   height: 50%;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .section-two .content .filter .filter-top{
@@ -70,6 +70,82 @@
   text-align: center;
 }
 
+.section-two .content .filter .filter-list{
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 400;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 420px;
+}
+
+
+.section-two .content .filter .filter-list .filter-list-box{
+  border: solid 1px rgb(88, 24, 104);
+  border-radius: 7px;
+  padding: 5px 10px;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  height: 50px ;
+  position: relative;
+}
+.section-two .content .filter .filter-list .filter-list-box i{
+  color: rgb(98, 231, 180);
+  
+}
+
+.section-two .content .filter .filter-list .filter-list-box:hover .filter-list-box-menu2{
+  display: block;
+}
+
+
+
+.section-two .content .filter .filter-list .filter-list-box:hover{
+  background: rgb(129, 63, 160);
+  color: black;
+}
+
+
+.section-two .content .filter-list-box-menu2{
+  top:0;
+  position: absolute;
+  /* border: solid 1px rgb(88, 24, 104); */
+  border-radius: 7px;
+  /* background: violet; */
+  display: none;
+  padding: 5px 10px;
+  width: 212px;
+  cursor: pointer;
+  text-align: center;
+  height:auto;
+  margin-left: 214px;
+}
+
+.section-two .content .filter-list-box-menu2 ul{
+  width: 212px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: -20px;
+  margin-top: -5px;
+}
+.section-two .content .filter-list-box-menu2 ul li{
+  width: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  background: rgb(139, 219, 179);
+  border: solid 1px rgb(88, 24, 104);
+  padding: 10px;
+  border-radius: 12px;
+}
+.section-two .content .filter-list-box-menu2 ul li:hover{
+  background: rgb(212, 224, 219);
+}
 
 
 
@@ -104,7 +180,7 @@
     width: 23%;
     height: 470px;
     transition: box-shadow 0.3s;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .section-two .list-products .product .branch_product{
@@ -116,7 +192,7 @@
   text-decoration: none;
   color: inherit;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .section-two .list-products .product a:hover img{
   transform: scale(1.1);
@@ -181,6 +257,7 @@
   height: auto;
   border: 1px solid #80346d;
   border-radius: 8px;
+  height: 42px;
 }
 
 .price-product {
