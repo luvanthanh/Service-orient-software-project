@@ -25,7 +25,7 @@
   width: 82%;
   justify-content: space-between;
 }
-.section-two .top .top-list a{
+.section-two .top .top-list .top-list-box{
     display: inline-block;
     width: 12%;
     text-decoration: none;
@@ -35,8 +35,9 @@
     border-radius: 7px;
     border: solid 1px rgb(88, 24, 104);
     text-align: center;
+    cursor: pointer;
 }
-.section-two .top .top-list a:hover{
+.section-two .top .top-list .top-list-box:hover{
     background: rgb(129, 36, 125);
     border: solid 1px rgb(202, 17, 110);
 }
