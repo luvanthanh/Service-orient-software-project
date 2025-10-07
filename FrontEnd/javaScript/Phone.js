@@ -48,23 +48,24 @@ document.addEventListener("DOMContentLoaded", function () {
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
 
-fetch("../FakeJson/product.json")
-  .then(res => res.json())
-  .then(products => {
-    const product = products.find(p => String(p.id) === String(productId));
+fetch(`http://localhost:8080/MyPhoneStore/phones/${productId}`)
+  .then(res => {
+    if (!res.ok) throw new Error("Không tìm thấy sản phẩm");
+    return res.json();
+  })
+  .then(product => {
     const detailDiv = document.getElementById("Phone");
-    if (product) {
-      detailDiv.innerHTML = `
-        <h2>${product.productName}</h2>
-        <img src="${product.imageUrl}" alt="${product.productName}" style="width:300px;">
-        <div><b>Màn hình:</b> ${product.screenSize} inches</div>
-        <div><b>RAM:</b> ${product.ram} GB</div>
-        <div><b>ROM:</b> ${product.rom} GB</div>
-        <div><b>Màu sắc:</b> ${product.color}</div>
-        <div><b>Mô tả:</b> ${product.description}</div>
-        <div><b>Giá:</b> ${product.formattedPrice}₫</div>
-      `;
-    } else {
-      detailDiv.textContent = "Không tìm thấy sản phẩm!";
-    }
+    detailDiv.innerHTML = `
+      <h2>${product.productName}</h2>
+      <img src="${product.imageUrl}" alt="${product.productName}" style="width:300px;">
+      <div><b>Màn hình:</b> ${product.screenSize} inches</div>
+      <div><b>RAM:</b> ${product.ram} GB</div>
+      <div><b>ROM:</b> ${product.rom} GB</div>
+      <div><b>Màu sắc:</b> ${product.color}</div>
+      <div><b>Mô tả:</b> ${product.description}</div>
+      <div><b>Giá:</b> ${product.formattedPrice}₫</div>
+    `;
+  })
+  .catch(err => {
+    document.getElementById("Phone").textContent = err.message;
   });

@@ -1,93 +1,101 @@
-// Javascript lấy dữ liệu từ file Json và hiện thị chúng theo id 
+// Javascript lấy dữ liệu từ API và hiển thị sản phẩm
 
-fetch("../FakeJson/product.json")
+fetch("http://localhost:8080/MyPhoneStore/phones")
 .then(response => response.json())
 .then(products => {
-const listContainer = document.getElementById("list-products");
-const prevBtn = document.getElementById('prev-page');
-const nextBtn = document.getElementById('next-page');
-const pageNumbers = document.getElementById('page-numbers');
-const productsPerPage = 8;
-let currentPage = 1;
-const totalPages = Math.ceil(products.length / productsPerPage);
+    const listContainer = document.getElementById("list-products");
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    const pageNumbers = document.getElementById('page-numbers');
+    const productsPerPage = 8;
+    let currentPage = 1;
+    let filteredProducts = products;
 
-function renderProducts(page) {
-    listContainer.innerHTML = "";
-    const start = (page - 1) * productsPerPage;
-    const end = start + productsPerPage;
-    const productsToShow = products.slice(start, end);
+    function renderProducts(page, data = filteredProducts) {
+        listContainer.innerHTML = "";
+        const totalPages = Math.ceil(data.length / productsPerPage);
+        const start = (page - 1) * productsPerPage;
+        const end = start + productsPerPage;
+        const productsToShow = data.slice(start, end);
 
-    productsToShow.forEach(product => {
-    const productDiv = document.createElement("div");
-    productDiv.classList.add("product");
-    productDiv.innerHTML = `
-        <a href="Phone.html?id=${product.id}">
-            <img src="${product.imageUrl}" alt="${product.productName}">
-            <div class="product-name">${product.productName}</div>
-            <div class="configuration-product">
-                <span class="configuration-product-button">${product.screenSize} inches</span>
-                <span class="configuration-product-button">${product.ram} GB</span>
-                <span class="configuration-product-button">${product.rom} GB</span>
-            </div>
-            <div class="describe-product">${product.description}</div>
-            <div class="price-product">${product.formattedPrice}₫</div>
-        </a>
-        <button class="product-phone">Xem thêm</button>
-    `;
+        productsToShow.forEach(product => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+            productDiv.innerHTML = `
+                <a href="Phone.html?id=${product.id}">
+                    <img src="${product.imageUrl}" alt="${product.productName}">
+                    <div class="product-name">${product.productName}</div>
+                    <div class="configuration-product">
+                        <span class="configuration-product-button">${product.screenSize} inches</span>
+                        <span class="configuration-product-button">${product.ram} GB</span>
+                        <span class="configuration-product-button">${product.rom} GB</span>
+                    </div>
+                    <div class="describe-product">${product.description}</div>
+                    <div class="price-product">${product.formattedPrice}₫</div>
+                </a>
+                <button class="product-phone">Xem thêm</button>
+            `;
+            const btn = productDiv.querySelector('.product-phone');
+            btn.addEventListener('click', function() {
+                window.location.href = `Phone.html?id=${product.id}`;
+            });
+            listContainer.appendChild(productDiv);
+        });
+        renderPageNumbers(totalPages);
+        updateBtnState(totalPages);
+    }
 
-    // Thêm sự kiện cho nút "Xem thêm" khi ấn vào nút xem thêm thì sẽ chuyển sang màn hình chi tiết sản phẩm;
-    const btn = productDiv.querySelector('.product-phone');
-    btn.addEventListener('click', function() {
-    window.location.href = `Phone.html?id=${product.id}`;
-});
-    listContainer.appendChild(productDiv);
+    function renderPageNumbers(totalPages) {
+        pageNumbers.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('button');
+            btn.textContent = i;
+            btn.className = (i === currentPage) ? 'active-page' : '';
+            btn.addEventListener('click', function () {
+                currentPage = i;
+                renderProducts(currentPage);
+            });
+            pageNumbers.appendChild(btn);
+        }
+    }
+
+    function updateBtnState(totalPages) {
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+    }
+
+    prevBtn.addEventListener('click', function () {
+        if (currentPage > 1) {
+            currentPage--;
+            renderProducts(currentPage);
+        }
     });
-}
 
-function renderPageNumbers() {
-    pageNumbers.innerHTML = '';
-    for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement('button');
-    btn.textContent = i;
-    btn.className = (i === currentPage) ? 'active-page' : '';
-    btn.addEventListener('click', function () {
-        currentPage = i;
-        renderProducts(currentPage);
-        renderPageNumbers();
-        updateBtnState();
+    nextBtn.addEventListener('click', function () {
+        const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderProducts(currentPage);
+        }
     });
-    pageNumbers.appendChild(btn);
-    }
-}
 
-function updateBtnState() {
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
-}
+    // Lọc theo hãng
+    const brandLinks = document.querySelectorAll('.top-list a');
+    brandLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const brand = link.textContent.trim().toLowerCase();
+            if (brand === 'all') {
+                filteredProducts = products;
+            } else {
+                filteredProducts = products.filter(p => p.brand && p.brand.toLowerCase() === brand);
+            }
+            currentPage = 1;
+            renderProducts(currentPage, filteredProducts);
+        });
+    });
 
-prevBtn.addEventListener('click', function () {
-    if (currentPage > 1) {
-    currentPage--;
+    // Khởi tạo lần đầu
     renderProducts(currentPage);
-    renderPageNumbers();
-    updateBtnState();
-    }
-});
-
-nextBtn.addEventListener('click', function () {
-    if (currentPage < totalPages) {
-    currentPage++;
-    renderProducts(currentPage);
-    renderPageNumbers();
-    updateBtnState();
-    }
-});
-
-// Khởi tạo lần đầu
-renderProducts(currentPage);
-renderPageNumbers();
-updateBtnState();
 })
-.catch(error => console.error("Lỗi khi load JSON:", error));
-
-
+.catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
