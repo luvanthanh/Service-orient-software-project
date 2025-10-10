@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -16,12 +17,11 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 
-@Table(name = "products")
+@Table(name = "phones")
 public class Phone {
 
     @Id
     private int id;
-
 
     @Column(name = "brand")
     private String brand;
@@ -45,7 +45,7 @@ public class Phone {
     private String description;
 
     @Column(name = "releaseDate")
-    private Date releaseDate;
+    private LocalDate releaseDate;
 
     @Column(name = "stockQuantity")
     private int stockQuantity;

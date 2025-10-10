@@ -7,10 +7,13 @@ fetch("http://localhost:8080/MyPhoneStore/phones")
     const prevBtn = document.getElementById('prev-page');
     const nextBtn = document.getElementById('next-page');
     const pageNumbers = document.getElementById('page-numbers');
+    const buttons = document.querySelectorAll('.top-list-box'); // 👈 lấy các nút brand
+
     const productsPerPage = 8;
     let currentPage = 1;
-    let filteredProducts = products;
+    let filteredProducts = products; // 👈 mặc định hiển thị tất cả
 
+    // ================== HÀM HIỂN THỊ SẢN PHẨM ==================
     function renderProducts(page, data = filteredProducts) {
         listContainer.innerHTML = "";
         const totalPages = Math.ceil(data.length / productsPerPage);
@@ -41,6 +44,7 @@ fetch("http://localhost:8080/MyPhoneStore/phones")
             });
             listContainer.appendChild(productDiv);
         });
+
         renderPageNumbers(totalPages);
         updateBtnState(totalPages);
     }
@@ -79,23 +83,65 @@ fetch("http://localhost:8080/MyPhoneStore/phones")
         }
     });
 
-    // Lọc theo hãng
-    const brandLinks = document.querySelectorAll('.top-list a');
-    brandLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const brand = link.textContent.trim().toLowerCase();
-            if (brand === 'all') {
+    // ================== XỬ LÝ LỌC THEO BRAND ==================
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const brand = btn.textContent.trim();
+
+            // Nếu là ALL thì hiển thị toàn bộ
+            if (brand === "ALL") {
                 filteredProducts = products;
             } else {
-                filteredProducts = products.filter(p => p.brand && p.brand.toLowerCase() === brand);
+                // Lọc theo brand (so sánh không phân biệt hoa thường)
+                filteredProducts = products.filter(p =>
+                    p.brand.toLowerCase() === brand.toLowerCase()
+                );
             }
+
+            // Reset lại về trang 1 sau khi lọc
             currentPage = 1;
-            renderProducts(currentPage, filteredProducts);
+            renderProducts(currentPage);
         });
     });
 
-    // Khởi tạo lần đầu
+    // ================== KHỞI TẠO LẦN ĐẦU ==================
     renderProducts(currentPage);
 })
 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
+
+
+
+// Lọc theo RAM
+  document.querySelectorAll("#ram-filter li").forEach(item => {
+    item.addEventListener("click", () => {
+      // Lấy giá trị RAM (vd: "4 GB" -> 4)
+      const ramValue = item.textContent.replace(" GB", "").trim();
+
+      // Gọi API
+      fetch(`http://localhost:8080/MyPhoneStore/phones?ram=${ramValue}`)
+        .then(res => res.json())
+        .then(products => {
+          const listDiv = document.getElementById("product-list");
+          listDiv.innerHTML = "";
+
+          if (products.length === 0) {
+            listDiv.innerHTML = "<p>Không có sản phẩm nào phù hợp.</p>";
+            return;
+          }
+
+          // Hiển thị danh sách sản phẩm
+          products.forEach(p => {
+            listDiv.innerHTML += `
+              <div class="product-card">
+                <img src="${p.imageUrl}" alt="${p.productName}">
+                <h3>${p.productName}</h3>
+                <p>RAM: ${p.ram} GB</p>
+                <p>Giá: ${p.formattedPrice}</p>
+              </div>
+            `;
+          });
+        })
+        .catch(err => console.error("Lỗi khi gọi API:", err));
+    });
+  });
+
