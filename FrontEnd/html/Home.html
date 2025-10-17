@@ -47,6 +47,10 @@
         <i class="fa-solid fa-location-dot"></i> Lào Cai
       </button>
 
+      <div class="news-list">
+        <i class="fa-solid fa-pager"></i> Tin Tức
+      </div>
+
       <!-- Search -->
       <div class="search-box">
         <input type="text" placeholder="Bạn muốn mua gì hôm nay?">
@@ -96,23 +100,22 @@
     <div class="top">
       <div class="top-content">ĐIỆN THOẠI NỔI BẬT</div>
       <div class="top-list">
-        <div class="top-list-box">ALL</div>
-        <div class="top-list-box">IPHONE</div>
-        <div class="top-list-box">SAMSUNG</div>
-        <div class="top-list-box">OPPO</div>
-        <div class="top-list-box">VIVO</div>
-        <div class="top-list-box">REALME</div>
-        <div class="top-list-box">ASUS</div>
-        <div class="top-list-box">NOKIA</div>
-        <div class="top-list-box">NOTHING</div>
+        <div class="top-list-box" onclick="filterByBrand('all')">ALL</div>
+        <div class="top-list-box" onclick="filterByBrand('Iphone')">IPHONE</div>
+        <div class="top-list-box" onclick="filterByBrand('Samsung')">SAMSUNG</div>
+        <div class="top-list-box" onclick="filterByBrand('Oppo')">OPPO</div>
+        <div class="top-list-box" onclick="filterByBrand('Vivo')">VIVO</div>
+        <div class="top-list-box" onclick="filterByBrand('Realme')">REALME</div>
+        <div class="top-list-box" onclick="filterByBrand('Asus')">ASUS</div>
+        <div class="top-list-box" onclick="filterByBrand('Nokia')">NOKIA</div>
+        <div class="top-list-box" onclick="filterByBrand('Nothing')">NOTHING</div>
       </div>
+
     </div>
 
     <div class="content">
       <div class="filter">
-        <div class="filter-top">
-          Tìm kiếm nhanh
-        </div>
+        <div class="filter-top">Tìm kiếm nhanh</div>
         <div class="filter-list">
           <div class="filter-list-box"><i class="fa-solid fa-mobile-button"></i>Thương Hiệu
             <div class="filter-list-box-menu2">
@@ -143,11 +146,11 @@
           </div>
           <div class="filter-list-box"><i class="fa-solid fa-microchip"></i>RAM
             <div class="filter-list-box-menu2">
-              <ul id="ram-filter">
+              <ul>
+                <li>2 GB</li>
+                <li>3 GB</li>
                 <li>4 GB</li>
                 <li>6 GB</li>
-                <li>8 GB</li>
-                <li>12 GB</li>
               </ul>
             </div>
           </div>
@@ -188,12 +191,6 @@
             </div>
           </div>
         </div>
-
-        <div class="news">
-          <a href="">
-            <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:214:640/q:90/plain/https://media-asset.cellphones.com.vn/page_configs/01K6FF0CVTA576PWBAX5MN5ATF.jpg" alt="">
-          </a>
-        </div>
       </div>
       <div class="list-products" id="list-products"></div>
     </div>
@@ -203,8 +200,6 @@
       <span id="page-numbers"></span>
       <button id="next-page">&gt;</button>
     </div>
-
-
   </div>
 
   
@@ -233,7 +228,7 @@
           </div>
         <div class="box">
             <div class="box-Head"> Kết nối với chúng tôi </div>
-            <a href=""><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="facebook.com"><i class="fa-brands fa-facebook"></i> Facebook</a>
             <a href=""><i class="fa-brands fa-instagram"></i> Instagram</a>
             <a href=""><i class="fa-brands fa-youtube"></i> Youtube</a>
             <a href=""><i class="fa-brands fa-tiktok"></i> Tiktok</a>

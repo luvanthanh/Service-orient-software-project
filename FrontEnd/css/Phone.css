@@ -199,3 +199,58 @@ body {
     background: rgba(108,52,131,1);
 }
 
+.phone{
+  display: flex;
+  gap:20px;
+}
+
+.content-phone{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  margin-left: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+body{
+  position: relative;
+}
+
+.Shopping-Cart {
+  position: absolute;
+  bottom: 10%;
+  left: 33%;
+}
+
+.cart-total {
+  /* margin-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px; */
+ 
+}
+.cart-total i{
+  font-size: 30px;
+  color: rgb(88, 24, 104);
+}
+
+.cart-total .checkout-btn {
+  background: linear-gradient(135deg, #6c3483, #512e5f);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  
+}
+.checkout-btn .active{
+  transform: translateY(10%);
+}
+
+
+
+

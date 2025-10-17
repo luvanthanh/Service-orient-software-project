@@ -40,6 +40,7 @@
 .section-two .top .top-list .top-list-box:hover{
     background: rgb(129, 36, 125);
     border: solid 1px rgb(202, 17, 110);
+    color: white;
 }
 
 
@@ -55,7 +56,7 @@
   margin-top:12px;
   width: 20%;
   margin-right: 20px;
-  /* border: solid 1px rgb(88, 24, 104); */
+  border: solid 1px rgb(88, 24, 104);
   height: 50%;
   border-radius: 12px;
 }
@@ -93,6 +94,8 @@
   text-align: left;
   height: 50px ;
   position: relative;
+  background: rgb(129, 63, 160);
+  color: white;
 }
 .section-two .content .filter .filter-list .filter-list-box i{
   color: rgb(98, 231, 180);
@@ -106,7 +109,7 @@
 
 
 .section-two .content .filter .filter-list .filter-list-box:hover{
-  background: rgb(129, 63, 160);
+  background: none;
   color: black;
 }
 
@@ -145,20 +148,7 @@
   border-radius: 12px;
 }
 .section-two .content .filter-list-box-menu2 ul li:hover{
-  background: rgb(212, 224, 219);
-}
-
-
-.section-two .content .news{
-  margin-top:12px;
-  height: 236px;
-  border-radius: 12px;
-}
-.section-two .content .news img{
-  width:220px;
-  height: 470px;
-  border-radius: 12px;
-  margin-left: 10px;
+  background: white;
 }
 
 
@@ -238,7 +228,6 @@
   color: #222;
   margin-bottom: 3px;
   text-align: center;
-  height: 42px;
 }
 
 .configuration-product{
