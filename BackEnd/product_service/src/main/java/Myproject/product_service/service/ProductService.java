@@ -49,6 +49,18 @@ public class ProductService {
     }
 
 
+//    xoas sản phẩm  theo id
+    public String deleteProduct(int productId){
+        productRepository.deleteById(productId);
+        return  "Deleted product with id: " + productId;
+    }
+
+
+//    lọc sản phẩm theo hãng
+    public List<Product> getProductByBrand(String productBrand){
+        return productRepository.findByProductBrand(productBrand);
+    }
+
 
 
 

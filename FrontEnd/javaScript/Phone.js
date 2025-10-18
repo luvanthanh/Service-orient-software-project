@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
 
-fetch(`http://localhost:8081/ProductDatabase/product/${productId}`)
+fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId}`)
   .then(res => {
     if (!res.ok) throw new Error("Không tìm thấy sản phẩm");
     return res.json();

@@ -5,54 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/Repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/mapper/ProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/request/ProductCreationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/request/ProductUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/Myproject.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/MyprojectApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/controller/PhoneController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/entity/Phone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/reponse/APIReponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/repository/PhoneRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/request/phoneRequest/PhoneBetweenPrice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/request/phoneRequest/PhoneBetweenSreenSize.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/request/phoneRequest/PhoneCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/request/phoneRequest/PhoneUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/request/userRequest/UserCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/request/userRequest/UserUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/service/PhoneService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/java/LuVanThanh/Myproject/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Myproject/Myproject/src/test/java/LuVanThanh/Myproject/MyprojectApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Home_section_two.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Home_section_two.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Phone.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Phone.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Phone.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Phone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Section_two_productList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Section_two_productList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/Repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/Repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

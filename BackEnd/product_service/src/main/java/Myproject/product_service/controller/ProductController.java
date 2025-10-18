@@ -27,21 +27,34 @@ public class ProductController {
 
 
 //    lấy sản phẩm theo id
-    @GetMapping("/getproduct/{productId}")
+    @GetMapping("/getProductById/{productId}")
     public Product getProductById(@PathVariable int productId){
         return productService.getProductById(productId);
     }
 
 //    thêm sản phẩm
-    @PostMapping("/products")
+    @PostMapping
     Product addProduct(@RequestBody ProductCreationRequest request){
         return productService.createProduct(request);
     }
 
 //    sủa sản phẩm theo id
-    @PutMapping("/{productId}")
+    @PutMapping("/updateProductById/{productId}")
     Product updateProduct(@RequestBody ProductUpdateRequest request, @PathVariable("productId") int productId){
         return productService.updateProduct(request,productId);
     }
 
+
+//    xóa sản phẩm theo id
+    @DeleteMapping("/deleteProductById/{productId}")
+    String deleteProduct(@PathVariable("productId") int productId){
+        return productService.deleteProduct(productId);
+    }
+
+    // lọc sản phẩm theo hãng
+    @GetMapping("/getProductByBrand/{productBrand}")
+    List<Product> getProductByBrand(@PathVariable("productBrand") String productBrand){
+        return productService.getProductByBrand(productBrand);
+    }
+    
 }
