@@ -56,5 +56,4 @@ public class ProductController {
     List<Product> getProductByBrand(@PathVariable("productBrand") String productBrand){
         return productService.getProductByBrand(productBrand);
     }
-    
 }
