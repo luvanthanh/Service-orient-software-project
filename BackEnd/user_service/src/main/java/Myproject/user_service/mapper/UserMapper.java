@@ -12,10 +12,10 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "Spring")
 public interface UserMapper {
     @Mapping(target = "userId", ignore = true)
-    @Mapping(target = "userPassword" ,ignore = true)
+//    @Mapping(target = "userPassword" ,ignore = true)
     User toUser(UserCreationRequest request);
     User toUpdateUser(@MappingTarget User user, UserUpdateRequest request);
-    UserReponse toUserReponse(@MappingTarget User user);
+    UserReponse toUserReponse( User user);
 
 
 }

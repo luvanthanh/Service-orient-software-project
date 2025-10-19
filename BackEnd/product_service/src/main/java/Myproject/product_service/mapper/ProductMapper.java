@@ -7,7 +7,7 @@ import Myproject.product_service.request.ProductUpdateRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "Spring")
+@Mapper(componentModel = "spring")
 public interface ProductMapper {
     @Mapping(target = "productId" ,ignore = true)
     Product toProduct(ProductCreationRequest request);

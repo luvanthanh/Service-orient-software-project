@@ -5,23 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/ApiReponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/UserReponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/request/UserCreationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/request/UserUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/AppException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/controller/NewsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/dto/request/NewsCreationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/entity/News.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/repository/NewsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/service/NewsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/Repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/Repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Home_section_two.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Home_section_two.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/mapper/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/request/ProductCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/request/ProductCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -61,6 +60,7 @@
     "Application.MyprojectApplication.executor": "Run",
     "Application.ProductServiceApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
+    "Application.UserServiceApplication.executor": "Run",
     "Application.phoneservice.executor": "Run",
     "Maven.Api_getWay [clean].executor": "Run",
     "Maven.Api_getWay [compile].executor": "Run",
@@ -68,6 +68,7 @@
     "Maven.product_service [compile].executor": "Run",
     "Maven.product_service [validate].executor": "Run",
     "Maven.user_service [clean].executor": "Run",
+    "Maven.user_service [compile].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -120,9 +121,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Myproject.user_service.UserServiceApplication" />
+      <module name="user_service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Myproject.user_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Application.UserServiceApplication" />
         <item itemvalue="Application.EurekaServiceApplication" />
       </list>
     </recent_temporary>
@@ -143,5 +158,16 @@
       <updated>1758120407818</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/UserServiceApplication.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

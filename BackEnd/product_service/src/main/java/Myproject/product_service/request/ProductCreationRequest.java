@@ -13,9 +13,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+
 public class ProductCreationRequest {
-    @Id
-    private int productId;
     private String productBrand;
     private String productName;
     private double productScreenSize;

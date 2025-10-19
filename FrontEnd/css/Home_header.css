@@ -99,8 +99,29 @@ body {
   background: rgba(255,255,255,0.2);
 }
 
+.news-btn{
+  background: linear-gradient(135deg, #6c3483, #512e5f);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.news-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.news-btn .news-menu  {
+  display:none;
+}
+
 /* Search */
 .search-box {
+  width: 100px;
   flex: 1;
   display: flex;
   align-items: center;
@@ -117,6 +138,8 @@ body {
 .search-box i {
   color: #888;
 }
+
+
 
 /* Cart */
 .cart {

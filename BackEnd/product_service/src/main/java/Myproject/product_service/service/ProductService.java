@@ -61,7 +61,10 @@ public class ProductService {
         return productRepository.findByProductBrand(productBrand);
     }
 
-
+// lọc sản phẩm theo giá tiền
+    public List<Product> getProductByPrice(double priceMin,  double priceMax){
+        return productRepository.findByProductPriceBetween(priceMin, priceMax);
+    }
 
 
 }

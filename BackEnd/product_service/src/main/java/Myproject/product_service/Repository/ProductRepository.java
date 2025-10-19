@@ -12,4 +12,5 @@ public interface ProductRepository extends JpaRepository<Product,Integer>
 {
    Product findById(int id);
    List<Product> findByProductBrand(String brand);
+   List<Product> findByProductPriceBetween(Double minPrice, Double maxPrice);
 }

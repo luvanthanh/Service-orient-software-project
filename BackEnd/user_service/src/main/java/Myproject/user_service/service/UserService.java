@@ -31,13 +31,14 @@ public class UserService {
             throw new AppException(ErrorCode.USER_EXITS);
 
         User user = userMapper.toUser(request);
+        userRepository.save(user);
 
-        return userMapper.toUserReponse(userRepository.save(user));
+        return userMapper.toUserReponse(user);
     }
 
     public List<User> getAllUsers(){
-        List<User> listUsers = userRepository.findAll();
-        return listUsers;
+        List<User> listUser = userRepository.findAll();
+        return listUser;
     }
 
     public UserReponse getUserById(String userId){

@@ -56,4 +56,11 @@ public class ProductController {
     List<Product> getProductByBrand(@PathVariable("productBrand") String productBrand){
         return productService.getProductByBrand(productBrand);
     }
+
+//    lọc sản phâm theo giá tiền  GET /products/price-range?min=5000000&max=15000000
+    @GetMapping("/getProductByPrice")
+    List<Product> getProductByPrice(@RequestParam Double min, @RequestParam Double max){
+        return productService.getProductByPrice(min,max);
+
+    }
 }
