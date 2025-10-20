@@ -17,7 +17,7 @@ import java.util.Date;
 public class ProductCreationRequest {
     private String productBrand;
     private String productName;
-    private double productScreenSize;
+    private float productScreenSize;
     private String productColor;
     private int productRam;
     private int productRom;

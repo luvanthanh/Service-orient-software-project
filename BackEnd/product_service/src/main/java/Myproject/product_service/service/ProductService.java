@@ -66,5 +66,24 @@ public class ProductService {
         return productRepository.findByProductPriceBetween(priceMin, priceMax);
     }
 
+//   lọc sản phẩm theo Ram
+    public List<Product> getProductByRam(int ram){
+        return productRepository.findByProductRam(ram);
+    }
+
+//    lọc sản phâm theo rom
+    public List<Product> getProductByRom(int rom){
+        return productRepository.findByProductRom(rom);
+    }
+
+//    lọc sanr phẩm theo màu sắc
+    public List<Product> getProductByColor(String color){
+        return productRepository.findByProductColor(color);
+    }
+
+//    locj sản phẩm theo kích thước màn hình
+    public List<Product> getProductByScreenSize(float min, float max){
+        return productRepository.findByProductScreenSizeBetween(min, max);
+    }
 
 }

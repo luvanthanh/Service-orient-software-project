@@ -1,3 +1,4 @@
+
 fetch("http://localhost:8081/ProductDatabase/products")
     .then(response => response.json())
     .then(products => {
@@ -99,7 +100,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
             }
         };
 
-        // lọc theo giá tiền 
+        // lọc theo giá tiền khoản min đến max
         window.filterByPrice = function(priceMin, priceMax) {
             fetch(`http://localhost:8081/ProductDatabase/products/getProductByPrice?min=${priceMin}&max=${priceMax}`)
                 .then(response => response.json())
@@ -110,6 +111,52 @@ fetch("http://localhost:8081/ProductDatabase/products")
                 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
             
         };
+
+
+        // lọc theo bộ nhớ trong (Ram)
+        window.filterByRam = function(ram) {
+            fetch(`http://localhost:8081/ProductDatabase/products/getProductByRam/${ram}`)
+                .then(response => response.json())
+                .then(data => {
+                    filteredProducts = data;
+                    renderProducts(currentPage = 1, filteredProducts);
+                })
+                .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
+            
+        };
+// lọc sản phẩm theo rom
+        window.filterByRom =function(rom){
+            fetch(`http://localhost:8081/ProductDatabase/products/getProductByRom/${rom}`)
+                .then(response => response.json())
+                .then(data => {
+                    filteredProducts = data;
+                    renderProducts(currentPage = 1, filteredProducts);
+                })
+                .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
+        }
+// locj san pham theo creen size
+        window.filterByScreenSize=function(min, max){
+            fetch(`http://localhost:8081/ProductDatabase/products/getProductByScreenSize?min=${min}&max=${max}`)
+                .then(response => response.json())
+                .then(data =>{
+                    filteredProducts = data;
+                    renderProducts(currentPage = 1, filteredProducts);
+                })
+                .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
+        }
+// lọc sản phẩm theo màu sắc
+        window.filterByColor=function(color){
+            fetch(`http://localhost:8081/ProductDatabase/products/getProductByColor/${color}`)
+                .then(response => response.json())
+                .then(data =>{
+                    filteredProducts = data;
+                    renderProducts(currentPage = 1, filteredProducts);
+                })
+                .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
+        }
+
+
+
 
         // 🚀 Khởi tạo lần đầu
         renderProducts(currentPage);

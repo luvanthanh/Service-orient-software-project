@@ -61,6 +61,27 @@ public class ProductController {
     @GetMapping("/getProductByPrice")
     List<Product> getProductByPrice(@RequestParam Double min, @RequestParam Double max){
         return productService.getProductByPrice(min,max);
+    }
 
+//lọc sản phẩm theo ram product
+    @GetMapping("/getProductByRam/{productRam}")
+    List<Product> getProductByRam(@PathVariable("productRam") int productRam){
+        return productService.getProductByRam(productRam);
+    }
+    //lọc sản phẩm theo rom product
+    @GetMapping("/getProductByRom/{productRom}")
+    List<Product> getProductByRom(@PathVariable("productRom") int productRom){
+        return productService.getProductByRom(productRom);
+    }
+// lọc sản phẩm theo màu sắc
+    @GetMapping("/getProductByColor/{productColor}")
+    List<Product> getProductByColor(@PathVariable("productColor") String productColor){
+        return productService.getProductByColor(productColor);
+    }
+
+//    lọc sản phẩm theo kích thước màn hình
+    @GetMapping("/getProductByScreenSize")
+    List<Product> getProductByScreenSize(@RequestParam float min, @RequestParam float max){
+        return productService.getProductByScreenSize(min,max);
     }
 }

@@ -20,12 +20,11 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int newsId;
 
-    private String newsName;
-    private String newsTitle;
-    private String newsDate;
-    private String newsTime;
-    private String newsCategory;
-
+    private String newsName; // tên
+    private String newsTitle; //tiêu đề
+    private String newsDate; // thời gian  ngày
+    private String newsTime; //  giờ
+    private String newsCategory; // loại tin
     private String newsImage;
     private String newsImage1;
     private String newsImage2;

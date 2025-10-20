@@ -14,7 +14,6 @@
     <script src="../javascript/Section_one_slide.js"></script>
     <script src="../javaScript/Section_two_page.js"></script>
     <script src="../javaScript/Section_two_productList.js"></script>
-    <!-- <script src ="../javaScript/Section_two_productListfilterByBrand.js"></script> -->
 </head>
 <body>
 
@@ -72,7 +71,7 @@
 
       <!-- Cart -->
       <div class="cart">
-        <a href="GioHang.html"> <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
+        <a href="Cart.html"> <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
       </div>
 
       <!-- Login nút đăng nhập  -->
@@ -150,58 +149,59 @@
           <div class="filter-list-box"><i class="fa-solid fa-sack-dollar"></i>Mức Giá
             <div class="filter-list-box-menu2">
               <ul>
-                <li>Dưới 5 triệu</li>
-                <li>5 - 10 triệu</li>
-                <li>10 - 15 triệu</li>
-                <li>15 - 20 triệu</li>
-                <li>20 - 30 triệu</li>
-                <li>Trên 30 triệu</li>
+                <li onclick="filterByPrice(0,5000000)">Dưới 5 triệu</li>
+                <li onclick="filterByPrice(5000000,10000000)">5 - 10 triệu</li>
+                <li onclick="filterByPrice(10000000,15000000)">10 - 15 triệu</li>
+                <li onclick="filterByPrice(15000000,20000000)">15 - 20 triệu</li>
+                <li onclick="filterByPrice(20000000,30000000)">20 - 30 triệu</li>
+                <li onclick="filterByPrice(30000000,50000000)">Trên 30 triệu</li>
               </ul>
             </div>
           </div>
           <div class="filter-list-box"><i class="fa-solid fa-microchip"></i>RAM
             <div class="filter-list-box-menu2">
               <ul>
-                <li>2 GB</li>
-                <li>3 GB</li>
-                <li>4 GB</li>
-                <li>6 GB</li>
+                <li onclick="filterByRam(4)">4 GB</li>
+                <li onclick="filterByRam(6)">6 GB</li>
+                <li onclick="filterByRam(8)">8 GB</li>
+                <li onclick="filterByRam(12)">12 GB</li>
+                <li onclick="filterByRam(16)">16 GB</li>
               </ul>
             </div>
           </div>
           <div class="filter-list-box"><i class="fa-solid fa-sd-card"></i>Bộ Nhớ Trong
             <div class="filter-list-box-menu2">
               <ul>
-                <li>32 GB</li>
-                <li>64 GB</li>
-                <li>128 GB</li>
-                <li>256 GB</li>
-                <li>512 GB</li>
-                <li>1 TB</li>
+                <li onclick="filterByRom(32)">32 GB</li>
+                <li onclick="filterByRom(64)">64 GB</li>
+                <li onclick="filterByRom(128)">128 GB</li>
+                <li onclick="filterByRom(256)">256 GB</li>
+                <li onclick="filterByRom(512)">512 GB</li>
+                <li onclick="filterByRom(1000)">1 TB</li>
               </ul>
             </div>
           </div>
           <div class="filter-list-box"> <i class="fa-solid fa-maximize"></i>Kích Thước
             <div class="filter-list-box-menu2">
               <ul>
-                <li>Dưới 5 inches</li>
-                <li>5 - 5.5 inches</li>
-                <li>5.5 - 6 inches</li>
-                <li>6 - 6.5 inches</li>
-                <li>Trên 6.5 inches</li>
+                <li onclick="filterByScreenSize(0,5)">Dưới 5 inches</li>
+                <li onclick="filterByScreenSize(5,5.5)">5 - 5.5 inches</li>
+                <li onclick="filterByScreenSize(5.5,6)">5.5 - 6 inches</li>
+                <li onclick="filterByScreenSize(6,6.5)">6 - 6.5 inches</li>
+                <li onclick="filterByScreenSize(6.5,8)">Trên 6.5 inches</li>
               </ul>
             </div>
           </div>
           <div class="filter-list-box"><i class="fa-solid fa-palette"></i>Màu Sắc
             <div class="filter-list-box-menu2">
               <ul>
-                <li>Đen</li>
-                <li>Trắng</li>
-                <li>Bạc</li>
-                <li>Xanh</li>
-                <li>Đỏ</li>
-                <li>Tím</li>
-                <li>Hồng</li>
+                <li onclick="filterByColor('black')">Đen</li>
+                <li onclick="filterByColor('white')">Trắng</li>
+                <li onclick="filterByColor('metallic')">Bạc</li>
+                <li onclick="filterByColor('orange')">Cam</li>
+                <li onclick="filterByColor('blue')">Xanh</li>
+                <li onclick="filterByColor('purple')">Tím</li>
+                <li onclick="filterByColor('pink')">Hồng</li>
               </ul>
             </div>
           </div>
