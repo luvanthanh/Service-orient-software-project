@@ -1,57 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".section-one-right .list-slides img");
-  const slidesContainer = document.querySelector(".section-one-right .list-slides");
-  const prevBtn = document.getElementById("prev-slide");
-  const nextBtn = document.getElementById("next-slide");
-  const checkoutBtn = document.querySelector(".checkout-btn");
-  checkoutBtn.addEventListener("click", function(e) {
-    console.log(e.target);
-    e.target.add("active")});
-  let currentIndex = 0;
-  let intervalId;
-
-  slidesContainer.style.width = `${slides.length * 1095}px`;
-
-  function showSlide(index) {
-    slidesContainer.style.transform = `translateX(-${index * 1090}px)`;
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-  }
-
-  function startAutoSlide() {
-    intervalId = setInterval(nextSlide, 2000);
-  }
-
-  function stopAutoSlide() {
-    clearInterval(intervalId);
-  }
-
-  prevBtn.addEventListener("click", function () {
-    stopAutoSlide();
-    prevSlide();
-    startAutoSlide();
-  });
-
-  nextBtn.addEventListener("click", function () {
-    stopAutoSlide();
-    nextSlide();
-    startAutoSlide();
-  });
-
-  showSlide(currentIndex);
-  startAutoSlide();
-});
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
+
 
 fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId}`)
   .then(res => {
@@ -65,20 +15,27 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
           
           <div class="section-two">
                 <div class = "list-image">
-                    <div class= "image"> <img src="${product.productImageUrl}" alt="${product.productName}"></div>
-                    <div class="image"> <img src="${product.productImageUrl1}" alt="${product.productName}" ></div>
-                    <div class="image"> <img src="${product.productImageUrl2}" alt="${product.productName}" ></div>
-                    <div class="image"> <img src="${product.productImageUrl3}" alt="${product.productName}" ></div>
+                    <div class="main-image" id="mainImage"> <img src="${product.productImageUrl}" alt="${product.productName}"></div>
+                    <div class="list-image-box">
+                        <div class= "image" id="image0" onclick="changeMainImage('${product.productImageUrl}')"> <img src="${product.productImageUrl}" alt="${product.productName}"></div>
+                        <div class="image" id="image1" onclick="changeMainImage('${product.productImageUrl1}')"> <img src="${product.productImageUrl1}" alt="${product.productName}" ></div>
+                        <div class="image" id="image2" onclick="changeMainImage('${product.productImageUrl2}')"> <img src="${product.productImageUrl2}" alt="${product.productName}" ></div>
+                        <div class="image" id="image3" onclick="changeMainImage('${product.productImageUrl3}')"> <img src="${product.productImageUrl3}" alt="${product.productName}" ></div>
+                    </div>
                 </div>
-                <h2>${product.productName}</h2>
 
                 <div class="content-phone">
-                      <div class= "image"> <img src="${product.productImageUrl}" alt="${product.productName}"></div>
+                      
                       <div class="content-phone-right">
-                          <div class= "phone-screen"><b>Màn hình:</b> ${product.productScreenSize} inches</div>
-                          <div><b>RAM:</b> ${product.productRam} GB</div>
-                          <div><b>ROM:</b> ${product.productRom} GB</div>
-                          <div><b>Màu sắc:</b> ${product.productColor}</div>
+                          <h2>${product.productName}</h2>
+                          <div> <b> Hãng Phát Hành:</b> ${product.productBrand}</div>
+                          <div><b>Thời Gian Phát Hành :</b> ${product.productReleaseDate} </div>
+                          <div><b>Màn hình:</b> ${product.productScreenSize} inches</div>
+                          <div><b>Số Lượng Kho:</b> ${product.productStockQuantity} Chiếc</div>
+                          <div><b>RAM:</b> ${product.productRam} Gigabyte</div>
+                          <div><b>ROM:</b> ${product.productRom} Gigabyte</div>
+                          <div><b>Màu sắc:</b> ${product.productColor} màu sắc độc đáo</div>
+                          <div><b>Thời Gian Bảo Hành:</b> ${product.productWarranty}</div>
                           <div><b>Mô tả:</b> ${product.productDescription}</div>
                           <div><b>Giá:</b> ${product.productFormattedPrice}₫</div>
                       </div>
@@ -86,7 +43,21 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
           </div>
 
     `;
+    const mainImage = document.getElementById('mainImage');
+
+    // Hàm cần là global nếu bạn vẫn dùng onclick inline — gán vào window
+    window.changeMainImage = function(imageUrl) {
+      if (!mainImage) return;
+      const img = mainImage.querySelector('img');
+      if (img) img.src = imageUrl;
+    };
   })
+  
   .catch(err => {
     document.getElementById("Phone").textContent = err.message;
   });
+
+
+
+  
+

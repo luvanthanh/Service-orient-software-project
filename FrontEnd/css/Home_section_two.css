@@ -94,7 +94,7 @@
 
 
 .section-two .content .filter .filter-list .filter-list-box{
-  border: solid 1px rgb(88, 24, 104);
+  border: solid 2px rgb(231, 180, 85);
   border-radius: 7px;
   padding: 10px 10px;
   width: 100%;
@@ -106,7 +106,7 @@
   color: white;
 }
 .section-two .content .filter .filter-list .filter-list-box i{
-  color: rgb(98, 231, 180);
+  color: rgb(231, 229, 86);
   
 }
 
@@ -126,7 +126,7 @@
   top:0;
   position: absolute;
   /* border: solid 1px rgb(88, 24, 104); */
-  border-radius: 7px;
+  border-radius: 5px;
   /* background: violet; */
   display: none;
   padding: 5px 10px;
@@ -134,7 +134,7 @@
   cursor: pointer;
   text-align: center;
   height:auto;
-  margin-left: 217px;
+  margin-left: 215px;
 }
 
 .section-two .content .filter-list-box-menu2 ul{
@@ -153,7 +153,7 @@
   background: rgb(139, 219, 179);
   border: solid 1px rgb(88, 24, 104);
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 7px;
 }
 .section-two .content .filter-list-box-menu2 ul li:hover{
   background: white;

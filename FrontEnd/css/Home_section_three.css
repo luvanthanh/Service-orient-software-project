@@ -32,6 +32,10 @@
     text-decoration: underline;
 }
 
+.section-three .section-three-content .box a i{
+    color:rgb(101, 17, 122);
+}
+
 .section-three .section-three-content .box .box-Head{
     font-size: 20px;
     font-weight: bold;
