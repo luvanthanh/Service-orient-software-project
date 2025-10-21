@@ -199,10 +199,6 @@ body {
     background: rgba(108,52,131,1);
 }
 
-.phone{
-  display: flex;
-  gap:20px;
-}
 
 .content-phone{
   display: flex;
@@ -213,12 +209,9 @@ body {
   line-height: 1.6;
 }
 
-body{
-  position: relative;
-}
+
 
 .Shopping-Cart {
-  position: absolute;
   bottom: 10%;
   left: 33%;
 }
@@ -230,7 +223,7 @@ body{
   display: flex;
   align-items: center;
   gap: 10px; */
- 
+
 }
 .cart-total i{
   font-size: 30px;
@@ -249,6 +242,29 @@ body{
 }
 .checkout-btn .active{
   transform: translateY(10%);
+}
+
+.image{
+  width: 400px;
+  height:300px;
+}
+
+.section-one .list-image{
+  display:flex;
+}
+img{
+  width :100%;
+  height:100%;
+}
+.section-two .content-phone img{
+  width: 400px;
+  height:300px;
+}
+
+.section-two .content-phone {
+  display:flex;
+  flex-direction: row;
+  gap:5px;
 }
 
 

@@ -7,10 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class NewsCreationRequest {
+@NoArgsConstructor
+@Builder
+
+public class NewsUpdateRequest {
     private String newsName; // tên
     private String newsTitle; //tiêu đề
     private String newsDate; // thời gian  ngày

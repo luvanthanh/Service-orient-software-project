@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showSlide(currentIndex);
   startAutoSlide();
 });
+
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
 
@@ -60,19 +61,30 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
   .then(product => {
     const detailDiv = document.getElementById("Phone");
     detailDiv.innerHTML = `
-      <div class="section-two>
-          <div class= "image"> <img src="${product.productImageUrl}" alt="${product.productName}" style="width:300px;">
-          <h2>${product.productName}</h2>
+    
+          
+          <div class="section-two">
+                <div class = "list-image">
+                    <div class= "image"> <img src="${product.productImageUrl}" alt="${product.productName}"></div>
+                    <div class="image"> <img src="${product.productImageUrl1}" alt="${product.productName}" ></div>
+                    <div class="image"> <img src="${product.productImageUrl2}" alt="${product.productName}" ></div>
+                    <div class="image"> <img src="${product.productImageUrl3}" alt="${product.productName}" ></div>
+                </div>
+                <h2>${product.productName}</h2>
+
+                <div class="content-phone">
+                      <div class= "image"> <img src="${product.productImageUrl}" alt="${product.productName}"></div>
+                      <div class="content-phone-right">
+                          <div class= "phone-screen"><b>Màn hình:</b> ${product.productScreenSize} inches</div>
+                          <div><b>RAM:</b> ${product.productRam} GB</div>
+                          <div><b>ROM:</b> ${product.productRom} GB</div>
+                          <div><b>Màu sắc:</b> ${product.productColor}</div>
+                          <div><b>Mô tả:</b> ${product.productDescription}</div>
+                          <div><b>Giá:</b> ${product.productFormattedPrice}₫</div>
+                      </div>
+                </div>
           </div>
-          <div class="content-phone">
-                <div class= "phone-screen"><b>Màn hình:</b> ${product.productScreenSize} inches</div>
-                <div><b>RAM:</b> ${product.productRam} GB</div>
-                <div><b>ROM:</b> ${product.productRom} GB</div>
-                <div><b>Màu sắc:</b> ${product.productColor}</div>
-                <div><b>Mô tả:</b> ${product.productDescription}</div>
-                <div><b>Giá:</b> ${product.productFormattedPrice}₫</div>
-            </div>
-          </div>
+
     `;
   })
   .catch(err => {
