@@ -62,6 +62,7 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
       if (img) img.src = imageUrl;
     };
 
+
     function addCart(productId) {
       fetch(`http://localhost:8081/CartDatabase/carts/${productId}`, {
     method: 'POST',
@@ -77,6 +78,7 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
     alert("Đã thêm sản phẩm vào giỏ hàng!");
     console.log("Cart:", data);
   })
+  
   .catch(err => {
     console.error(err);
     alert("Có lỗi xảy ra khi thêm vào giỏ hàng");

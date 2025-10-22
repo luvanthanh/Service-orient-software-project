@@ -5,7 +5,6 @@ package Myproject.cart_service.controller;
 import Myproject.cart_service.dto.request.CartCreationRequest;
 import Myproject.cart_service.dto.request.CartUpdateRequest;
 import Myproject.cart_service.entity.Cart;
-import Myproject.cart_service.mapper.CartMapper;
 import Myproject.cart_service.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
