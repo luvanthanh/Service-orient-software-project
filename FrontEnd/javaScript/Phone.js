@@ -39,7 +39,17 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
                           <div><b>Mô tả:</b> ${product.productDescription}</div>
                           <div><b>Giá:</b> ${product.productFormattedPrice}₫</div>
                       </div>
+                      <div class="Shopping-Cart">
+                          <div class="cart-container">
+                              <div class="cart-total">
+                                  <i class="fa-solid fa-cart-shopping"></i>
+                                  <a href="Cart.html"><button class="checkout-btn" id="addCart" onclick=addProductInCart="addCart(${product.productId})">Thêm vào giỏ hàng</button></a>
+                              </div>
+                          </div>
+                      </div>
+
                 </div>
+
           </div>
 
     `;
@@ -51,8 +61,29 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
       const img = mainImage.querySelector('img');
       if (img) img.src = imageUrl;
     };
+
+    function addCart(productId) {
+      fetch(`http://localhost:8081/CartDatabase/carts/${productId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
   })
-  
+  .then(res => {
+    if (!res.ok) throw new Error("Lỗi khi thêm sản phẩm vào giỏ hàng");
+    return res.json();
+  })
+  .then(data => {
+    alert("Đã thêm sản phẩm vào giỏ hàng!");
+    console.log("Cart:", data);
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Có lỗi xảy ra khi thêm vào giỏ hàng");
+  });
+    };
+
+  })
   .catch(err => {
     document.getElementById("Phone").textContent = err.message;
   });
