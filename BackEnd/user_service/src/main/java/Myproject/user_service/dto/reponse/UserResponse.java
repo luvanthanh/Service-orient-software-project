@@ -4,7 +4,7 @@ import lombok.*;
 
 @Data
 
-public class UserReponse {
+public class UserResponse {
     private String userId;
     private String userName;
     private String userPassword;

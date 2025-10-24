@@ -1,39 +1,40 @@
 package Myproject.user_service.exception;
 
-import Myproject.user_service.dto.reponse.ApiReponse;
+import Myproject.user_service.dto.reponse.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<ApiReponse> handleException(RuntimeException e){
-        ApiReponse  reponseAPI = new ApiReponse();
+    public ResponseEntity<ApiResponse> handleException(RuntimeException e){
+        ApiResponse  responseAPI = new ApiResponse();
 
-        reponseAPI.setCode(ErrorCode.ANOTHER_EXCEPTION.getCode());
-        reponseAPI.setMessage(ErrorCode.ANOTHER_EXCEPTION.getMessage());
+        responseAPI.setCode(ErrorCode.ANOTHER_EXCEPTION.getCode());
+        responseAPI.setMessage(ErrorCode.ANOTHER_EXCEPTION.getMessage());
 
-        return ResponseEntity.badRequest().body(reponseAPI);
+        return ResponseEntity.badRequest().body(responseAPI);
     }
 
     @ExceptionHandler(value = AppException.class)
-    public ResponseEntity<ApiReponse> handleAppException(AppException e){
-        ApiReponse  reponseAPI = new ApiReponse();
+    public ResponseEntity<ApiResponse> handleAppException(AppException e){
+        ApiResponse  responseAPI = new ApiResponse();
         ErrorCode errorCode = e.getErrorCode();
 
-        reponseAPI.setCode(errorCode.getCode());
-        reponseAPI.setMessage(errorCode.getMessage());
+        responseAPI.setCode(errorCode.getCode());
+        responseAPI.setMessage(errorCode.getMessage());
 
-        return ResponseEntity.badRequest().body(reponseAPI);
+        return ResponseEntity.badRequest().body(responseAPI);
     }
 
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiReponse> handleValidException(MethodArgumentNotValidException e){
+    public ResponseEntity<ApiResponse> handleValidException(MethodArgumentNotValidException e){
         String enumKey = e.getFieldError().getDefaultMessage();
+
         ErrorCode errorCode = ErrorCode.valueOf(enumKey);
-        ApiReponse  reponseAPI = new ApiReponse<>();
-        reponseAPI.setCode(errorCode.getCode());
-        reponseAPI.setMessage(errorCode.getMessage());
-        return ResponseEntity.badRequest().body(reponseAPI);
+        ApiResponse  responseAPI = new ApiResponse<>();
+        responseAPI.setCode(errorCode.getCode());
+        responseAPI.setMessage(errorCode.getMessage());
+        return ResponseEntity.badRequest().body(responseAPI);
     }
 }

@@ -5,9 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/IntrospectResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/request/AuthenticationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/request/IntrospectRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/html/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/ApiReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/UserReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/LoginClient.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/LoginClient.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +100,7 @@
       <recentPaths value="$PROJECT_DIR$" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.NewsServiceApplication">
+  <component name="RunManager" selected="Application.UserServiceApplication">
     <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
       <module name="cart_service" />
@@ -151,10 +168,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NewsServiceApplication" />
-        <item itemvalue="Application.ProductServiceApplication" />
-        <item itemvalue="Application.CartServiceApplication" />
         <item itemvalue="Application.UserServiceApplication" />
+        <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Application.NewsServiceApplication" />
+        <item itemvalue="Application.CartServiceApplication" />
         <item itemvalue="Application.EurekaServiceApplication" />
       </list>
     </recent_temporary>

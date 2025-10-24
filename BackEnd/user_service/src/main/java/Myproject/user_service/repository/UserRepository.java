@@ -3,8 +3,10 @@ package Myproject.user_service.repository;
 import Myproject.user_service.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends JpaRepository<User,String> {
     boolean  existsByUserName(String userName);
-    User findByUserName(String userName);
-    User findByUserId(String userId);
+    Optional<User> findByUserName(String userName);
+    Optional<User> findByUserId(String userId);
 }

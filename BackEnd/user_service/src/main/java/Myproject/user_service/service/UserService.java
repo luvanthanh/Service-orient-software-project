@@ -1,7 +1,6 @@
 package Myproject.user_service.service;
 
-
-import Myproject.user_service.dto.reponse.UserReponse;
+import Myproject.user_service.dto.reponse.UserResponse;
 import Myproject.user_service.dto.request.UserCreationRequest;
 import Myproject.user_service.dto.request.UserUpdateRequest;
 import Myproject.user_service.entity.User;
@@ -26,37 +25,47 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public UserReponse addUser(@RequestBody UserCreationRequest request){
+
+//    thêm user mới
+    public UserResponse addUser(@RequestBody UserCreationRequest request){
         if(userRepository.existsByUserName(request.getUserName()))
             throw new AppException(ErrorCode.USER_EXITS);
 
         User user = userMapper.toUser(request);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10); // tạo passwordEncoder
+        user.setUserPassword(passwordEncoder.encode(request.getUserPassword())); // set password cho user khi truyền request vào;
+
         userRepository.save(user);
-
-        return userMapper.toUserReponse(user);
+        return userMapper.toUserResponse(user);
     }
-
+// lấy all user
     public List<User> getAllUsers(){
         List<User> listUser = userRepository.findAll();
         return listUser;
     }
 
-    public UserReponse getUserById(String userId){
-        User user = userRepository.findByUserId(userId);
-        return userMapper.toUserReponse(user);
+//    lấy user theo userId
+    public UserResponse getUserById(String userId){
+        User user = userRepository.findByUserId(userId)
+                .orElseThrow(()-> new AppException(ErrorCode.USER_NOTFIND));
+
+        return userMapper.toUserResponse(user);
     }
 
-    public UserReponse updateUserById(@RequestBody UserUpdateRequest request, String userId){
+//    sửa thông tin user
+    public UserResponse updateUserById(@RequestBody UserUpdateRequest request, String userId){
         User user = userRepository.findById(userId)
                 .orElseThrow(()-> new AppException(ErrorCode.USER_EXITS));
         user =userMapper.toUpdateUser(user, request);
-        return userMapper.toUserReponse(userRepository.save(user));
-
+        return userMapper.toUserResponse(userRepository.save(user));
     }
 
+//    xóa thông tin user
     public String deletedUserById(String userId){
-        User user = userRepository.findByUserId(userId);
+        User user = userRepository.findByUserId(userId)
+                .orElseThrow(()-> new AppException(ErrorCode.USER_NOTFIND));
         userRepository.delete(user);
         return " user has been deleted ";
     }
+
 }
