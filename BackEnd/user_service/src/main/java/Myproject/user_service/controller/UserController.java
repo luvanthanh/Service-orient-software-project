@@ -7,11 +7,14 @@ import Myproject.user_service.dto.request.UserCreationRequest;
 import Myproject.user_service.dto.request.UserUpdateRequest;
 import Myproject.user_service.entity.User;
 import Myproject.user_service.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -31,6 +34,11 @@ public class UserController {
 //    lấy tất cả danh sách user
     @GetMapping
     public ApiResponse<List<User>> getAllUsers(){
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        log.info(" User Name: " + authentication.getName());
+        authentication.getAuthorities().forEach(grantedAuthority -> log.info("roles: "+grantedAuthority.getAuthority()));
+
         ApiResponse<List<User>> apiResponse = new ApiResponse<>();
         apiResponse.setData(userService.getAllUsers());
         return apiResponse;

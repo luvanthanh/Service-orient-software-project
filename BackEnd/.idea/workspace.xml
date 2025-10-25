@@ -5,26 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/IntrospectResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/request/AuthenticationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/request/IntrospectRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/html/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/ApplicationInitConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/entity/enums/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/ApiReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/ApiResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/UserReponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/LoginClient.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/LoginClient.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>

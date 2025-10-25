@@ -4,6 +4,7 @@ import Myproject.user_service.dto.reponse.UserResponse;
 import Myproject.user_service.dto.request.UserCreationRequest;
 import Myproject.user_service.dto.request.UserUpdateRequest;
 import Myproject.user_service.entity.User;
+import Myproject.user_service.entity.enums.Role;
 import Myproject.user_service.exception.AppException;
 import Myproject.user_service.exception.ErrorCode;
 import Myproject.user_service.mapper.UserMapper;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -34,6 +36,10 @@ public class UserService {
         User user = userMapper.toUser(request);
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10); // tạo passwordEncoder
         user.setUserPassword(passwordEncoder.encode(request.getUserPassword())); // set password cho user khi truyền request vào;
+
+        HashSet<String> roles = new HashSet<>();
+        roles.add(Role.USER.name());
+        user.setRoles(roles);
 
         userRepository.save(user);
         return userMapper.toUserResponse(user);
