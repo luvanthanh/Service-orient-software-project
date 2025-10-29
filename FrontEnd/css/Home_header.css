@@ -30,6 +30,7 @@ body {
 /* Thanh top nhỏ */
 
 .top-bar {
+  color: rgb(240, 185, 83);
   margin-left: 250px;
   width: 70%;
   overflow: hidden;

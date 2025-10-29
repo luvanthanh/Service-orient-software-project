@@ -12,6 +12,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/news")
+@CrossOrigin(origins = "*")
+
 public class NewsController {
 
     @Autowired

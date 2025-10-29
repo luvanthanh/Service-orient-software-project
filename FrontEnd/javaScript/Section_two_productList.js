@@ -48,7 +48,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
             updateBtnState(totalPages);
         }
 
-        // ⚙️ HÀM PHÂN TRANG
+        //  HÀM PHÂN TRANG
         function renderPageNumbers(totalPages) {
             pageNumbers.innerHTML = '';
             for (let i = 1; i <= totalPages; i++) {
@@ -83,7 +83,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
             }
         });
 
-        // ⚙️ ĐƯA filterByBrand RA NGOÀI (toàn cục)
+        //  ĐƯA filterByBrand RA NGOÀI (toàn cục)
         window.filterByBrand = function(brand) {
             if (brand === 'all') {
                 filteredProducts = products;

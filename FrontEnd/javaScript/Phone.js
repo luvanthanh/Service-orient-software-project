@@ -12,7 +12,6 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
     const detailDiv = document.getElementById("Phone");
     detailDiv.innerHTML = `
     
-          
           <div class="section-two">
                 <div class = "list-image">
                     <div class="main-image" id="mainImage"> <img src="${product.productImageUrl}" alt="${product.productName}"></div>

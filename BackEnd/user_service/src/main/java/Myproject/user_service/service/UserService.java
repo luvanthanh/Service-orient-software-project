@@ -9,7 +9,11 @@ import Myproject.user_service.exception.AppException;
 import Myproject.user_service.exception.ErrorCode;
 import Myproject.user_service.mapper.UserMapper;
 import Myproject.user_service.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,6 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 
 @Service
+@Slf4j
 public class UserService {
 
     @Autowired
@@ -45,18 +50,38 @@ public class UserService {
         return userMapper.toUserResponse(user);
     }
 // lấy all user
+
+    @PreAuthorize("hasRole('ADMIN')")
     public List<User> getAllUsers(){
+        log.info("In methor get all users");
+
         List<User> listUser = userRepository.findAll();
         return listUser;
     }
 
 //    lấy user theo userId
+    @PostAuthorize("returnObject.userName == authentication.name")
     public UserResponse getUserById(String userId){
+        log.info("In methor get user by id: "+userId);
+
         User user = userRepository.findByUserId(userId)
                 .orElseThrow(()-> new AppException(ErrorCode.USER_NOTFIND));
 
         return userMapper.toUserResponse(user);
     }
+
+
+    public UserResponse getMyInfo(){
+        var context = SecurityContextHolder.getContext();
+        String name = context.getAuthentication().getName();
+
+        User user = userRepository.findByUserName(name)
+                .orElseThrow(()-> new AppException(ErrorCode.USER_NOTFIND));
+        return userMapper.toUserResponse(user);
+
+    }
+
+
 
 //    sửa thông tin user
     public UserResponse updateUserById(@RequestBody UserUpdateRequest request, String userId){
