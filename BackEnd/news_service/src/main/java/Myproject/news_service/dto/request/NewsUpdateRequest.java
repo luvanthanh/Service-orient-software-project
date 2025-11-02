@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class NewsUpdateRequest {
+    private int newsProductId; //
     private String newsName; // tên
     private String newsTitle; //tiêu đề
     private String newsDate; // thời gian  ngày

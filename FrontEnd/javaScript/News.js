@@ -11,13 +11,14 @@ fetch(`http://localhost:8083/NewsDatabase/news/${newsId}`)
         const newsDiv = document.getElementById("section_two_content");
         newsDiv.innerHTML = " ";
         newsDiv.innerHTML = `
+            <div class="product-more" id="product_more"><a href ="Phone.html?id=${news.newsProductId}"> Xem Sản Phẩm Chính</a></div>
+
             <div class="news-detail">
                 <div class="news-detail-content">
                     <h2>${news.newsTitle}</h2>
-                    <div><b>Ngày đăng:</b> ${news.newsDate}</div>
-                    <a href="javascript:void(0)" onclick="window.location.href='../html/Product.html?id=3'">
-                        <img src="${news.newsImage}" alt="${news.newsTitle}" class="news-detail-image">
-                    </a>
+                    <div><b>Thời gian: </b> ${news.newsTime} </div>
+                    <div><b>Ngày đăng: </b> ${news.newsDate} </div>
+                    <img src="${news.newsImage}" alt="${news.newsTitle}" class="news-detail-image">
                     <p>${news.newsContent}</p>
                 </div>
 
@@ -34,7 +35,6 @@ fetch(`http://localhost:8083/NewsDatabase/news/${newsId}`)
                     <img src="${news.newsImage3}" alt="${news.newsTitle3}" class="news-detail-image">
                     <p>${news.newsContent3}</p>
                 </div>
-
             </div>
         `;
     })

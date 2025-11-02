@@ -30,7 +30,7 @@ body {
 /* Thanh top nhỏ */
 
 .top-bar {
-  color: rgb(240, 185, 83);
+  color: rgb(247, 244, 240);
   margin-left: 250px;
   width: 70%;
   overflow: hidden;
@@ -108,20 +108,41 @@ body {
   color: white;
   padding: 8px 12px;
   border-radius: 6px;
+  position: relative;
+  overflow: visible !important;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+}
+.news-btn a{
+  color:white;
 }
 
 .news-btn:hover {
   background: rgba(255,255,255,0.2);
 }
 
-.news-btn .news-menu  {
-  display:none;
+.news-btn:hover .news-menu {
+  display: block;
 }
 
+.news-btn .news-menu{
+  background: rgb(133, 70, 184);
+  color: rgb(250, 246, 246);
+  border-radius: 6px;
+  padding: 10px;
+  top: 33px;
+  width: 150px;
+  left: 0;
+  display: none;
+  position: absolute;
+}
+.news-btn .news-menu ul{
+  display: flex;
+  flex-direction: column;
+}
+
+.news-btn .news-menu ul li{
+  margin: 8px 0;
+}
 /* Search */
 .search-box {
   width: 100px;

@@ -29,6 +29,11 @@
     height: 100%;
     border-radius: 3px ;
     object-fit: cover;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s ;
+    overflow: hidden;
+}
+.section-one .section-one-content .section-one-left a img:hover{
+    transform: scale(1.05);
 }
 
 

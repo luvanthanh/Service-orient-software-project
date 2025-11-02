@@ -53,7 +53,6 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
 
     `;
     const mainImage = document.getElementById('mainImage');
-
     // Hàm cần là global nếu bạn vẫn dùng onclick inline — gán vào window
     window.changeMainImage = function(imageUrl) {
       if (!mainImage) return;
@@ -61,35 +60,37 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
       if (img) img.src = imageUrl;
     };
 
-
-    function addCart(productId) {
-      fetch(`http://localhost:8081/CartDatabase/carts/${productId}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(res => {
-    if (!res.ok) throw new Error("Lỗi khi thêm sản phẩm vào giỏ hàng");
-    return res.json();
-  })
-  .then(data => {
-    alert("Đã thêm sản phẩm vào giỏ hàng!");
-    console.log("Cart:", data);
-  })
-  
-  .catch(err => {
-    console.error(err);
-    alert("Có lỗi xảy ra khi thêm vào giỏ hàng");
-  });
-    };
-
-  })
+    })
   .catch(err => {
     document.getElementById("Phone").textContent = err.message;
   });
 
 
 
-  
+
+  function addCart(){
+    fetch(`http://localhost:8081/ProductsDatabase/products/${productId}`)
+    .then(res => res.json())
+    .then(product => {
+      // Fetch 2: thêm sản phẩm vào giỏ hàng
+      return fetch("http://localhost:8082/CartsDatabase/carts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productId: product.productId,
+          productName: product.productName,
+          productImage: product.productImage,
+          productPrice: product.productPrice,
+          quantity: 1
+        })
+      });
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert("Thêm vào giỏ hàng thành công!");
+      console.log(data);
+    })
+    .catch(err => console.error("Lỗi:", err));
+}
+
 

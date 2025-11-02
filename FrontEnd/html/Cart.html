@@ -1,60 +1,69 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Giỏ hàng</title>
-  <link rel="stylesheet" href="../css/Cart.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ Hàng Của Bé</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/Home_header.css">
+  
 </head>
 <body>
-  <header>🛒 Giỏ hàng</header>
-
-  <div class="cart">
-    <div class="cart-header">
-      <div>Hình ảnh</div>
-      <div>Sản phẩm</div>
-      <div>Số lượng</div>
-      <div>Thành tiền</div>
-      <div>Thao tác</div>
+  <header class="navbar">
+  <div class="top-bar">
+      <div class="top-bar-content">
+        <span>Xin chào mọi người tới với Văn Thành Shop</span>
+        <span> | Sản phẩm Chính hãng - Uy tín- Chất lượng cao</span>
+        <span> | Giao nhanh - Miễn phí cho đơn 300k</span>
+        <span> | Tra cứu đơn hàng</span>
+        <span> | Hotline: 9999999 99</span>
+      </div>
     </div>
 
-    <div class="cart-item">
-      <img src="https://via.placeholder.com/80" alt="Sản phẩm">
-      <div class="item-info">
-        <h4>Điện thoại A</h4>
-        <p>Giá: 5.000.000₫</p>
+    <div class="main-bar">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="Home.html">
+        <span class="logo-s" style="color: Orange">VĂN THÀNH</span>
+        </a>
       </div>
-      <div class="item-quantity">
-        <input type="number" value="1" min="1">
+
+      <!-- Menu -->
+      <div class="btn">
+        <i class="fa-solid fa-house-user"></i><a href="Home.html">Trang Chủ </a>
       </div>
-      <div class="item-total">5.000.000₫</div>
-      <button class="remove-btn">Xóa</button>
+      <div class="btn">
+        <i class="fa-solid fa-newspaper"></i> <a href="Introduce.html" target="_blank" rel="noopener noreferrer" >Giới Thiệu</a>
+      </div>
+
+      <div class="news-btn">
+        <i class="fa-solid fa-pager"></i> Tin Tức
+        <div class="news-menu">
+          <ul>
+            <li><a href="">Tin công nghệ</a></li>
+            <li><a href="">Khuyến mãi</a></li>
+            <li><a href="">Sự kiện</a></li>
+          </ul>
+      </div>
+      </div>
+
+
+      <!-- Search -->
+      <div class="search-box">
+        <input type="text" placeholder="Bạn muốn mua gì hôm nay?">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <!-- Cart -->
+      <div class="cart">
+        <a href="Cart.html"> <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
+      </div>
+
+      <!-- Login nút đăng nhập  -->
+      <a href="LoginClient.html"><button class="btn login">
+        <i class="fa fa-user"></i> Đăng nhập
+      </button></a>
     </div>
-
-    <div class="cart-item">
-      <img src="https://via.placeholder.com/80" alt="Sản phẩm">
-      <div class="item-info">
-        <h4>Điện thoại B</h4>
-        <p>Giá: 7.500.000₫</p>
-      </div>
-      <div class="item-quantity">
-        <input type="number" value="2" min="1">
-      </div>
-      <div class="item-total">15.000.000₫</div>
-      <button class="remove-btn">Xóa</button>
-    </div>
-
-    <div class="cart-total">Tổng: 20.000.000₫</div>
-
-    <div class="checkout-form">
-      <h3>Thông tin giao hàng</h3>
-      <label for="address">Địa chỉ nhận hàng:</label>
-      <input type="text" id="address" placeholder="Nhập địa chỉ của bạn">
-
-      <label for="phone">Số điện thoại:</label>
-      <input type="text" id="phone" placeholder="Nhập số điện thoại">
-
-      <button class="checkout-btn">Thanh toán</button>
-    </div>
-  </div>
+  </header>
 </body>
 </html>

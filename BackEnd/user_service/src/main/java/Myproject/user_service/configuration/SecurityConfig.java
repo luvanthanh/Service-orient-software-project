@@ -15,9 +15,12 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.crypto.spec.SecretKeySpec;
-
+import java.util.List;
 
 
 @Configuration
@@ -33,7 +36,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(request->
-                request.requestMatchers(HttpMethod.POST, PUBLIC_EMTPOINT).permitAll()
+                request.requestMatchers(HttpMethod.POST, PUBLIC_EMTPOINT).permitAll() // Cho phép Phương thức Post trong các emoint trên
                         .anyRequest().authenticated());
 
 
@@ -44,11 +47,28 @@ public class SecurityConfig {
                                 .jwtAuthenticationConverter(jwtAuthenticationConverter()))
         );
 
-        httpSecurity.csrf(AbstractHttpConfigurer::disable); // config chỗ này mới dùng đc nhé
+        httpSecurity.csrf(AbstractHttpConfigurer::disable)
+                .cors(cors ->cors.configurationSource(corsConfigurationSource()));
+
 
         return httpSecurity.build();
     }
 
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of(
+                "http://127.0.0.1:5501",
+                "http://localhost:5501"
+        )); // 👈 Cho phép domain của frontend
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 
     @Bean // chỗ này là để chuyển scope thành role
     JwtAuthenticationConverter jwtAuthenticationConverter() {

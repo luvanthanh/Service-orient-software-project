@@ -186,13 +186,13 @@ body {
   width: 100px;
   height:75px;
   cursor: pointer;
-  transition: all 0,8s;
+  transition: all 0.2s;
   border-radius: 5px;
 }
 
 .section-two .list-image .list-image-box .image:hover img { 
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 

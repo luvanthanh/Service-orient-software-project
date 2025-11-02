@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThanhGiangShop.com</title>
+    <title>Văn Thành Shop</title>
     <!-- link icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="../css/Home_header.css">
@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="../css/Home_section_three.css">
     <link rel="stylesheet" href="../css/Home_footer.css">
     <script src="../javascript/Section_one_slide.js"></script>
-    <script src="../javaScript/Section_two_page.js"></script>
     <script src="../javaScript/Section_two_productList.js"></script>
     <script src="../javaScript/section_one_news.js"></script>
+    <script src="../javaScript/Home.js"></script>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
   <header class="navbar">
   <div class="top-bar">
       <div class="top-bar-content">
-        <span>Xin chào mọi người tới với Thành Giang Shop</span>
+        <span>Xin chào mọi người tới với Văn Thành Shop</span>
         <span> | Sản phẩm Chính hãng - Uy tín- Chất lượng cao</span>
         <span> | Giao nhanh - Miễn phí cho đơn 300k</span>
         <span> | Tra cứu đơn hàng</span>
@@ -34,7 +34,7 @@
       <!-- Logo -->
       <div class="logo">
         <a href="Home.html">
-        <span class="logo-s" style="color: Orange">ThanhGiangShop</span>
+        <span class="logo-s" style="color: Orange">VĂN THÀNH</span>
         </a>
       </div>
 
@@ -47,14 +47,7 @@
       </div>
 
       <div class="news-btn">
-        <i class="fa-solid fa-pager"></i> Tin Tức
-        <div class="news-menu">
-          <ul>
-            <li><a href="">Tin công nghệ</a></li>
-            <li><a href="">Khuyến mãi</a></li>
-            <li><a href="">Sự kiện</a></li>
-          </ul>
-      </div>
+        <a href="ListNews.html" target="_blank"><i class="fa-solid fa-pager"></i> Tin Tức</a>
       </div>
 
 
@@ -70,7 +63,7 @@
       </div>
 
       <!-- Login nút đăng nhập  -->
-      <a href="LoginClient.html"><button class="btn login">
+      <a href="LoginClient.html"><button class="btn-login" id="login_button">
         <i class="fa fa-user"></i> Đăng nhập
       </button></a>
     </div>
@@ -200,9 +193,7 @@
       </div>
 
       <div class="news" id="news">
-        <div class="news-content"> tin tức 1 </div>
-        <div class="news-content" > tin tức 2 </div>
-        <div class="news-content"> tin tức 3 </div>
+        
       </div>
 
       </div>
@@ -224,7 +215,7 @@
       <div class="section-three">
         <div class="section-three-content">
           <div class="box">
-            <div class="box-Head"> Về Thành Giang Shop </div>
+            <div class="box-Head"> Về Văn Thành Shop </div>
             <a href="">Giới Thiệu Công Ty</a>
             <a href="">Tuyển Dụng</a>
             <a href="">Liên Hệ</a>
@@ -251,9 +242,22 @@
       </div>
 
       <div class="footer">
-        <span>© 2025 Công ty TNHH Thành Giang Shop. GPDKKD: 123456789 do Sở KHĐT TP.Lào Cai cấp ngày 24/07/2025. Địa chỉ: Lào Cai. Điện thoại: 999999999. Email:ThanhGiang@gmial.com
+        <span>© 2025 Công ty Văn Thành Shop. GPDKKD: 123456789 do Sở KHĐT TP.Lào Cai cấp ngày 24/07/2025. Địa chỉ: Lào Cai. Điện thoại: 999999999. Email:luvanthanh@gmail.com
       </div>
 
-      
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const usernameStored = localStorage.getItem("username");
+          if (usernameStored) {
+            const loginButton = document.getElementById("login_button");
+            if (loginButton) {
+              loginButton.innerHTML = `<i class="fa fa-user"></i> ${usernameStored}`;
+
+              const loginLink = loginButton.closest("a");
+              if (loginLink) loginLink.removeAttribute("href");
+            }
+          }
+        });
+</script>
 </body>
 </html>
