@@ -1,0 +1,72 @@
+document.addEventListener("DOMContentLoaded", () => {// token lưu sau khi đăng nhập
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+    alert("Vui lòng đăng nhập để xem thông tin!");
+    window.location.href = "LoginClient.html";
+    return;
+    }
+
+    fetch(`http://localhost:8082/UserDatabase/users/myInfo`, {
+    method: "GET",
+    headers: {
+        "Authorization": `Bearer ${token}`, // Gửi token xác thực
+        "Content-Type": "application/json"
+    }
+    })
+    .then(res => {
+        if (!res.ok){
+            window.location.href = "LoginClient.html";
+            throw new Error("Không tìm thấy thông tin người dùng hoặc lỗi xác thực.vui lòng đăng nhập lại.");
+        }
+        
+        return res.json();
+    })
+    .then(user => {
+        console.log("Dữ liệu trả về từ API:", user);
+        const userDiv = document.getElementById("user_info");
+        userDiv.innerHTML = `
+            <div class="user-detail">
+                <h2>Thông Tin Người Dùng</h2>
+                <table>
+                    <tr>
+                        <td>ID Người Dùng</td>
+                        <td> ${user.data.userId}</td>
+                    </tr>
+                    <tr>
+                        <td>Tên Đăng Nhập</td>
+                        <td> ${user.data.userName}</td>
+                    </tr>
+                    <tr>
+                        <td>Họ</td>
+                        <td> ${user.data.userFirstName}</td>
+                    </tr>
+                    <tr>
+                        <td>Tên</td>
+                        <td> ${user.data.userLastName}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td> ${user.data.userEmail}</td>
+                    </tr>
+                    <tr>
+                        <td>Số Điện Thoại</td>
+                        <td> ${user.data.userPhoneNumber}</td>
+                    </tr>
+                    <tr>
+                        <td>Địa Chỉ</td>
+                        <td> ${user.data.userAddress}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <div class="button-update"> <a href="UpdateUser.html"> Cập Nhật Thông Tin Sản Phẩm</a></div>
+            </div>
+        `;
+    })
+    .catch(error => {
+        alert("Lỗi khi tải thông tin người dùng: " + error.message);
+        console.error("Lỗi khi load dữ liệu từ API:", error);
+    });
+});

@@ -60,6 +60,7 @@ public class AuthenticationService {
 
             return AuthenticationResponse.builder()
                     .token(token)
+                    .userId(user.getUserId())
                     .checkLogin(checkPassword)
                     .build();
 

@@ -192,13 +192,58 @@ body {
 }
 
 /* Login */
-.login {
+.login-button {
   background: linear-gradient(135deg, #6c3483, #512e5f);
+  border: 1px solid rgb(218, 187, 130);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  gap: 5px;
+  position: relative;
 }
-.login:hover{
+.login-button:hover {
   background: rgba(255,255,255,0.2);
 }
+.login-button:hover .accout-menu-two {
+  display: block;
+}
+.login-button .accout-menu-two{
+  margin-left: -10px;
+  background: rgb(239, 235, 241);
+  border-radius: 4px;
+  top: 33px;
+  width: 109px;
+  display: none;
+  position: absolute;
+}
 
+.login-button:hover .accout-menu-two ul {
+  display: flex;
+  flex-direction: column;
+  width :100px;
+  height :100px;
+  justify-content: space-between;
+  align-items: center;
+  gap:5px;
+}
+
+.login-button:hover .accout-menu-two ul li {
+  padding:5px;
+  width:100%;
+  border: soild 1px black;
+}
+.login-button .accout-menu-two ul li a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: orange;
+  text-align: center;
+}
+
+.login-button .accout-menu-two ul li a:hover{
+  color: rgb(233, 20, 20);
+}
 
 i{
   color: rgb(218, 187, 130);

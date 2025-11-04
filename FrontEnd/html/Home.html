@@ -42,12 +42,14 @@
       <div class="btn">
         <i class="fa-solid fa-house-user"></i><a href="Home.html">Trang Chủ </a>
       </div>
+
+      <!-- gioio thieu -->
       <div class="btn">
         <i class="fa-solid fa-newspaper"></i> <a href="Introduce.html" target="_blank" rel="noopener noreferrer" >Giới Thiệu</a>
       </div>
-
+        <!-- tin tucws -->
       <div class="news-btn">
-        <a href="ListNews.html" target="_blank"><i class="fa-solid fa-pager"></i> Tin Tức</a>
+        <a href="ListNews.html" ><i class="fa-solid fa-pager"></i> Tin Tức</a>
       </div>
 
 
@@ -59,13 +61,22 @@
 
       <!-- Cart -->
       <div class="cart">
-        <a href="Cart.html"> <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
+        <a href="Carts.html"> <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
       </div>
 
       <!-- Login nút đăng nhập  -->
-      <a href="LoginClient.html"><button class="btn-login" id="login_button">
-        <i class="fa fa-user"></i> Đăng nhập
-      </button></a>
+      
+      <div class="login-button" id="login_button">
+        <i class="fa fa-user"></i> Tài khoản
+        <div class="accout-menu-two">
+          <ul>
+            <li><a href="LoginClient.html">Đăng nhập</a></li>
+            <li><a href="Profile.html">Profile </a></li>
+            <li><a href="Register.html">Đăng xuất</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </header>
 
@@ -245,19 +256,5 @@
         <span>© 2025 Công ty Văn Thành Shop. GPDKKD: 123456789 do Sở KHĐT TP.Lào Cai cấp ngày 24/07/2025. Địa chỉ: Lào Cai. Điện thoại: 999999999. Email:luvanthanh@gmail.com
       </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const usernameStored = localStorage.getItem("username");
-          if (usernameStored) {
-            const loginButton = document.getElementById("login_button");
-            if (loginButton) {
-              loginButton.innerHTML = `<i class="fa fa-user"></i> ${usernameStored}`;
-
-              const loginLink = loginButton.closest("a");
-              if (loginLink) loginLink.removeAttribute("href");
-            }
-          }
-        });
-</script>
 </body>
 </html>

@@ -35,9 +35,10 @@ function login(event) {
       if (data.data.token && data.data.checkLogin) {
         localStorage.setItem("token",data.data.token);
         localStorage.setItem("username", username);
+        localStorage.setItem("userId", data.data.userId);
+
         console.log("Token lưu trong localStorage:", data.data.token , username);
         
-
         alert("Đăng nhập thành công!");
 
         window.location.href = "Home.html";

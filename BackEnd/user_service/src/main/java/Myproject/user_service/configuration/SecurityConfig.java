@@ -54,7 +54,7 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 
-    @Bean
+    @Bean // chỗ này cần hiểu
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(

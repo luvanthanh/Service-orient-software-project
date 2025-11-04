@@ -42,6 +42,12 @@ public class CartService {
         return cart;
     }
 
+    public List<Cart> getCartsByUserId(String userId){
+        return cartRepository.getCartsByUserId(userId)
+                .orElseThrow(()-> new RuntimeException("looi khong tim thay carts"));
+    }
+
+
     public String deleteCart(int cartId){
         Cart cart=cartRepository.getByCartId(cartId);
         cartRepository.delete(cart);

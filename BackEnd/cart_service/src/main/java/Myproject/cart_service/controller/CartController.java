@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/carts")
+@CrossOrigin(origins = "*")
 public class CartController {
     @Autowired
     private CartService cartService;
@@ -23,16 +24,23 @@ public class CartController {
         return cartService.getAllCarts();
     }
 
+// lấy giỏ hàng theo id
     @GetMapping("/{cartId}")
     public Cart getCartById(@PathVariable("cartId") int cartId){
         return cartService.getCartById(cartId);
     }
-// thêm carts
+
+
+// thêm vào giỏ hàng
     @PostMapping
     Cart addCart(@RequestBody CartCreationRequest request){
         return cartService.addCart(request);
     }
 
+    @GetMapping("/findByUserId/{userId}")
+    public List<Cart> getCartsByUserId(@PathVariable("userId") String userId){
+        return cartService.getCartsByUserId(userId);
+    }
 
 //    sủa thông tin cart theo id
     @PutMapping("/{cartId}")

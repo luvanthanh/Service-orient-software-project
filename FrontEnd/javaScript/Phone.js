@@ -1,7 +1,7 @@
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
-
+let currentProduct = null;
 
 fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId}`)
   .then(res => {
@@ -9,6 +9,7 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
     return res.json();
   })
   .then(product => {
+    currentProduct = product; // ✅ Lưu lại để dùng cho addCart()
     const detailDiv = document.getElementById("Phone");
     detailDiv.innerHTML = `
     
@@ -42,7 +43,7 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
                           <div class="cart-container">
                               <div class="cart-total">
                                   <i class="fa-solid fa-cart-shopping"></i>
-                                  <a href="Cart.html"><button class="checkout-btn" id="addCart" onclick=addProductInCart="addCart(${product.productId})">Thêm vào giỏ hàng</button></a>
+                                  <a href="Carts.html"><button class="checkout-btn" id="addCart" onclick="addCart()">Thêm vào giỏ hàng</button></a>
                               </div>
                           </div>
                       </div>
@@ -69,28 +70,41 @@ fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId
 
 
   function addCart(){
-    fetch(`http://localhost:8081/ProductsDatabase/products/${productId}`)
-    .then(res => res.json())
-    .then(product => {
-      // Fetch 2: thêm sản phẩm vào giỏ hàng
-      return fetch("http://localhost:8082/CartsDatabase/carts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          productId: product.productId,
-          productName: product.productName,
-          productImage: product.productImage,
-          productPrice: product.productPrice,
-          quantity: 1
-        })
-      });
+    const userId = localStorage.getItem("userId");
+    console.log("UserId lấy từ localStorage:", userId);
+
+    fetch(`http://localhost:8084/CartDatabase/carts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cartName: currentProduct.productName,
+        cartQuantity: 1,
+        cartMoney: currentProduct.productPrice,
+
+        productId: currentProduct.productId,
+        productName : currentProduct.productName,
+        productPrice : currentProduct.productPrice,
+        productImage : currentProduct.productImageUrl,
+    
+        userId: userId
+
+      })
     })
-    .then(res => res.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Thêm vào giỏ hàng thất bại!");
+      }
+      return response.json();
+    })
     .then(data => {
-      alert("Thêm vào giỏ hàng thành công!");
-      console.log(data);
+      alert("Đã thêm sản phẩm vào giỏ hàng!");
     })
-    .catch(err => console.error("Lỗi:", err));
+    .catch(error => {
+      console.error("Lỗi khi thêm vào giỏ hàng:", error);
+      alert("Lỗi khi thêm vào giỏ hàng: " + error.message);
+    });
 }
 
 
