@@ -52,5 +52,4 @@ public class CartController {
     String deleteCart(@PathVariable int  cartId){
         return cartService.deleteCart(cartId);
     }
-
 }

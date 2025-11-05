@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {// token lưu sau khi đăn
             </div>
 
             <div>
-                <div class="button-update"> <a href="UpdateUser.html"> Cập Nhật Thông Tin Sản Phẩm</a></div>
+                <div class="button-update"> <a href="UpdateUser.html"> Cập Nhật Thông Tin Cá Nhân</a></div>
             </div>
         `;
     })

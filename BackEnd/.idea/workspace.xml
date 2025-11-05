@@ -7,22 +7,6 @@
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/entity/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/repository/CartRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/reponse/AuthenticationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Home_header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Home_header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/ListNews.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/ListNews.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/LoginClient.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/LoginClient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/News.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/News.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Phone.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Phone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/CheckLoginClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/CheckLoginClient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +82,7 @@
       <recentPaths value="$PROJECT_DIR$" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.CartServiceApplication">
+  <component name="RunManager" selected="Application.NewsServiceApplication">
     <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
       <module name="cart_service" />
@@ -166,10 +150,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CartServiceApplication" />
-        <item itemvalue="Application.UserServiceApplication" />
-        <item itemvalue="Application.ProductServiceApplication" />
         <item itemvalue="Application.NewsServiceApplication" />
+        <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Application.UserServiceApplication" />
+        <item itemvalue="Application.CartServiceApplication" />
         <item itemvalue="Application.EurekaServiceApplication" />
       </list>
     </recent_temporary>
