@@ -11,14 +11,13 @@ fetch(`http://localhost:8083/NewsDatabase/news/${newsId}`)
         const newsDiv = document.getElementById("section_two_content");
         newsDiv.innerHTML = " ";
         newsDiv.innerHTML = `
-            <div class="product-more" id="product_more"><a href ="Phone.html?id=${news.newsProductId}"> Xem Sản Phẩm Chính</a></div>
-
+            <a href="Phone.html?id=${news.newsProductId}">
             <div class="news-detail">
                 <div class="news-detail-content">
                     <h2>${news.newsTitle}</h2>
                     <div><b>Thời gian: </b> ${news.newsTime} </div>
                     <div><b>Ngày đăng: </b> ${news.newsDate} </div>
-                    <img src="${news.newsImage}" alt="${news.newsTitle}" class="news-detail-image">
+                    <img  src="${news.newsImage}" alt="${news.newsTitle}" class="news-detail-image">
                     <p>${news.newsContent}</p>
                 </div>
 
@@ -36,6 +35,7 @@ fetch(`http://localhost:8083/NewsDatabase/news/${newsId}`)
                     <p>${news.newsContent3}</p>
                 </div>
             </div>
+            </a>
         `;
     })
     .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));

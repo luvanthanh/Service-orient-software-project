@@ -2,8 +2,10 @@ package Myproject.user_service.exception;
 
 import Myproject.user_service.dto.reponse.ApiResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
 
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
@@ -17,16 +19,29 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(value = AppException.class)
-    public ResponseEntity<ApiResponse> handleAppException(AppException e){
+    public ResponseEntity<ApiResponse> handlingAppException(AppException e){
         ApiResponse  responseAPI = new ApiResponse();
         ErrorCode errorCode = e.getErrorCode();
 
         responseAPI.setCode(errorCode.getCode());
         responseAPI.setMessage(errorCode.getMessage());
 
-        return ResponseEntity.badRequest().body(responseAPI);
+        return ResponseEntity
+                .status(errorCode.getCode())
+                .body(responseAPI);
     }
 
+//    không phải role ADMIN thì không đc lấy và báo lỗi
+    @ExceptionHandler(value = AccessDeniedException.class)
+    public ResponseEntity<ApiResponse> handlingAccessDeniedException(AccessDeniedException e){
+        ErrorCode errorCode = ErrorCode.UNAUTHORIZED;
+        return  ResponseEntity
+                .status(errorCode.getHttpStatusCode())
+                .body(ApiResponse.builder()
+                        .code(errorCode.getCode())
+                        .message(errorCode.getMessage())
+                        .build());
+    }
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse> handleValidException(MethodArgumentNotValidException e){
         String enumKey = e.getFieldError().getDefaultMessage();

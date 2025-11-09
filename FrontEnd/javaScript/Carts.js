@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const sumElementTotal = document.getElementById("sum_money_carts");
 const userId = localStorage.getItem("userId");
 console.log("User ID hiện tại:", userId);
 
@@ -57,7 +58,8 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
         <tr id="row-${index}">
             <td><img src="${cart.productImage}" alt="${cart.productName}" ></td>
             <td>${cart.productName}</td>
-            <td id="price-${index}">${giatri.toLocaleString()} VND</td>
+            <td id="price-${index}" data-price="${giatri}">${giatri.toLocaleString("vi-VN")} VND</td>
+
             <td>
                 <button onclick="minus(${index})">-</button>
                 <span id="quantity-${index}">${soluong}</span>
@@ -71,7 +73,7 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
     tableHTML += `
         </tbody>
         </table>
-        <div class="sum-money" id="sum_money"> Tổng Tiền Cần Thanh Toán: ${tongTien.toLocaleString()}</div>
+        <div class="sum-money" id="sum_money"> Tổng Tiền: ${tongTien.toLocaleString()} VND</div>
     `;
     listCartsDiv.innerHTML = tableHTML;
     window.cartData = data;
@@ -82,17 +84,35 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
 });
 
 
+function updateTotalSum() {
+    let total = 0;
+    const totalEls = document.querySelectorAll('[id^="total-"]'); // tất cả dòng có tổng tiền
+    totalEls.forEach(el => {
+        const value = Number(el.textContent.replace(/\D/g, "")); // loại bỏ chữ, chỉ lấy số
+        total += value;
+    });
+
+    const sumMoneyEl = document.getElementById("sum_money");
+    umElementTotal.textContent = tongTien.toLocaleString("vi-VN") + " VND";
+    if (sumMoneyEl) {
+        sumMoneyEl.textContent = "Tổng Tiền: " + total.toLocaleString("vi-VN") + " VND";
+
+    }
+}
+
 function plus(index) {
-        const quantityEl = document.getElementById(`quantity-${index}`);
-        const priceEl = document.getElementById(`price-${index}`);
-        const totalEl = document.getElementById(`total-${index}`);
+    const quantityEl = document.getElementById(`quantity-${index}`);
+    const priceEl = document.getElementById(`price-${index}`);
+    const totalEl = document.getElementById(`total-${index}`);
 
-        let quantity = parseInt(quantityEl.textContent);
-        const price = Number(priceEl.textContent.replace(/\D/g, "")); // chỉ giữ lại số
+    let quantity = parseInt(quantityEl.textContent);
+    const price = Number(priceEl.textContent.replace(/\D/g, "")); // chỉ giữ lại số
 
-        quantity++;
-        quantityEl.textContent = quantity;
-        totalEl.textContent = (price * quantity).toLocaleString("vi-VN") + " VND";
+    quantity++;
+    quantityEl.textContent = quantity;
+    totalEl.textContent = (price * quantity).toLocaleString("vi-VN") + " VND";
+
+    updateTotalSum();
     }
 
 function minus(index) {
@@ -104,11 +124,13 @@ function minus(index) {
     const price = Number(priceEl.textContent.replace(/\D/g, ""));
 
     if (quantity > 1) {
-    quantity--;
-    quantityEl.textContent = quantity;
-    totalEl.textContent = (price * quantity).toLocaleString("vi-VN") + " VND";
+        quantity--;
+        quantityEl.textContent = quantity;
+        totalEl.textContent = (price * quantity).toLocaleString("vi-VN") + " VND";
     }
-    }
+
+    updateTotalSum();
+}
 
 function deleteCart(index) {
     const cart = window.cartData[index]; // lấy cart tương ứng
@@ -119,6 +141,7 @@ function deleteCart(index) {
 
     const confirmDelete = confirm(`Bạn có chắc muốn xóa sản phẩm "${cart.productName}" khỏi giỏ hàng không?`);
     if (!confirmDelete) return;
+    
 
 fetch(`http://localhost:8084/CartDatabase/carts/${cart.cartId}`, {
     method: "DELETE",

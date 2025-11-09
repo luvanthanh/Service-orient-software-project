@@ -29,55 +29,9 @@ h1{
 }
 
 
-
-.news-item .news-item-links{
-    display: flex;
-    width: 30%;
-    gap: 10px;
-    flex-direction: column;
+p{
+    color: black;
 }
-
-
-.news-item .news-item-links .news-item-links-product {
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 14px;
-    text-align: center;
-    border: rgb(145, 43, 185) solid 2px;
-    color: orange;
-
-}
-.news-item .news-item-links .news-item-links-product a {
-    color:rgb(15, 15, 15);
-}
-
-.news-item .news-item-links .news-item-links-product:hover{
-    background-color: #81db4d;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 14px;
-    text-align: center;
-}
-.news-item .news-item-links .news-item-links-news{
-    border: rgb(145, 43, 185) solid 2px;
-    color: orange;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 14px;
-    text-align: center;
-}
-.news-item .news-item-links .news-item-links-news a {
-    color:rgb(12, 12, 12);
-}
-.news-item .news-item-links .news-item-links-news:hover{
-    background-color: #81db4d;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 14px;
-    text-align: center;
-}
-
 
 img{
     border-radius: 8px;

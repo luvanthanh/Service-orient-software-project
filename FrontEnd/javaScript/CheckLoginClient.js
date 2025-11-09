@@ -7,7 +7,7 @@ function login(event) {
 
   errorMsg.textContent = ""; // chỗ này cần tìm hiểu
 
-  if (!username || !password) {
+  if (username == "" || password=="") {
     errorMsg.textContent = "Vui lòng nhập đầy đủ thông tin!";
   }
 

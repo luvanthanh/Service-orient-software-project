@@ -16,12 +16,16 @@ h2{
     width: 50%;
     border-collapse: collapse;
     text-align: left;
-    border: 2px solid #da2a2a;
 }
 
 .user-detail table td{
-    padding: 12px;
+    padding: 10px;
+}
+.user-detail table td input{
+    padding: 5px;
     border: 1px solid #c03c3c;
+    border-radius: 10px;
+    width: 100%;
 }
 
 .button-update{

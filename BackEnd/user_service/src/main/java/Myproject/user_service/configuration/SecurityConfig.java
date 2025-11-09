@@ -45,6 +45,7 @@ public class SecurityConfig {
                 oauth2.jwt(jwtConfigurer ->
                         jwtConfigurer.decoder(jwtDecoder())
                                 .jwtAuthenticationConverter(jwtAuthenticationConverter()))
+                        .authenticationEntryPoint(new JwtAuthenticationEntryPoint()) // chỗ này là để khi mà bắt lỗi không phải
         );
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable)

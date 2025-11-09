@@ -31,31 +31,36 @@ document.addEventListener("DOMContentLoaded", () => {// token lưu sau khi đăn
                 <table>
                     <tr>
                         <td>ID Người Dùng</td>
-                        <td> ${user.data.userId}</td>
+                        <td> <input type="text" id="userId" value="${user.data.userId}" readonly ></td>
                     </tr>
                     <tr>
                         <td>Tên Đăng Nhập</td>
-                        <td> ${user.data.userName}</td>
+                        <td> <input type="text" id="userName" value="${user.data.userName}"> </td>
                     </tr>
                     <tr>
+                        <td>Password</td>
+                        <td> <input type="text" id="userPassword" value="*********"></td>
+                    </tr>
+                    
+                    <tr>
                         <td>Họ</td>
-                        <td> ${user.data.userFirstName}</td>
+                        <td> <input type="text" id="userFirstName" value="${user.data.userFirstName}"></td>
                     </tr>
                     <tr>
                         <td>Tên</td>
-                        <td> ${user.data.userLastName}</td>
+                        <td> <input type="text" id="userLastName" value="${user.data.userLastName}"</td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td> ${user.data.userEmail}</td>
+                        <td><input type="text" id="userEmail" value="${user.data.userEmail}"</td>
                     </tr>
                     <tr>
                         <td>Số Điện Thoại</td>
-                        <td> ${user.data.userPhoneNumber}</td>
+                        <td><input type="text" id="userPhoneNumber" value="${user.data.userPhoneNumber}"</td>
                     </tr>
                     <tr>
                         <td>Địa Chỉ</td>
-                        <td> ${user.data.userAddress}</td>
+                        <td><input type="text" id="userAddess" value="${user.data.userAddress}"</td>
                     </tr>
                 </table>
             </div>

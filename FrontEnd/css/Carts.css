@@ -14,13 +14,15 @@
 }
 
 
-.section-one table{
+.section-one .list-carts table{
     width: 100%;
     text-align: left;
     margin-top: 20px;
     margin-left: 50px;
-    border: 1px solid ;
-    border-collapse: collapse;
+    border: 1px solid red ;
+    
+    border-radius:10px;
+    padding: 10px;
 }
 
 img{
@@ -28,15 +30,15 @@ img{
     height: 100px;
 }
 
-.list-carts table thead{
+.list-carts .list-carts table thead{
     color:rgb(8, 8, 8);
     font-size: 16px;
 }
 .list-carts table thead th{
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 .list-carts table td{
-    border: 1px solid;
+    /* border: 1px solid; */
     padding:5px;
 }
 
@@ -75,8 +77,11 @@ button:hover{
 
 
 .section-one .information_cart{
-    width :40%;
-    margin-left: 20px;
+    margin-top:20px;
+    width :35%;
+    margin-left: 100px;
+    border :#42b468 2px solid;
+    border-radius: 10px;
 }
 
 .section-one .information_cart table{
@@ -88,12 +93,13 @@ button:hover{
 }
 .section-one .information_cart table tr td {
     padding:10px;
+    width: 200px;
 }
 
 .section-one .information_cart table tr td input{
     border-radius: 10px;
     border:  1px solid #42b468;
-    width: 100%;
+    width: 360px;
     height: 25px;
 }
 

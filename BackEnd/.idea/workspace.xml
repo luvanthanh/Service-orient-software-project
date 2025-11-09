@@ -5,8 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/JwtAuthenticationEntryPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Carts.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Carts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/NewsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/NewsList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Carts.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Carts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/News.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/News.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/UpdateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/UpdateUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/CheckLoginClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/CheckLoginClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/MyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/MyInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/News.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/News.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/NewsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/NewsList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +97,7 @@
       <recentPaths value="$PROJECT_DIR$" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.NewsServiceApplication">
+  <component name="RunManager" selected="Application.UserServiceApplication">
     <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
       <module name="cart_service" />
@@ -150,10 +165,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NewsServiceApplication" />
-        <item itemvalue="Application.ProductServiceApplication" />
         <item itemvalue="Application.UserServiceApplication" />
         <item itemvalue="Application.CartServiceApplication" />
+        <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Application.NewsServiceApplication" />
         <item itemvalue="Application.EurekaServiceApplication" />
       </list>
     </recent_temporary>

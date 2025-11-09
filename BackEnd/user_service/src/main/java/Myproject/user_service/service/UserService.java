@@ -70,7 +70,6 @@ public class UserService {
         return userMapper.toUserResponse(user);
     }
 
-
     public UserResponse getMyInfo(){
         var context = SecurityContextHolder.getContext();
         String name = context.getAuthentication().getName();
@@ -87,7 +86,12 @@ public class UserService {
     public UserResponse updateUserById(@RequestBody UserUpdateRequest request, String userId){
         User user = userRepository.findById(userId)
                 .orElseThrow(()-> new AppException(ErrorCode.USER_EXITS));
-        user =userMapper.toUpdateUser(user, request);
+        user = userMapper.toUpdateUser(user,request);
+
+        if(request.getUserPassword() != null && !request.getUserPassword().isEmpty()){
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
+            user.setUserPassword(passwordEncoder.encode(request.getUserPassword()));
+        }
         return userMapper.toUserResponse(userRepository.save(user));
     }
 
