@@ -4,9 +4,12 @@ import Myproject.user_service.dto.reponse.AuthenticationResponse;
 import Myproject.user_service.dto.reponse.IntrospectResponse;
 import Myproject.user_service.dto.request.AuthenticationRequest;
 import Myproject.user_service.dto.request.IntrospectRequest;
+import Myproject.user_service.dto.request.LogoutRequest;
+import Myproject.user_service.entity.InvalidatedToken;
 import Myproject.user_service.entity.User;
 import Myproject.user_service.exception.AppException;
 import Myproject.user_service.exception.ErrorCode;
+import Myproject.user_service.repository.InvalidatedTokenRepository;
 import Myproject.user_service.repository.UserRepository;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.nimbusds.jose.*;
@@ -30,6 +33,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.StringJoiner;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -39,10 +43,76 @@ public class AuthenticationService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private InvalidatedTokenRepository invalidatedTokenRepository;
+
     @Value("${jwt.signerKey}")
     private String SINGER_KEY;
 
-//    ckeck xem có đăng nhập đuungs không
+
+
+    private String generateToken(User user)
+    {
+        JWSHeader jwsHeader= new JWSHeader(JWSAlgorithm.HS512);
+        JWTClaimsSet jwtClaimsSet= new JWTClaimsSet.Builder()
+                .subject(user.getUserName())
+                .issuer("Lu Van Thanh hahhahha")
+                .issueTime(new Date())
+                .expirationTime(new Date(
+                        Instant.now().plus(1, ChronoUnit.HOURS).toEpochMilli()))
+                .jwtID(UUID.randomUUID().toString()) // random chuỗi kí tự
+                .claim("scope",buildScope(user)) //
+                .build();
+        Payload payload = new Payload(jwtClaimsSet.toJSONObject());
+        JWSObject jwsObject = new JWSObject(jwsHeader,payload);
+
+        try
+            {
+                jwsObject.sign(new MACSigner(SINGER_KEY.getBytes()));
+                return  jwsObject.serialize();
+            }
+        catch (JOSEException exception)
+            {
+                log.error("can't generate token, error message:",exception);
+                throw new RuntimeException(exception);
+            }
+    }
+
+    public IntrospectResponse introspect( IntrospectRequest request)
+            throws JOSEException, ParseException
+    {
+        var token = request.getToken();
+        boolean checkTokenInvalidate = true;
+
+        try{
+            verifyToken(token);
+        }catch(AppException exception){
+            checkTokenInvalidate = false;
+        }
+
+        return IntrospectResponse.builder()
+                .checkToken(checkTokenInvalidate)
+                .build();
+    }
+
+    private SignedJWT verifyToken (String token) throws JOSEException, ParseException {
+        JWSVerifier verifier = new MACVerifier(SINGER_KEY.getBytes()); // tạo 1 JWSVerifier với cái SINGER_KEY
+        SignedJWT signedJWT = SignedJWT.parse(token); // để giải mã cái token này ra gồm 3 phần
+
+        Date expiryTime = signedJWT.getJWTClaimsSet().getExpirationTime(); // sau khi giải mã sẽ kiểm tra xem token còn hạn hay không
+        var verified = signedJWT.verify(verifier); // sau khi giải mã token thì sẽ xác minh chữ kí trong đấy với verifier
+
+        if(!(verified && expiryTime.after(new Date())))
+            throw new AppException(ErrorCode.NOT_AUTHENTICATED);
+
+        if(invalidatedTokenRepository.existsById(signedJWT.getJWTClaimsSet().getJWTID())){
+            throw new AppException(ErrorCode.NOT_AUTHENTICATED);
+        }
+
+        return   signedJWT;
+    }
+
+    //    ckeck xem có đăng nhập đuungs không
     public AuthenticationResponse login(AuthenticationRequest request) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
         var user = userRepository.findByUserName(request.getUserName())
@@ -67,31 +137,18 @@ public class AuthenticationService {
         }
     }
 
-    private String generateToken(User user)
-    {
-        JWSHeader jwsHeader= new JWSHeader(JWSAlgorithm.HS512);
-        JWTClaimsSet jwtClaimsSet= new JWTClaimsSet.Builder()
-                .subject(user.getUserName())
-                .issuer("Lu Van Thanh hahhahha")
-                .issueTime(new Date())
-                .expirationTime(new Date(
-                        Instant.now().plus(1, ChronoUnit.HOURS).toEpochMilli()
-                ))
-                .claim("scope",buildScope(user)) //   dday
-                .build();
-        Payload payload = new Payload(jwtClaimsSet.toJSONObject());
-        JWSObject jwsObject = new JWSObject(jwsHeader,payload);
+    public void logout(LogoutRequest request) throws ParseException, JOSEException {
+        var signToken = verifyToken(request.getToken());
 
-        try
-            {
-                jwsObject.sign(new MACSigner(SINGER_KEY.getBytes()));
-                return  jwsObject.serialize();
-            }
-        catch (JOSEException exception)
-            {
-                log.error("can't generate token",exception);
-                throw new RuntimeException(exception);
-            }
+        String jit = signToken.getJWTClaimsSet().getJWTID();
+        Date expiryTime = signToken.getJWTClaimsSet().getExpirationTime();
+
+        InvalidatedToken invalidatedToken = InvalidatedToken.builder()
+                .id(jit)
+                .expiryTime(expiryTime)
+                .build();
+
+        invalidatedTokenRepository.save(invalidatedToken);
     }
 
     private String buildScope(User user){                               // dday
@@ -100,23 +157,6 @@ public class AuthenticationService {
             user.getRoles().forEach(stringJoiner::add);
 
         return stringJoiner.toString();
-    }
-
-
-
-    public IntrospectResponse introspect( IntrospectRequest request)
-           throws JOSEException, ParseException
-    {
-        var token = request.getToken();
-        JWSVerifier verifier = new MACVerifier(SINGER_KEY.getBytes());
-        SignedJWT signedJWT = SignedJWT.parse(token);
-
-        Date expiryTime = signedJWT.getJWTClaimsSet().getExpirationTime();
-        var verified = signedJWT.verify(verifier);
-
-        return IntrospectResponse.builder()
-                .checkToken(verified && expiryTime.after(new Date()))
-                .build();
     }
 
 
