@@ -92,11 +92,9 @@ function updateTotalSum() {
         total += value;
     });
 
-    const sumMoneyEl = document.getElementById("sum_money");
-    umElementTotal.textContent = tongTien.toLocaleString("vi-VN") + " VND";
+    const sumMoneyEl = document.getElementById("sum_money"); // 
     if (sumMoneyEl) {
         sumMoneyEl.textContent = "Tổng Tiền: " + total.toLocaleString("vi-VN") + " VND";
-
     }
 }
 
@@ -155,7 +153,7 @@ fetch(`http://localhost:8084/CartDatabase/carts/${cart.cartId}`, {
         // Xóa sản phẩm khỏi bảng trên giao diện
         const row = document.getElementById(`row-${index}`);
         if (row) row.remove();
-
+        updateTotalSum();
         alert("Đã xóa sản phẩm khỏi giỏ hàng!");
     })
     .catch(error => {
@@ -163,6 +161,8 @@ fetch(`http://localhost:8084/CartDatabase/carts/${cart.cartId}`, {
         alert("Không thể xóa sản phẩm. Vui lòng thử lại!");
     });
     }
+
+
 
 
 

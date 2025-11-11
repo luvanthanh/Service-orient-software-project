@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/CustomJwtDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/dto/request/LogoutRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/entity/InvalidatedToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/repository/InvalidatedTokenRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +81,7 @@
       <recentPaths value="$PROJECT_DIR$" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserServiceApplication">
+  <component name="RunManager" selected="Application.NewsServiceApplication">
     <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
       <module name="cart_service" />
@@ -156,10 +149,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NewsServiceApplication" />
+        <item itemvalue="Application.CartServiceApplication" />
         <item itemvalue="Application.UserServiceApplication" />
         <item itemvalue="Application.ProductServiceApplication" />
-        <item itemvalue="Application.CartServiceApplication" />
-        <item itemvalue="Application.NewsServiceApplication" />
         <item itemvalue="Application.EurekaServiceApplication" />
       </list>
     </recent_temporary>

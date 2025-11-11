@@ -14,11 +14,11 @@ function login(event) {
   fetch("http://localhost:8082/UserDatabase/auth/login", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json" // chỗ này cần tìm hiểu
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify({ //chỗ này cần tìm hiểu
-      userName: username,
-      password: password
+    body: JSON.stringify({
+      "userName": username,
+      "password": password
     })
   })
 
@@ -39,7 +39,7 @@ function login(event) {
 
         console.log("Token lưu trong localStorage:", data.data.token , username);
         
-        alert("Đăng nhập thành công!");
+        alert("Chào Mừng tới với Văn Thành Shop");
 
         window.location.href = "Home.html";
       } else {
@@ -47,7 +47,7 @@ function login(event) {
       }
     })
     .catch(error => {
-      console.error("Lỗi khi đăng nhập:", error);
-      errorMsg.textContent = error.message || "Không thể kết nối đến server!";
+      // console.error("Lỗi khi đăng nhập:", error);
+      errorMsg.textContent =  "Đăng nhập thất bại! Vui lòng kiểm tra lại tên đăng nhập và mật khẩu! =)))";
     });
 }
