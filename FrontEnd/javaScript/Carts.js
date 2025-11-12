@@ -36,6 +36,13 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
         <table>
             <thead>
                 <tr>
+                    <th></th>
+                    <th></th>
+                    <th style="text-align: center; color: green; font-size: 20px; font-weight: 300">Danh Sách Sản Phẩm</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
                     <th>Hình Ảnh</th>
                     <th>Tên Sản Phẩm</th>
                     <th>Giá Sản Phẩm</th>
@@ -77,6 +84,7 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
     `;
     listCartsDiv.innerHTML = tableHTML;
     window.cartData = data;
+    updateTotalSum();
 })
 .catch(error => {
     console.error("Lỗi khi lấy giỏ hàng:", error);
@@ -84,7 +92,9 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
 });
 
 
+
 function updateTotalSum() {
+    
     let total = 0;
     const totalEls = document.querySelectorAll('[id^="total-"]'); // tất cả dòng có tổng tiền
     totalEls.forEach(el => {
@@ -92,11 +102,18 @@ function updateTotalSum() {
         total += value;
     });
 
-    const sumMoneyEl = document.getElementById("sum_money"); // 
+    const sumMoneyEl = document.getElementById("sum_money");
+    const sumMoneyCartsEl = document.getElementById("sum_money_carts");
+
     if (sumMoneyEl) {
         sumMoneyEl.textContent = "Tổng Tiền: " + total.toLocaleString("vi-VN") + " VND";
     }
+    if (sumMoneyCartsEl) {
+        sumMoneyCartsEl.textContent = total.toLocaleString("vi-VN") + " VND";
+    }
 }
+
+
 
 function plus(index) {
     const quantityEl = document.getElementById(`quantity-${index}`);
@@ -161,6 +178,7 @@ fetch(`http://localhost:8084/CartDatabase/carts/${cart.cartId}`, {
         alert("Không thể xóa sản phẩm. Vui lòng thử lại!");
     });
     }
+
 
 
 

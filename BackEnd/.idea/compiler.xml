@@ -24,6 +24,17 @@
         <module name="news_service" />
         <module name="product_service" />
       </profile>
+      <profile name="Annotation profile for order_service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+        </processorPath>
+        <module name="order_service" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="phoneservice" target="21" />
@@ -35,6 +46,7 @@
       <module name="cart_service" options="-parameters" />
       <module name="eureka_service" options="-parameters" />
       <module name="news_service" options="-parameters" />
+      <module name="order_service" options="-parameters" />
       <module name="phoneservice" options="-parameters" />
       <module name="product_service" options="-parameters" />
       <module name="user_service" options="-parameters" />

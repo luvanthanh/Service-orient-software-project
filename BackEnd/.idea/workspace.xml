@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/dto/request/OrderCreateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/repository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Carts.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Carts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Carts.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Carts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,41 +47,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CartServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.EurekaServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MyApplicationProject.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Myproject.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MyprojectApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.NewsServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProductServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Application.UserServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.phoneservice.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api_getWay [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Api_getWay [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.news_service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.product_service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.product_service [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.product_service [validate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.user_service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.user_service [compile].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/5_SubjectInSemester5/1_Service_OrientedSoftware/BackEnd&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CartServiceApplication.executor": "Run",
+    "Application.EurekaServiceApplication.executor": "Run",
+    "Application.MyApplicationProject.executor": "Run",
+    "Application.Myproject.executor": "Run",
+    "Application.MyprojectApplication.executor": "Run",
+    "Application.NewsServiceApplication.executor": "Run",
+    "Application.OrderServiceApplication.executor": "Run",
+    "Application.ProductServiceApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Application.UserServiceApplication.executor": "Run",
+    "Application.phoneservice.executor": "Run",
+    "Maven.Api_getWay [clean].executor": "Run",
+    "Maven.Api_getWay [compile].executor": "Run",
+    "Maven.news_service [clean].executor": "Run",
+    "Maven.order_service [clean].executor": "Run",
+    "Maven.product_service [clean].executor": "Run",
+    "Maven.product_service [compile].executor": "Run",
+    "Maven.product_service [validate].executor": "Run",
+    "Maven.user_service [clean].executor": "Run",
+    "Maven.user_service [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/5_SubjectInSemester5/1_Service_OrientedSoftware/BackEnd",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Myproject.product_service.mapper" />
@@ -81,7 +94,7 @@
       <recentPaths value="$PROJECT_DIR$" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.NewsServiceApplication">
+  <component name="RunManager" selected="Application.OrderServiceApplication">
     <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
       <module name="cart_service" />
@@ -95,12 +108,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EurekaServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Myproject.eureka_service.EurekaServiceApplication" />
-      <module name="eureka_service" />
+    <configuration name="NewsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Myproject.news_service.NewsServiceApplication" />
+      <module name="news_service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Myproject.eureka_service.*" />
+          <option name="PATTERN" value="Myproject.news_service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,12 +121,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Myproject.news_service.NewsServiceApplication" />
-      <module name="news_service" />
+    <configuration name="OrderServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.order_service.OrderServiceApplication" />
+      <module name="order_service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Myproject.news_service.*" />
+          <option name="PATTERN" value="com.example.order_service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -149,11 +162,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.NewsServiceApplication" />
-        <item itemvalue="Application.CartServiceApplication" />
+        <item itemvalue="Application.OrderServiceApplication" />
         <item itemvalue="Application.UserServiceApplication" />
+        <item itemvalue="Application.CartServiceApplication" />
+        <item itemvalue="Application.NewsServiceApplication" />
         <item itemvalue="Application.ProductServiceApplication" />
-        <item itemvalue="Application.EurekaServiceApplication" />
       </list>
     </recent_temporary>
   </component>
