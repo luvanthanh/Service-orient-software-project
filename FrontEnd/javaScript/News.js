@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const newsId = params.get('id');
 
 
-fetch(`http://localhost:8083/NewsDatabase/news/${newsId}`)
+fetch(`http://localhost:8888/api/news/${newsId}`)
     .then(res => {
         if (!res.ok) throw new Error("Không tìm thấy tin tức");
         return res.json();

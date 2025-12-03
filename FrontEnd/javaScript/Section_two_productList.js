@@ -1,5 +1,5 @@
 
-fetch("http://localhost:8081/ProductDatabase/products")
+fetch(`http://localhost:8888/api/products`)
     .then(response => response.json())
     .then(products => {
         const listContainer = document.getElementById("list-products");
@@ -90,7 +90,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
                 currentPage = 1;
                 renderProducts(currentPage, filteredProducts);
             } else {
-                fetch(`http://localhost:8081/ProductDatabase/products/getProductByBrand/${brand}`)
+                fetch(`http://localhost:8888/api/products/getProductByBrand/${brand}`)
                     .then(response => response.json())
                     .then(data => {
                         filteredProducts = data;
@@ -102,7 +102,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
 
         // lọc theo giá tiền khoản min đến max
         window.filterByPrice = function(priceMin, priceMax) {
-            fetch(`http://localhost:8081/ProductDatabase/products/getProductByPrice?min=${priceMin}&max=${priceMax}`)
+            fetch(`http://localhost:8888/api/products/getProductByPrice?min=${priceMin}&max=${priceMax}`)
                 .then(response => response.json())
                 .then(data => {
                     filteredProducts = data;
@@ -115,7 +115,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
 
         // lọc theo bộ nhớ trong (Ram)
         window.filterByRam = function(ram) {
-            fetch(`http://localhost:8081/ProductDatabase/products/getProductByRam/${ram}`)
+            fetch(`http://localhost:8888/api/products/getProductByRam/${ram}`)
                 .then(response => response.json())
                 .then(data => {
                     filteredProducts = data;
@@ -126,7 +126,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
         };
 // lọc sản phẩm theo rom
         window.filterByRom =function(rom){
-            fetch(`http://localhost:8081/ProductDatabase/products/getProductByRom/${rom}`)
+            fetch(`http://localhost:8888/api/products/getProductByRom/${rom}`)
                 .then(response => response.json())
                 .then(data => {
                     filteredProducts = data;
@@ -136,7 +136,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
         }
 // locj san pham theo creen size
         window.filterByScreenSize=function(min, max){
-            fetch(`http://localhost:8081/ProductDatabase/products/getProductByScreenSize?min=${min}&max=${max}`)
+            fetch(`http://localhost:8888/api/products/getProductByScreenSize?min=${min}&max=${max}`)
                 .then(response => response.json())
                 .then(data =>{
                     filteredProducts = data;
@@ -146,7 +146,7 @@ fetch("http://localhost:8081/ProductDatabase/products")
         }
 // lọc sản phẩm theo màu sắc
         window.filterByColor=function(color){
-            fetch(`http://localhost:8081/ProductDatabase/products/getProductByColor/${color}`)
+            fetch(`http://localhost:8888/api/products/getProductByColor/${color}`)
                 .then(response => response.json())
                 .then(data =>{
                     filteredProducts = data;
@@ -154,9 +154,6 @@ fetch("http://localhost:8081/ProductDatabase/products")
                 })
                 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
         }
-
-
-
 
         // 🚀 Khởi tạo lần đầu
         renderProducts(currentPage);

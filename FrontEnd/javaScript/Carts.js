@@ -9,7 +9,7 @@ window.location.href = "LoginClient.html";
 return;
 }
 
-fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
+fetch(`http://localhost:8888/api/carts/findByUserId/${userId}`)
 .then(response => {
     if (!response.ok) {
     throw new Error("Lấy giỏ hàng thất bại!");
@@ -38,7 +38,7 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
                 <tr>
                     <th></th>
                     <th></th>
-                    <th style="text-align: center; color: green; font-size: 20px; font-weight: 300">Danh Sách Sản Phẩm</th>
+                    <th style="text-align: center; color: red; font-size: 20px; font-weight: 300">Danh Sách Sản Phẩm</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -48,6 +48,7 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
                     <th>Giá Sản Phẩm</th>
                     <th>Số Lượng</th>
                     <th>Tổng Tiền</th>
+                    <th>Xóa</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,9 +79,17 @@ fetch(`http://localhost:8084/CartDatabase/carts/findByUserId/${userId}`)
     `;
     });
     tableHTML += `
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td> <div class="sum-money" id="sum_money"> ${tongTien.toLocaleString()} VND</div></td>
+            <td></td>
+        </tr>
         </tbody>
         </table>
-        <div class="sum-money" id="sum_money"> Tổng Tiền: ${tongTien.toLocaleString()} VND</div>
+        <div class="add_product"><a href="Home.html"> Thêm sản phẩm</a></div>
     `;
     listCartsDiv.innerHTML = tableHTML;
     window.cartData = data;
@@ -106,7 +115,7 @@ function updateTotalSum() {
     const sumMoneyCartsEl = document.getElementById("sum_money_carts");
 
     if (sumMoneyEl) {
-        sumMoneyEl.textContent = "Tổng Tiền: " + total.toLocaleString("vi-VN") + " VND";
+        sumMoneyEl.textContent =  total.toLocaleString("vi-VN") + " VND";
     }
     if (sumMoneyCartsEl) {
         sumMoneyCartsEl.textContent = total.toLocaleString("vi-VN") + " VND";
@@ -158,7 +167,7 @@ function deleteCart(index) {
     if (!confirmDelete) return;
     
 
-fetch(`http://localhost:8084/CartDatabase/carts/${cart.cartId}`, {
+fetch(`http://localhost:8888/api/carts/${cart.cartId}`, {
     method: "DELETE",
     })
     .then(response => {
@@ -180,6 +189,59 @@ fetch(`http://localhost:8084/CartDatabase/carts/${cart.cartId}`, {
     }
 
 
+
+
+
+function order() {
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+        alert("Bạn cần đăng nhập trước khi đặt hàng!");
+        window.location.href = "LoginClient.html";
+        return;
+    }
+
+    const shopAddress = "Thôn 6 Vành, Bảo Yên, Lào Cai"; // có thể đổi nếu cần
+    const customerName = document.getElementById("customerName").value;
+    const deliveryAddress = document.getElementById("deliveryAddress").value;
+    const customerPhoneNumber = document.getElementById("customerPhoneNumber").value;
+    const paymentMethod = document.getElementById("paymentMethod").value;
+    const totalMoneyText = document.getElementById("sum_money_carts").textContent;
+    // Loại bỏ tất cả ký tự không phải số
+    const totalMoney = Number(totalMoneyText.replace(/\D/g, ""));
+    const note = document.getElementById("note").value;
+
+    const orderData = {
+        shopAddress,
+        note,
+        customerName,
+        deliveryAddress,
+        customerPhoneNumber,
+        paymentMethod,
+        totalMoney,
+        userId
+    };
+
+    fetch("http://localhost:8085/OrderDatabase/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData)
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Tạo đơn hàng thành công!");
+            window.location.href = "OrderList.html";
+        } else {
+            return response.text().then(text => {
+                console.error("Phản hồi lỗi từ server:", text);
+                alert("Tạo đơn hàng thất bại!");
+            });
+        }
+    })
+    .catch(error => {
+        console.error("Lỗi khi gửi đơn hàng:", error);
+        alert("Lỗi khi kết nối đến server!");
+    });
+}
 
 
 

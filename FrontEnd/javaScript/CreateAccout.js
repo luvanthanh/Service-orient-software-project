@@ -26,7 +26,7 @@ function register() {
     };
 
     // Gửi POST request
-    fetch("http://localhost:8082/UserDatabase/users", {
+    fetch("http://localhost:8888/api/users", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

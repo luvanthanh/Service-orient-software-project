@@ -1,4 +1,4 @@
-fetch(`http://localhost:8083/NewsDatabase/news`)
+fetch(`http://localhost:8888/api/news`)
     .then(res => {
         if (!res.ok) throw new Error("Không thể tải danh sách tin tức");
         return res.json();

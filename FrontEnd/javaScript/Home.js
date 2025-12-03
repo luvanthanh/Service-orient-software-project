@@ -26,7 +26,7 @@ function logout(){
       return;
   }
 
-  fetch(`http://localhost:8082/UserDatabase/auth/logout`,{
+  fetch(`http://localhost:8888/api/users/auth/logout`,{
     method:"POST",
     headers:{
       "Content-Type":"application/json"

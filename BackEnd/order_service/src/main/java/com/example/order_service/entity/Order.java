@@ -1,36 +1,35 @@
 package com.example.order_service.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 
 @Entity
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Order {
+@Table(name ="orders")
+public class Order{
     @Id
     @GeneratedValue(strategy= GenerationType.UUID)
     private String orderId;
-
     private String shopAddress;
 
+    private String note;
     private String customerName;
     private String deliveryAddress;
     private String customerPhoneNumber;
-    private String note;
 
+
+    private String paymentMethod;
+    private Double totalMoney;
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    private String userId; // để lấy danh sách sản phẩm trong giỏ hàng theo id
+    private String userId;
 
 }

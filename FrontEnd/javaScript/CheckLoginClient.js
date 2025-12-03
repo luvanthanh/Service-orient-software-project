@@ -11,7 +11,7 @@ function login(event) {
     errorMsg.textContent = "Vui lòng nhập đầy đủ thông tin!";
   }
 
-  fetch("http://localhost:8082/UserDatabase/auth/login", {
+  fetch(`http://localhost:8888/api/users/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

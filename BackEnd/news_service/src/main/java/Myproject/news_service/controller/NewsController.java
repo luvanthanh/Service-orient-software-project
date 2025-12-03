@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/news")
-@CrossOrigin(origins = "*")
 
 public class NewsController {
 
@@ -21,7 +20,7 @@ public class NewsController {
 
 //  lấy tất cả news
     @GetMapping
-    public List<News> getProductByScreenSize(){
+    public List<News> getAllNews(){
         return newsService.getAllNews();
     }
 // lấy news by id

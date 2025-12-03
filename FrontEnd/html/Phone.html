@@ -56,9 +56,16 @@
     </div>
 
     <!-- Login nút đăng nhập  -->
-    <a href="LoginClient.html"><button class="btn login">
-    <i class="fa fa-user"></i> Đăng nhập
-    </button></a>
+    <div class="login-button" id="login_button">
+        <i class="fa fa-user"></i> Tài khoản
+        <div class="accout-menu-two">
+          <ul>
+            <li><a href="LoginClient.html">Đăng nhập</a></li>
+            <li><a href="Profile.html">Profile </a></li>
+            <li><a id="logout_button" onclick="logout()">Đăng xuất</a></li>
+          </ul>
+        </div>
+      </div>
 </div>
 </header>
 

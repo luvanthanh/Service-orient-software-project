@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-service
+
+#Cấu hình dành riêng cho server
+eureka:
+  client:
+    register-with-eureka: false   # Server không đăng ký chính nó
+    fetch-registry: false         # Server không cần lấy danh sách service
+  server:
+    wait-time-in-ms-when-sync-empty: 0   # Eureka start nhanh hơn
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

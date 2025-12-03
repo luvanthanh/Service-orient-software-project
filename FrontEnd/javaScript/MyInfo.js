@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {// token lưu sau khi đăn
     return;
     }
 
-    fetch(`http://localhost:8082/UserDatabase/users/myInfo`, {
+    fetch(`http://localhost:8888/api/users/myInfo`, {
     method: "GET",
     headers: {
         "Authorization": `Bearer ${token}`, // Gửi token xác thực

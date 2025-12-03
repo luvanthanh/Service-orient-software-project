@@ -16,13 +16,10 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/users")
-@CrossOrigin(origins = "*")
+@RequestMapping("/api/users")
 public class UserController {
     @Autowired
     private UserService userService;
-
-
 
 //  thêm user mới
     @PostMapping

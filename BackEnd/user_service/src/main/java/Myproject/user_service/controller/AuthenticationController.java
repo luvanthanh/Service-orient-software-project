@@ -4,7 +4,7 @@ package Myproject.user_service.controller;
 import Myproject.user_service.dto.reponse.ApiResponse;
 import Myproject.user_service.dto.reponse.AuthenticationResponse;
 import Myproject.user_service.dto.reponse.IntrospectResponse;
-import Myproject.user_service.dto.request.AuthenticationRequest;
+import Myproject.user_service.dto.request.LoginRequest;
 import Myproject.user_service.dto.request.IntrospectRequest;
 import Myproject.user_service.dto.request.LogoutRequest;
 import Myproject.user_service.service.AuthenticationService;
@@ -15,16 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 
 @RestController
-@RequestMapping("/auth")
-@CrossOrigin(origins = "*")
+@RequestMapping("/users/auth")
 public class AuthenticationController {
     @Autowired
     AuthenticationService authenticationService;
 
 //    đã test ok rồi đó=))
     @PostMapping("/login")
-    ApiResponse<AuthenticationResponse> login(@RequestBody AuthenticationRequest authenticationRequest){
-        var result = authenticationService.login(authenticationRequest);
+    ApiResponse<AuthenticationResponse> login(@RequestBody LoginRequest loginRequest){
+        var result = authenticationService.login(loginRequest);
 
         return ApiResponse.<AuthenticationResponse>builder()
                 .data(result)

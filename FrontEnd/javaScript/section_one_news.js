@@ -1,4 +1,4 @@
-fetch("http://localhost:8083/NewsDatabase/news")
+fetch("http://localhost:8888/api/news")
     .then(response => response.json())
     .then(news => {
         let newsSection = document.getElementById("section_one_news");
@@ -12,7 +12,7 @@ fetch("http://localhost:8083/NewsDatabase/news")
     .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
 
 
-fetch("http://localhost:8083/NewsDatabase/news")
+fetch("http://localhost:8888/api/news")
 .then(response => response.json())
 .then(news => {
     

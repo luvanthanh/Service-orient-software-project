@@ -1,8 +1,5 @@
 package Myproject.user_service.configuration;
 
-import Myproject.user_service.entity.enums.Role;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -10,9 +7,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
@@ -20,50 +14,58 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import javax.crypto.spec.SecretKeySpec;
 import java.util.List;
 
+import static org.springframework.http.HttpMethod.POST;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    private final String[] PUBLIC_EMTPOINT = {"/users","/auth/login","/auth/introspect" ,"auth/logout"};
-    
+    private final String[] PUBLIC_ENDPOINTS = {
+            "/users",
+            "/users/auth/login",
+            "/users/auth/introspect",
+            "/users/auth/logout"
+    };
 
-    @Autowired
-    private CustomJwtDecoder customJwtDecoder;
+    private final String FRONTEND_URL = "http://127.0.0.1:5501";
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.authorizeHttpRequests(request->
-                request.requestMatchers(HttpMethod.POST, PUBLIC_EMTPOINT).permitAll() // Cho phép Phương thức Post trong các emoint trên
-                        .anyRequest().authenticated());
+    private final CustomJwtDecoder customJwtDecoder;
 
-
-
-        httpSecurity.oauth2ResourceServer(oauth2->
-                oauth2.jwt(jwtConfigurer ->
-                        jwtConfigurer.decoder(customJwtDecoder)
-                                .jwtAuthenticationConverter(jwtAuthenticationConverter()))
-                        .authenticationEntryPoint(new JwtAuthenticationEntryPoint()) // chỗ này là để khi mà bắt lỗi không phải
-        );
-
-        httpSecurity.csrf(AbstractHttpConfigurer::disable)
-                .cors(cors ->cors.configurationSource(corsConfigurationSource()));
-
-
-        return httpSecurity.build();
+    public SecurityConfig(CustomJwtDecoder customJwtDecoder) {
+        this.customJwtDecoder = customJwtDecoder;
     }
 
-    @Bean // chỗ này cần hiểu
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+//               .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .cors(AbstractHttpConfigurer::disable) // tắt cors để không bị trùng công frontend
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(POST, PUBLIC_ENDPOINTS).permitAll()
+                       .anyRequest().authenticated()
+                )
+
+               .oauth2ResourceServer(oauth2 -> oauth2
+                       .jwt(jwt -> jwt
+                              .decoder(customJwtDecoder)
+                              .jwtAuthenticationConverter(jwtAuthenticationConverter())
+                      )
+                     .authenticationEntryPoint(new JwtAuthenticationEntryPoint()) // lỗi ở đây nhé, không hiểu sao bị lỗi chỗ này luôn á
+                );
+
+        return http.build();
+    }
+
+
+//     đã tắt cors ở trên
+    @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of(
-                "http://127.0.0.1:5501",
-                "http://localhost:5501"
-        )); // 👈 Cho phép domain của frontend
+        configuration.setAllowedOrigins(List.of(FRONTEND_URL));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
@@ -73,17 +75,15 @@ public class SecurityConfig {
         return source;
     }
 
-    @Bean // chỗ này là để chuyển scope thành role
-    JwtAuthenticationConverter jwtAuthenticationConverter() {
-        JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
-        jwtGrantedAuthoritiesConverter.setAuthorityPrefix("ROLE_");
 
-        JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
-        jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
-        return jwtAuthenticationConverter;
+    // hàm này chỉ dùng đổi đổi scope thành roles
+    @Bean
+    public JwtAuthenticationConverter jwtAuthenticationConverter() {
+        JwtGrantedAuthoritiesConverter grantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();
+        grantedAuthoritiesConverter.setAuthorityPrefix("ROLE_"); // convert scope -> ROLE_
+
+        JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
+        converter.setJwtGrantedAuthoritiesConverter(grantedAuthoritiesConverter);
+        return converter;
     }
-
-
-
-
 }

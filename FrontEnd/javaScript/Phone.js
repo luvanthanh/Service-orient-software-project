@@ -3,7 +3,7 @@ const params = new URLSearchParams(window.location.search);
 const productId = params.get('id');
 let currentProduct = null;
 
-fetch(`http://localhost:8081/ProductDatabase/products/getProductById/${productId}`)
+fetch(`http://localhost:8888/api/products/getProductById/${productId}`)
   .then(res => {
     if (!res.ok) throw new Error("Không tìm thấy sản phẩm");
     return res.json();

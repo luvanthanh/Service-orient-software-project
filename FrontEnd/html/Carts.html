@@ -85,24 +85,24 @@
         <tbody>
           <tr>
             <td>Họ Và Tên Người Nhận</td>
-            <td><input type="text"></td>
+            <td><input type="text" id="customerName"></td>
           </tr>
           <tr>
             <td>Địa Chỉ nhận Hàng</td>
-            <td><input type="text"></td>
+            <td><input type="text" id="deliveryAddress"></td>
           </tr>
           <tr>
             <td>Số Điện thoại người nhận</td>
-            <td><input type="text"></td>
+            <td><input type="text" id="customerPhoneNumber" ></td>
           </tr>
           <tr>
             <td>Ghi chú</td>
-            <td><input type="text"></td>
+            <td><input type="text" id="note"></td>
           </tr>
           <tr>
             <td>Chọn Phương thức thanh toán</td>
             <td>
-              <select id="fruit" name="fruit">
+              <select id="paymentMethod" name="paymentMethod">
                 <option value="receive" >Thanh toán khi nhận hàng</option>
                 <option value="Viettel pay">Thanh toán bằng Viettel Pay</option>
               </select>
@@ -112,8 +112,16 @@
             <td>Tổng tiền cần thanh toán</td>
             <td id="sum_money_carts"></td>
           </tr>
+          <tr>
+            <td> <div class="order_button" id="order_button" onclick="order()"> Thanh toán</div></td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
+      
+      <div class="order-list">
+        <a href="OrderList.html"> Xem đơn hàng</a>
+      </div>
     </div>
   </div>
 
