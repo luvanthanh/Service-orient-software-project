@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartItemCreationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartItemUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/entity/CartItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/repository/CartItemRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartCreationRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartUpdateRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/entity/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/mapper/CartMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/mapper/CartMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/repository/CartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartItemCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartItemCreationRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +47,7 @@
     "Application.MyApplicationProject.executor": "Run",
     "Application.Myproject.executor": "Run",
     "Application.MyprojectApplication.executor": "Run",
-    "Application.NewsServiceApplication.executor": "Coverage",
+    "Application.NewsServiceApplication.executor": "Run",
     "Application.OrderServiceApplication.executor": "Run",
     "Application.ProductServiceApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
@@ -82,7 +74,7 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/5_SubjectInSemester5/1_Service_OrientedSoftware/BackEnd",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
@@ -121,13 +113,13 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserServiceApplication">
-    <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
-      <module name="cart_service" />
+  <component name="RunManager" selected="Application.CartServiceApplication">
+    <configuration name="ApiGetWayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Myproject.Api_getWay.ApiGetWayApplication" />
+      <module name="Api_getWay" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Myproject.cart_service.*" />
+          <option name="PATTERN" value="Myproject.Api_getWay.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,12 +127,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Myproject.news_service.NewsServiceApplication" />
-      <module name="news_service" />
+    <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
+      <module name="cart_service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Myproject.news_service.*" />
+          <option name="PATTERN" value="Myproject.cart_service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -189,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserServiceApplication" />
-        <item itemvalue="Application.NewsServiceApplication" />
         <item itemvalue="Application.CartServiceApplication" />
-        <item itemvalue="Application.OrderServiceApplication" />
+        <item itemvalue="Application.ApiGetWayApplication" />
         <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Application.OrderServiceApplication" />
+        <item itemvalue="Application.UserServiceApplication" />
       </list>
     </recent_temporary>
   </component>

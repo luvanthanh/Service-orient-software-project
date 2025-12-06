@@ -19,36 +19,35 @@ public class CartController {
     private CartService cartService;
 
 
-//    thêm giỏ hàng , bắt đầu tạo giỏ hàng cho user
+//   1-> thêm giỏ hàng , bắt đầu tạo giỏ hàng cho user
     @PostMapping("/createdCartByUserId/{userId}")
     public Cart createCartByUserId(@PathVariable String userId) {
         return cartService.createdCartByUserId(userId);
     }
 
-// sau đó mới thêm cartItem (productId ) vào trong CartId  // tiếp theo đó mới lấy thông tin sản phâmr
-    @PostMapping("/addCartItemByCartId/{cartId}")
+//   1 -> sau đó mới thêm cartItem (productId ) vào trong CartId  // tiếp theo đó mới lấy thông tin sản phẩm
+    @PostMapping("/{cartId}/cartItems")
     public CartItem addCartItemByCartId( @RequestBody  CartItemCreationRequest request, @PathVariable int cartId) {
         return  cartService.addCartItemByCartId(request,cartId);
     }
-// lấy cart bằng userId
+//   1-> lấy cart bằng userId
     @GetMapping("/getCartByUserId/{userId}")
     public Cart getCartByUserId(@PathVariable String userId) {
         return cartService.getCartByUserId(userId);
     }
-// lấy danh sách cartItem bằng cartId
-    @GetMapping("/getCartItemByCartId/{cartId}")
+//   1-> lấy danh sách cartItem bằng cartId
+    @GetMapping("/{cartId}/cartItems")
     public List<CartItem> getCartItemByCartId(@PathVariable int cartId) {
         return  cartService.getCartItemByCartId(cartId);
     }
-
-    @PutMapping("/updateCartItem/{cartItemId}")
+//  1-> sửa quatity của cartItem theo cartItemId
+    @PutMapping("/cartItems/{cartItemId}")
     public CartItem updateCartItem(@RequestBody CartItemUpdateRequest request ,  @PathVariable int cartItemId) {
         return cartService.updateCartItemQuantity(request,cartItemId);
     }
-
-    @DeleteMapping("/deleteCartItem/{cartId}")
-    public void deleteCartItem(@PathVariable int cartId) {
-        cartService.deleteCartItemByCartId(cartId);
+//   1-> xóa cartItems theo cartItemId
+    @DeleteMapping("/cartItems/{cartItemId}")
+    public String deleteCartItem(@PathVariable int cartItemId) {
+        return cartService.deleteCartItemByCartId(cartItemId);
     }
-
 }

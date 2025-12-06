@@ -23,6 +23,7 @@ public class CartService {
     @Autowired
     private CartItemRepository cartItemRepository;
 
+//    đã test thành công nhé
     public Cart createdCartByUserId( String userId) {
         return cartRepository.getCartsByUserId(userId)
                 .orElseGet(() -> {  // Nếu giá trị tồn tại → trả về giá trị đó
@@ -33,7 +34,8 @@ public class CartService {
                 });
     }
 
-//    thêm cartItem by cartId , thì lúc lấy ra sẽ lấy cartItem có cartId của user đấy
+//     Đã test thành công: thêm cartItem by cartId , thì lúc lấy ra sẽ lấy cartItem, sẽ lấy theo cartId (vì 1 cartId = 1 userId)
+
     public CartItem addCartItemByCartId(CartItemCreationRequest request,  int cartId) {
         CartItem cartItem = cartItemRepository.getByCartIdAndProductId(cartId,request.getProductId())
                 .orElseGet(()->{
@@ -71,7 +73,8 @@ public class CartService {
     }
 
 //    xóa cartItem bằng cartItemId
-    public void  deleteCartItemByCartId(int cartId){
-        cartItemRepository.deleteById(cartId);
+    public String deleteCartItemByCartId(int cartItemId){
+        cartItemRepository.deleteById(cartItemId);
+        return "đã xóa cartItem có " + cartItemId +" ra khỏi database";
     }
 }
