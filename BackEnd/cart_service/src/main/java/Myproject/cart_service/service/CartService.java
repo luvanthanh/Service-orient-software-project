@@ -1,13 +1,16 @@
 package Myproject.cart_service.service;
 
-import Myproject.cart_service.dto.request.CartCreationRequest;
-import Myproject.cart_service.dto.request.CartUpdateRequest;
+
+import Myproject.cart_service.dto.request.CartItemCreationRequest;
+import Myproject.cart_service.dto.request.CartItemUpdateRequest;
 import Myproject.cart_service.entity.Cart;
-import Myproject.cart_service.mapper.CartMapper;
+
+import Myproject.cart_service.entity.CartItem;
+import Myproject.cart_service.repository.CartItemRepository;
 import Myproject.cart_service.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 
@@ -17,41 +20,58 @@ public class CartService {
 
     @Autowired
     private CartRepository cartRepository;
-
     @Autowired
-    private CartMapper  cartMapper;
+    private CartItemRepository cartItemRepository;
 
-
-    public List<Cart> getAllCarts(){
-        return  cartRepository.findAll();
-    }
-
-    public Cart  getCartById(int  cartId){
-        return cartRepository.getByCartId(cartId);
-    }
-
-    public Cart addCart(@RequestBody CartCreationRequest request){
-        Cart cart = new Cart();
-        cart = cartMapper.toCart(request);
-        return cartRepository.save(cart);
-    }
-
-    public Cart updateCart(int cartId, @RequestBody CartUpdateRequest request){
-        Cart cart=cartRepository.getByCartId(cartId);
-        cart= cartMapper.toUpdateCart(request);
-        return cart;
-    }
-
-    public List<Cart> getCartsByUserId(String userId){
+    public Cart createdCartByUserId( String userId) {
         return cartRepository.getCartsByUserId(userId)
-                .orElseThrow(()-> new RuntimeException("looi khong tim thay carts"));
+                .orElseGet(() -> {  // Nếu giá trị tồn tại → trả về giá trị đó
+                    // 2. Nếu chưa tồn tại → tạo mới
+                    Cart newCart = new Cart();
+                    newCart.setUserId(userId);
+                    return cartRepository.save(newCart);
+                });
     }
 
+//    thêm cartItem by cartId , thì lúc lấy ra sẽ lấy cartItem có cartId của user đấy
+    public CartItem addCartItemByCartId(CartItemCreationRequest request,  int cartId) {
+        CartItem cartItem = cartItemRepository.getByCartIdAndProductId(cartId,request.getProductId())
+                .orElseGet(()->{
+                    CartItem  newCartItem = new CartItem();
+                    newCartItem.setCartId(cartId);
+                    newCartItem.setProductId(request.getProductId());
+                    newCartItem.setQuantity(request.getQuantity());
+                    return newCartItem;
+                });
 
-    public String deleteCart(int cartId){
-        Cart cart=cartRepository.getByCartId(cartId);
-        cartRepository.delete(cart);
-        return "Cart deleted";
+
+        if(cartItem.getCartId() != 0){
+            cartItem.setQuantity(request.getQuantity() + cartItem.getQuantity());
+        }
+        return cartItemRepository.save(cartItem);
     }
 
+//    lấy giỏ hàng theo userId vì (mỗi người sẽ chỉ có 1 giỏ hàng)
+    public Cart getCartByUserId(String userId){
+        return cartRepository.getCartsByUserId(userId)
+                .orElseThrow(()-> new RuntimeException("không có giỏ hàng "));
+    }
+
+//    lấy danh sách cartItem by cartId
+    public List<CartItem> getCartItemByCartId(int cartId){
+        return cartItemRepository.getCartItemByCartId(cartId);
+    }
+
+//    sửa thông tin số lượng(quantity của cartItem)
+    public CartItem updateCartItemQuantity(CartItemUpdateRequest request, int cartItemId){
+        CartItem cartItem = cartItemRepository.findById(cartItemId)
+                .orElseThrow(()->new RuntimeException(" không tìm thấy cartItem"));
+        cartItem.setQuantity(request.getQuantity());
+        return cartItemRepository.save(cartItem);
+    }
+
+//    xóa cartItem bằng cartItemId
+    public void  deleteCartItemByCartId(int cartId){
+        cartItemRepository.deleteById(cartId);
+    }
 }

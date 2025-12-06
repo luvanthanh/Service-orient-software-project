@@ -2,9 +2,10 @@ package Myproject.cart_service.controller;
 
 
 
-import Myproject.cart_service.dto.request.CartCreationRequest;
-import Myproject.cart_service.dto.request.CartUpdateRequest;
+import Myproject.cart_service.dto.request.CartItemCreationRequest;
+import Myproject.cart_service.dto.request.CartItemUpdateRequest;
 import Myproject.cart_service.entity.Cart;
+import Myproject.cart_service.entity.CartItem;
 import Myproject.cart_service.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,38 +18,37 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-//    lấy all carts
-    @GetMapping
-    List<Cart> getAllCarts(){
-        return cartService.getAllCarts();
+
+//    thêm giỏ hàng , bắt đầu tạo giỏ hàng cho user
+    @PostMapping("/createdCartByUserId/{userId}")
+    public Cart createCartByUserId(@PathVariable String userId) {
+        return cartService.createdCartByUserId(userId);
     }
 
-// lấy giỏ hàng theo id
-    @GetMapping("/{cartId}")
-    public Cart getCartById(@PathVariable("cartId") int cartId){
-        return cartService.getCartById(cartId);
+// sau đó mới thêm cartItem (productId ) vào trong CartId  // tiếp theo đó mới lấy thông tin sản phâmr
+    @PostMapping("/addCartItemByCartId/{cartId}")
+    public CartItem addCartItemByCartId( @RequestBody  CartItemCreationRequest request, @PathVariable int cartId) {
+        return  cartService.addCartItemByCartId(request,cartId);
+    }
+// lấy cart bằng userId
+    @GetMapping("/getCartByUserId/{userId}")
+    public Cart getCartByUserId(@PathVariable String userId) {
+        return cartService.getCartByUserId(userId);
+    }
+// lấy danh sách cartItem bằng cartId
+    @GetMapping("/getCartItemByCartId/{cartId}")
+    public List<CartItem> getCartItemByCartId(@PathVariable int cartId) {
+        return  cartService.getCartItemByCartId(cartId);
     }
 
-
-// thêm vào giỏ hàng
-    @PostMapping
-    Cart addCart(@RequestBody CartCreationRequest request){
-        return cartService.addCart(request);
+    @PutMapping("/updateCartItem/{cartItemId}")
+    public CartItem updateCartItem(@RequestBody CartItemUpdateRequest request ,  @PathVariable int cartItemId) {
+        return cartService.updateCartItemQuantity(request,cartItemId);
     }
 
-    @GetMapping("/findByUserId/{userId}")
-    public List<Cart> getCartsByUserId(@PathVariable("userId") String userId){
-        return cartService.getCartsByUserId(userId);
+    @DeleteMapping("/deleteCartItem/{cartId}")
+    public void deleteCartItem(@PathVariable int cartId) {
+        cartService.deleteCartItemByCartId(cartId);
     }
 
-//    sủa thông tin cart theo id
-    @PutMapping("/{cartId}")
-    Cart updateCart(@PathVariable int  cartId, @RequestBody CartUpdateRequest request){
-        return cartService.updateCart(cartId,request);
-    }
-
-    @DeleteMapping("/{cartId}")
-    String deleteCart(@PathVariable int  cartId){
-        return cartService.deleteCart(cartId);
-    }
 }

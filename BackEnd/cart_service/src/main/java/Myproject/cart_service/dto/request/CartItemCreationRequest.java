@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CartUpdateRequest {
-    private String cartName;
-    private int cartQuantity;
-    private double cartMoney;
+public class CartItemCreationRequest {
+    private  int cartId;
+    private int productId;
+    private int quantity;
 }
