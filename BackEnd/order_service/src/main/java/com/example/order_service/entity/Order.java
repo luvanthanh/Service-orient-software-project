@@ -25,11 +25,11 @@ public class Order{
     private String deliveryAddress;
     private String customerPhoneNumber;
 
-
     private String paymentMethod;
     private Double totalMoney;
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    private String userId;
+    private String userId; //
+    private int cartId; // sẽ lấy listCartItem bằng CartID
 
 }

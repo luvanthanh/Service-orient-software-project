@@ -6,9 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartItemCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/request/CartItemCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_getWay/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Api_getWay/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/dto/request/OrderCreateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/dto/request/OrderCreateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Carts.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Carts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/css/Home_section_three.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/css/Home_section_three.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Carts.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Carts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/ChatBot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/ListNews.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/ListNews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/News.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/News.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/html/Profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/html/Profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Phone.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +58,7 @@
     "Application.MyApplicationProject.executor": "Run",
     "Application.Myproject.executor": "Run",
     "Application.MyprojectApplication.executor": "Run",
-    "Application.NewsServiceApplication.executor": "Run",
+    "Application.NewsServiceApplication.executor": "Coverage",
     "Application.OrderServiceApplication.executor": "Run",
     "Application.ProductServiceApplication.executor": "Run",
     "Application.Unnamed.executor": "Run",
@@ -113,13 +124,13 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CartServiceApplication">
-    <configuration name="ApiGetWayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Myproject.Api_getWay.ApiGetWayApplication" />
-      <module name="Api_getWay" />
+  <component name="RunManager" selected="Application.OrderServiceApplication">
+    <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
+      <module name="cart_service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Myproject.Api_getWay.*" />
+          <option name="PATTERN" value="Myproject.cart_service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,12 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CartServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Myproject.cart_service.CartServiceApplication" />
-      <module name="cart_service" />
+    <configuration name="NewsServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Myproject.news_service.NewsServiceApplication" />
+      <module name="news_service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Myproject.cart_service.*" />
+          <option name="PATTERN" value="Myproject.news_service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -181,10 +192,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CartServiceApplication" />
-        <item itemvalue="Application.ApiGetWayApplication" />
-        <item itemvalue="Application.ProductServiceApplication" />
         <item itemvalue="Application.OrderServiceApplication" />
+        <item itemvalue="Application.ProductServiceApplication" />
+        <item itemvalue="Application.NewsServiceApplication" />
+        <item itemvalue="Application.CartServiceApplication" />
         <item itemvalue="Application.UserServiceApplication" />
       </list>
     </recent_temporary>
@@ -218,7 +229,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BackEnd$NewsServiceApplication.ic" NAME="NewsServiceApplication Coverage Results" MODIFIED="1765016576338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/BackEnd$NewsServiceApplication.ic" NAME="NewsServiceApplication Coverage Results" MODIFIED="1765121409197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>Myproject.news_service.*</FILTER>
     </SUITE>
   </component>

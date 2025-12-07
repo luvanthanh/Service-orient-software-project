@@ -24,4 +24,5 @@ public class OrderCreateRequest {
     private LocalDateTime createdAt = LocalDateTime.now();
 
     private String userId;
+    private int cartId;
 }

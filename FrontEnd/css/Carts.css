@@ -1,5 +1,15 @@
+
+
+.cartMessages{
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin-left: 40%;
+    margin-top: 40%;
+}
+
 .section-one{
-    height: 700px;
+    height: auto;
     display:flex;
 }
 
@@ -7,7 +17,6 @@
 .list-carts{
     width: 50%;
     margin-right: 20px;
-    position: relative;
 }
 
 .list-carts table tr td{
@@ -56,42 +65,37 @@ button:hover{
 
 .sum-money{
     margin-top: 10px;
-    border: 1px solid rgb(192, 15, 54);
-    border-radius: 7px;
-    width: 150px;
     padding: 5px;
     color: red;
-    /* margin-left: 705px; */
 }
 .sum-money:hover{
     margin-top: 10px;
-    border: 1px solid rgb(19, 0, 128);
-    background:#e41224;
-    color: rgb(245, 239, 239);
-    /* margin-left: 705px; */
 }
 
 
 .add_product{
-    position: absolute;
-    top: 580px;
-    left: 802px;
-    border: 1px solid rgb(204, 45, 66);
-    border-radius: 7px;
-    width: 200px;
-    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 850px;
+    border: 3px solid rgb(204, 45, 66);
+    border-radius:7px;
+    width: 150px;
+    padding:7px;
+    padding-left: 10px;
+    cursor: pointer;
     color: red;
     background: white;
 }
 
 .add_product:hover{
-    border: 1px solid rgb(19, 0, 128);
+    border: 3px solid rgb(19, 0, 128);
     background:#e41224;
     color: rgb(245, 239, 239)
 }
 
 .add_product:hover a{
-    color: rgb(245, 239, 239)   
+    color: rgb(245, 239, 239)
 }
 
 
@@ -100,7 +104,7 @@ button:hover{
 .section-one .information_cart{
     margin-top:20px;
     width :35%;
-    height: 500px;
+    height: 700px;
     margin-left: 100px;
     position: relative;
 }
@@ -141,22 +145,21 @@ select{
 }
 
 .order_button{
-    /* position: absolute;
-    top: 570px;
-    left: 465px; */
-    border: 1px solid rgb(45, 204, 58);
-    border-radius: 7px;
+    font-weight: 600;
+    border: 3px solid rgb(45, 204, 58);
+    border-radius: 10px;
     width: 150px;
     color: rgb(5, 100, 34);
     background: white;
     cursor: pointer;
-    height: 30px;
-    padding : 5px;
+    height: 50px;
+    padding : 8px;
+    padding-top: 10px;
     
 }
 
 .order_button:hover{
-    border: 1px solid rgb(19, 0, 128);
+    border: 5px solid rgb(103, 13, 163);
     background:#06a563;
     color: rgb(245, 239, 239)
 }

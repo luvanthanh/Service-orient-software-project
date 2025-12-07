@@ -1,247 +1,294 @@
 document.addEventListener("DOMContentLoaded", () => {
   const userId = localStorage.getItem("userId");
-  console.log("User ID hiện tại:", userId);
 
   if (!userId) {
     alert("Bạn cần đăng nhập trước khi xem giỏ hàng!");
     window.location.href = "LoginClient.html";
     return;
-  } else {
-    console.log("User đã đăng nhập với ID:", userId);
-    fetch(`http://localhost:8888/api/carts/createdCartByUserId/${userId}`, {
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Cart:", data);
-      })
-      .catch((err) => console.error("Error:", err));
   }
-  fetch(`http://localhost:8888/api/carts/findByUserId/${userId}`)
+
+  // 1 Tạo cart nếu chưa có
+  fetch(`http://localhost:8888/api/carts/createdCartByUserId/${userId}`, {
+    method: "POST",
+  });
+
+  // 2 Lấy cart theo userId
+  fetch(`http://localhost:8888/api/carts/getCartByUserId/${userId}`)
+    .then((response) => response.json())
+    .then((cart) => {
+      localStorage.setItem("cartId",cart.cartId);
+      const cartId = cart.cartId;
+      console.log("CartId lấy từ localStorage:", cartId);
+      // 3 Lấy danh sách cartItem theo cartId
+      return fetch(`http://localhost:8888/api/carts/${cartId}/cartItems`)
+        .then((res) => res.json())
+        .then(async (cartItems) => {
+          // 4 Gọi product-service để lấy thông tin product từng item
+          const itemsWithProduct = await Promise.all(
+            cartItems.map(async (item) => {
+              const product = await fetch(
+                `http://localhost:8888/api/products/getProductById/${item.productId}`
+              ).then((res) => res.json());
+
+              return { ...item, product };
+            })
+          );
+
+          window.cartData = itemsWithProduct;
+          renderCart(itemsWithProduct);
+        });
+    })
+    .catch((error) => console.error("Lỗi khi lấy giỏ hàng:", error));
+});
+
+// =====================================================
+// RENDER CART UI
+// =====================================================
+function renderCart(data) {
+  const listCartsDiv = document.getElementById("list_carts");
+  listCartsDiv.innerHTML = "";
+
+  if (data.length === 0) {
+    listCartsDiv.innerHTML = "<p class = 'cartMessages'>Giỏ hàng trống!</p>";
+    return;
+  }
+
+  let tongTien = 0;
+
+  let tableHTML = `
+    <table>
+        <thead>
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+  `;
+
+  data.forEach((item, index) => {
+    const { product, quantity } = item;
+    const price = product.productPrice;
+    const total = price * quantity;
+
+    tongTien += total;
+
+    tableHTML += `
+      <tr id="row-${index}">
+          <td><img src="${product.productImageUrl}" alt="${product.productName}"></td>
+          <td>${product.productName}</td>
+          <td id="price-${index}" data-price="${price}">
+              ${price.toLocaleString("vi-VN")} VND
+          </td>
+          <td>
+              <button onclick="minus(${index})">-</button>
+              <span id="quantity-${index}">${quantity}</span>
+              <button onclick="plus(${index})">+</button>
+          </td>
+          <td id="total-${index}">
+              ${total.toLocaleString("vi-VN")} VND
+          </td>
+          <td><button onclick="deleteCart(${index})">Xóa</button></td>
+      </tr>
+    `;
+  });
+
+  tableHTML += `
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b>Tổng cộng:</b></td>
+            <td class="sum-money" id="sum_money">${tongTien.toLocaleString("vi-VN")} VND</td>
+          </tr>
+        </tbody>
+    </table>
+
+    <div class="add_product"><a href="Home.html">Thêm sản phẩm</a></div>
+  `;
+
+  listCartsDiv.innerHTML = tableHTML;
+  updateTotalSum();
+}
+
+
+// =====================================================
+// CẬP NHẬT TỔNG TIỀN
+// =====================================================
+function updateTotalSum() {
+  let total = 0;
+  const totalEls = document.querySelectorAll('[id^="total-"]');
+
+  totalEls.forEach((el) => {
+    total += Number(el.textContent.replace(/\D/g, ""));
+  });
+
+  document.getElementById("sum_money").textContent =
+    total.toLocaleString("vi-VN") + " VND";
+
+const sum_money = document.getElementById("sum_money");
+console.log(sum_money);
+const sum_money_carts = document.getElementById("sum_money_carts").textContent = sum_money.textContent;
+console.log(sum_money_carts);
+}
+
+// =====================================================
+// TĂNG NUMBER
+// =====================================================
+function plus(index) {
+  const quantityEl = document.getElementById(`quantity-${index}`);
+  const price = Number(document.getElementById(`price-${index}`).dataset.price);
+  const totalEl = document.getElementById(`total-${index}`);
+
+  let quantity = parseInt(quantityEl.textContent);
+  quantity++;
+
+  quantityEl.textContent = quantity;
+  totalEl.textContent = (quantity * price).toLocaleString("vi-VN") + " VND";
+
+  fetch(`http://localhost:8888/api/carts/cartItems/${window.cartData[index].cartItemsId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      quantity: quantity,
+    }),
+  })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Lấy giỏ hàng thất bại!");
+        throw new Error("Cập nhật số lượng thất bại!");
       }
       return response.json();
     })
     .then((data) => {
-    console.log("xin chao");
-      console.log("Dữ liệu giỏ hàng:", data);
-      const listCartsDiv = document.getElementById("list_carts");
-      if (!listCartsDiv) {
-        console.error("Không tìm thấy phần tử #list_carts trong HTML!");
-        return;
-      }
-
-      listCartsDiv.innerHTML = "";
-
-      if (data.length === 0) {
-        listCartsDiv.innerHTML = "<p>Giỏ hàng của bạn trống!</p>";
-        return;
-      }
-
-      let tableHTML = `
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th style="text-align: center; color: red; font-size: 20px; font-weight: 300">Danh Sách Sản Phẩm</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <th>Hình Ảnh</th>
-                    <th>Tên Sản Phẩm</th>
-                    <th>Giá Sản Phẩm</th>
-                    <th>Số Lượng</th>
-                    <th>Tổng Tiền</th>
-                    <th>Xóa</th>
-                </tr>
-            </thead>
-            <tbody>
-        
-    `;
-      let tongTien = 0;
-      data.forEach((cart, index) => {
-        let soluong = cart.cartQuantity;
-        let giatri = cart.productPrice;
-        let tong = soluong * giatri;
-        tongTien = tongTien + tong;
-
-        tableHTML += `
-        <tr id="row-${index}">
-            <td><img src="${cart.productImage}" alt="${cart.productName}" ></td>
-            <td>${cart.productName}</td>
-            <td id="price-${index}" data-price="${giatri}">${giatri.toLocaleString(
-          "vi-VN"
-        )} VND</td>
-
-            <td>
-                <button onclick="minus(${index})">-</button>
-                <span id="quantity-${index}">${soluong}</span>
-                <button onclick="plus(${index})">+</button>
-            </td>
-            <td id="total-${index}">${tong.toLocaleString()} VND</td>
-            <td><button onclick="deleteCart(${index})">Xóa</button></td>
-        </tr>
-    `;
-      });
-      tableHTML += `
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td> <div class="sum-money" id="sum_money"> ${tongTien.toLocaleString()} VND</div></td>
-            <td></td>
-        </tr>
-        </tbody>
-        </table>
-        <div class="add_product"><a href="Home.html"> Thêm sản phẩm</a></div>
-    `;
-      listCartsDiv.innerHTML = tableHTML;
-      window.cartData = data;
-      updateTotalSum();
+      console.log("Cập nhật số lượng thành công:", data);
     })
     .catch((error) => {
-      console.error("Lỗi khi lấy giỏ hàng:", error);
+      console.error("Lỗi khi cập nhật số lượng:", error);
+      alert("Lỗi khi cập nhật số lượng: " + error.message);
     });
-});
-
-function updateTotalSum() {
-  let total = 0;
-  const totalEls = document.querySelectorAll('[id^="total-"]'); // tất cả dòng có tổng tiền
-  totalEls.forEach((el) => {
-    const value = Number(el.textContent.replace(/\D/g, "")); // loại bỏ chữ, chỉ lấy số
-    total += value;
-  });
-
-  const sumMoneyEl = document.getElementById("sum_money");
-  const sumMoneyCartsEl = document.getElementById("sum_money_carts");
-
-  if (sumMoneyEl) {
-    sumMoneyEl.textContent = total.toLocaleString("vi-VN") + " VND";
-  }
-  if (sumMoneyCartsEl) {
-    sumMoneyCartsEl.textContent = total.toLocaleString("vi-VN") + " VND";
-  }
-}
-
-function plus(index) {
-  const quantityEl = document.getElementById(`quantity-${index}`);
-  const priceEl = document.getElementById(`price-${index}`);
-  const totalEl = document.getElementById(`total-${index}`);
-
-  let quantity = parseInt(quantityEl.textContent);
-  const price = Number(priceEl.textContent.replace(/\D/g, "")); // chỉ giữ lại số
-
-  quantity++;
-  quantityEl.textContent = quantity;
-  totalEl.textContent = (price * quantity).toLocaleString("vi-VN") + " VND";
 
   updateTotalSum();
 }
 
+// =====================================================
+// GIẢM NUMBER
+// =====================================================
 function minus(index) {
   const quantityEl = document.getElementById(`quantity-${index}`);
-  const priceEl = document.getElementById(`price-${index}`);
+  const price = Number(document.getElementById(`price-${index}`).dataset.price);
   const totalEl = document.getElementById(`total-${index}`);
 
   let quantity = parseInt(quantityEl.textContent);
-  const price = Number(priceEl.textContent.replace(/\D/g, ""));
 
   if (quantity > 1) {
     quantity--;
     quantityEl.textContent = quantity;
-    totalEl.textContent = (price * quantity).toLocaleString("vi-VN") + " VND";
+    totalEl.textContent = (quantity * price).toLocaleString("vi-VN") + " VND";
   }
+    fetch(`http://localhost:8888/api/carts/cartItems/${window.cartData[index].cartItemsId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      quantity: quantity,
+    }),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Cập nhật số lượng thất bại!");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("Cập nhật số lượng thành công:", data);
+    })
+    .catch((error) => {
+      console.error("Lỗi khi cập nhật số lượng:", error);
+      alert("Lỗi khi cập nhật số lượng: " + error.message);
+    });
 
   updateTotalSum();
 }
 
+// =====================================================
+// XÓA CART ITEM
+// =====================================================
 function deleteCart(index) {
-  const cart = window.cartData[index]; // lấy cart tương ứng
-  if (!cart) {
-    console.error("Không tìm thấy cart tại index:", index);
-    return;
-  }
+  const cartItem = window.cartData[index];
+  if (!cartItem) return;
 
-  const confirmDelete = confirm(
-    `Bạn có chắc muốn xóa sản phẩm "${cart.productName}" khỏi giỏ hàng không?`
-  );
-  if (!confirmDelete) return;
+  if (!confirm(`Xóa "${cartItem.product.productName}" khỏi giỏ hàng?`)) return;
 
-  fetch(`http://localhost:8888/api/carts/${cart.cartId}`, {
+  fetch(`http://localhost:8888/api/carts/cartItems/${cartItem.cartItemsId}`, {
     method: "DELETE",
   })
     .then((response) => {
-      if (!response.ok) {
-        throw new Error("Xóa sản phẩm thất bại!");
-      }
-      console.log(`Đã xóa sản phẩm có ID: ${cart.cartId}`);
+      if (!response.ok) throw new Error("Xóa thất bại!");
 
-      // Xóa sản phẩm khỏi bảng trên giao diện
-      const row = document.getElementById(`row-${index}`);
-      if (row) row.remove();
+      // Xóa khỏi DOM
+      document.getElementById(`row-${index}`).remove();
+
+      // Xóa khỏi mảng (để tránh lỗi khi xóa lần 2)
+      window.cartData.splice(index, 1);
+
       updateTotalSum();
-      alert("Đã xóa sản phẩm khỏi giỏ hàng!");
+      alert("Đã xóa sản phẩm!");
     })
-    .catch((error) => {
-      console.error("Lỗi khi xóa sản phẩm:", error);
-      alert("Không thể xóa sản phẩm. Vui lòng thử lại!");
+    .catch((err) => {
+      console.error(err);
+      alert("Không thể xóa sản phẩm!");
     });
 }
+
 
 function order() {
-  const userId = localStorage.getItem("userId");
-  if (!userId) {
-    alert("Bạn cần đăng nhập trước khi đặt hàng!");
-    window.location.href = "LoginClient.html";
-    return;
-  }
 
-  const shopAddress = "Thôn 6 Vành, Bảo Yên, Lào Cai"; // có thể đổi nếu cần
+  const shopAddress = document.getElementById("shopAddress").textContent.trim();
   const customerName = document.getElementById("customerName").value;
   const deliveryAddress = document.getElementById("deliveryAddress").value;
-  const customerPhoneNumber = document.getElementById(
-    "customerPhoneNumber"
-  ).value;
-  const paymentMethod = document.getElementById("paymentMethod").value;
-  const totalMoneyText = document.getElementById("sum_money_carts").textContent;
-  // Loại bỏ tất cả ký tự không phải số
-  const totalMoney = Number(totalMoneyText.replace(/\D/g, ""));
+  const customerPhoneNumber = document.getElementById("customerPhoneNumber").value;
   const note = document.getElementById("note").value;
+  const paymentMethod = document.getElementById("paymentMethod").value;
+  const sum_money_carts = document.getElementById("sum_money_carts").textContent;
 
-  const orderData = {
-    shopAddress,
-    note,
-    customerName,
-    deliveryAddress,
-    customerPhoneNumber,
-    paymentMethod,
-    totalMoney,
-    userId,
-  };
-
-  fetch("http://localhost:8888/orders", {
+  fetch(`http://localhost:8888/api/orders`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(orderData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      shopAddress: shopAddress,
+      customerName: customerName,
+      deliveryAddress: deliveryAddress,
+      customerPhoneNumber: customerPhoneNumber,
+      note: note,
+      paymentMethod: paymentMethod,
+      totalMoney: parseInt(sum_money_carts.replace(/\D/g, "")),
+      cartId: localStorage.getItem("cartId"),
+      userId: localStorage.getItem("userId"),
+    }),
   })
     .then((response) => {
-      if (response.ok) {
-        alert("Tạo đơn hàng thành công!");
-        window.location.href = "OrderList.html";
-      } else {
-        return response.text().then((text) => {
-          console.error("Phản hồi lỗi từ server:", text);
-          alert("Tạo đơn hàng thất bại!");
-        });
+      if (!response.ok) {
+        throw new Error("Đặt hàng thất bại!");
       }
+      return response.json();
+    })
+    .then((data) => {
+      alert("Đặt hàng thành công!");
+      window.location.href = "OrderList.html";
     })
     .catch((error) => {
-      console.error("Lỗi khi gửi đơn hàng:", error);
-      alert("Lỗi khi kết nối đến server!");
+      alert("Lỗi khi đặt hàng: " + error.message);
     });
 }
+
+
+

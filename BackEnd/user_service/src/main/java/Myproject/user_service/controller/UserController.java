@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -91,7 +91,6 @@ public class UserController {
         apiResponse.setData(userService.deletedUserById(userId));
         return apiResponse;
     }
-
 
 
 }

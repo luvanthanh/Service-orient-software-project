@@ -48,7 +48,7 @@ public class CartService {
 
 
         if(cartItem.getCartId() != 0){
-            cartItem.setQuantity(request.getQuantity() + cartItem.getQuantity());
+            cartItem.setQuantity(1 + cartItem.getQuantity());
         }
         return cartItemRepository.save(cartItem);
     }

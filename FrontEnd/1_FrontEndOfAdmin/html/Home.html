@@ -1,11 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard - Simple</title>
+  <link rel="stylesheet" href="../css/HomeAdmin.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../javascript/HomeAdmin.js" defer></script>
 </head>
 <body>
-    
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="logo">AD</div> <div>Admin Panel</div></div>
+      <div class="small">Welcome back, admin</div>
+      <nav>
+        <div class="nav-item active" data-section="dashboard">🏠 Dashboard</div>
+        <div class="nav-item" data-section="users">👥 Users</div>
+        <div class="nav-item" data-section="products">📦 Products</div>
+        <div class="nav-item" data-section="orders">🧾 Orders</div>
+        <div class="nav-item" data-section="settings">⚙️ Settings</div>
+      </nav>
+      <div style="margin-top:18px;font-size:13px;color:var(--muted)">Version 1.0 • Dark</div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn ghost" id="toggleSidebar">☰</button>
+          <div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="opacity:0.7"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><input id="globalSearch" placeholder="Search users, orders, products..."/></div>
+        </div>
+        <div class="user">
+          <div class="small">Admin</div>
+          <div class="avatar">A</div>
+        </div>
+      </div>
+
+      <div id="dashboardView">
+        <div class="grid">
+          <div class="card">
+            <h3>Active Users</h3>
+            <div class="value" id="statUsers">0</div>
+            <div class="small">in last 30 days</div>
+          </div>
+          <div class="card">
+            <h3>Orders</h3>
+            <div class="value" id="statOrders">0</div>
+            <div class="small">pending / total</div>
+          </div>
+          <div class="card">
+            <h3>Revenue</h3>
+            <div class="value" id="statRevenue">$0</div>
+            <div class="small">monthly</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div>
+            <div class="panel">
+              <h3 style="margin-top:0">Recent Users</h3>
+              <div style="overflow:auto;max-height:360px">
+                <table id="usersTable">
+                  <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th><th></th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="panel" style="margin-top:14px">
+              <h3 style="margin-top:0">Quick Actions</h3>
+              <div style="display:flex;gap:8px;margin-top:10px">
+                <button class="btn primary" id="openAdd">+ Add user</button>
+                <button class="btn ghost" id="exportBtn">Export CSV</button>
+                <button class="btn ghost" id="refreshBtn">Refresh</button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel">
+              <h3 style="margin-top:0">Traffic (simple chart)</h3>
+              <canvas id="chart" width="380" height="180" style="width:100%;height:180px;display:block"></canvas>
+            </div>
+
+            <div class="panel" style="margin-top:14px">
+              <h3 style="margin-top:0">System Info</h3>
+              <div class="small" style="margin-top:8px">Uptime: <strong id="uptime">72 days</strong></div>
+              <div class="small" style="margin-top:6px">Env: <strong>production</strong></div>
+              <div class="small" style="margin-top:6px">Last backup: <strong>2025-12-06</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users view (hidden by default) -->
+      <div id="usersView" style="display:none">
+        <div class="panel">
+          <h3 style="margin-top:0">Users Management</h3>
+          <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+            <input id="filterInput" placeholder="Filter by name or email" style="flex:1;padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04)" />
+            <button class="btn primary" id="btnAdd">New user</button>
+          </div>
+          <div style="margin-top:12px;overflow:auto;max-height:540px">
+            <table id="usersTableFull">
+              <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal (simple) -->
+      <div id="modal" style="display:none;position:fixed;inset:0;background:rgba(2,6,23,0.6);align-items:center;justify-content:center;padding:20px">
+        <div style="width:540px;max-width:100%;background:var(--card);padding:18px;border-radius:12px">
+          <h3 id="modalTitle">Add user</h3>
+          <div style="margin-top:10px">
+            <label>Name</label>
+            <input id="inputName" type="text" />
+            <label style="margin-top:8px">Email</label>
+            <input id="inputEmail" type="text" />
+            <label style="margin-top:8px">Role</label>
+            <select id="inputRole"><option>user</option><option>admin</option></select>
+          </div>
+          <div style="margin-top:12px;display:flex;justify-content:flex-end;gap:8px">
+            <button class="btn ghost" id="modalClose">Cancel</button>
+            <button class="btn primary" id="modalSave">Save</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+
 </body>
 </html>

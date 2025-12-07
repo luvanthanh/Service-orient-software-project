@@ -65,7 +65,7 @@
           <ul>
             <li><a href="LoginClient.html">Đăng nhập</a></li>
             <li><a href="Profile.html">Profile </a></li>
-            <li><a href="Register.html">Đăng xuất</a></li>
+            <li><a id="logout_button" onclick="logout()">Đăng xuất</a></li>
           </ul>
         </div>
       </div>
@@ -83,6 +83,10 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td> Địa chỉ Văn Thành SHOPPING</td>
+            <td id="shopAddress"> Thôn 6 Vành Xã Bảo Yên Lào Cai</td>
+          </tr>
           <tr>
             <td>Họ Và Tên Người Nhận</td>
             <td><input type="text" id="customerName"></td>

@@ -36,12 +36,12 @@ spring:
               lower-case-service-id: false
       routes:
         # =================== USER SERVICE ===================
-        - id: user-service
-          uri: lb://user-service
+        - id: user-service # tên service
+          uri: lb://user-service # nơi url được chuyển đến
           predicates:
-            - Path=/api/users/**
+            - Path=/api/users/** # url api mà khi gọi api sẽ dùng
           filters:
-            - StripPrefix=1
+            - StripPrefix=1  # bỏ "/api" khi gọi đến service đó vì trong đấy dùng RequestMapping("/users")
 
         # =================== PRODUCT SERVICE ===================
         - id: product-service

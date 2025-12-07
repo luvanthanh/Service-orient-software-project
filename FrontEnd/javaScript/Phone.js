@@ -68,28 +68,20 @@ fetch(`http://localhost:8888/api/products/getProductById/${productId}`)
 
 
 
-
+const cartId = localStorage.getItem("cartId");
   function addCart(){
     const userId = localStorage.getItem("userId");
     console.log("UserId lấy từ localStorage:", userId);
 
-    fetch(`http://localhost:8084/CartDatabase/carts`, {
+    fetch(`http://localhost:8888/api/carts/${cartId}/cartItems`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        cartName: currentProduct.productName,
-        cartQuantity: 1,
-        cartMoney: currentProduct.productPrice,
-
+        cartId: cartId,
         productId: currentProduct.productId,
-        productName : currentProduct.productName,
-        productPrice : currentProduct.productPrice,
-        productImage : currentProduct.productImageUrl,
-    
-        userId: userId
-
+        quantity: 1
       })
     })
     .then(response => {
