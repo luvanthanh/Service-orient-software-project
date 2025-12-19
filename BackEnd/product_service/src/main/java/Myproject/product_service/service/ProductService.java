@@ -44,8 +44,10 @@ public class ProductService {
 //    cập nhật thông tin sản phẩm
     public Product updateProduct(ProductUpdateRequest request , int productId){
         Product product = productRepository.findById(productId);
-        product = productMapper.toUpdateProduct(request);
-        return  productRepository.save(product);
+
+        productMapper.updateProductFromRequest(request, product);
+
+        return productRepository.save(product);
     }
 
 

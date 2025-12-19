@@ -29,7 +29,7 @@ public class Order{
     private Double totalMoney;
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    private String userId; //
+    private String userId; // lấy danh sách order
     private int cartId; // sẽ lấy listCartItem bằng CartID
 
 }

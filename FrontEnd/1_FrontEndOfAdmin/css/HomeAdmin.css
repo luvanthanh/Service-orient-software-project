@@ -1,58 +1,53 @@
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#94a3b8;
-      --accent:#2563eb;
-      --accent-2:#06b6d4;
-      --glass: rgba(255,255,255,0.04);
-      --radius:12px;
-      font-family: Inter, Roboto, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071027 0%, #061426 100%);color:#e6eef8}
-    .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    /* Sidebar */
-    .sidebar{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-right:1px solid rgba(255,255,255,0.03)}
-    .brand{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px;margin-bottom:18px}
-    .logo{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700}
-    nav{margin-top:12px}
-    .nav-item{padding:10px 12px;border-radius:10px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;cursor:pointer}
-    .nav-item.active{background:linear-gradient(90deg, rgba(37,99,235,0.12), rgba(6,182,212,0.06));color:var(--accent)}
+ul li{
+    list-style-type: none;
+}
 
-    /* Header */
-    .main{padding:18px}
-    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:12px}
-    .search{display:flex;align-items:center;background:var(--glass);padding:8px 12px;border-radius:10px;gap:8px;width:420px;max-width:60%}
-    .search input{background:transparent;border:0;outline:0;color:inherit;width:100%}
-    .user{display:flex;align-items:center;gap:12px}
-    .avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#334155,#1e293b);display:flex;align-items:center;justify-content:center}
+.header{
+  display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: #2C3E50;
+    color: white;
+    padding-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+.header i{
+  margin-left: 100px;
+    margin-right: 600px;
+}
+.section-one-content{
+    display: flex;
+}
 
-    /* grid */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
-    .card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6);min-height:86px}
-    .card h3{margin:0;font-size:13px;color:var(--muted)}
-    .card .value{font-size:20px;font-weight:700;margin-top:8px}
+.content-left{
+    width: 20%;
+    height: 100vh;
+    background-color: #F0F0F0;
+}
 
-    /* section */
-    .section{display:grid;grid-template-columns:1fr 420px;gap:16px}
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px}
+.content-right{
+    width: 80%;
+    height: 100vh;
+    background-color: #FFFFFF;
+}
 
-    table{width:100%;border-collapse:collapse}
-    thead th{font-size:12px;text-align:left;padding:10px;color:var(--muted)}
-    tbody td{padding:10px;border-top:1px dashed rgba(255,255,255,0.03)}
-    .actions button{margin-right:6px}
+.section-one-content ul li{
+    padding: 15px;
+    border-bottom: 1px solid #D3D3D3;
+}
 
-    /* form */
-    label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
-    input[type=text], input[type=number], select{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
-    .btn.primary{background:var(--accent);color:white}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-
-    /* responsive */
-    @media (max-width:980px){.app{grid-template-columns:1fr}.sidebar{display:flex;gap:10px;overflow:auto;height:auto}.main{padding:12px}.grid{grid-template-columns:repeat(2,1fr)}.section{grid-template-columns:1fr}}
-    @media (max-width:640px){.grid{grid-template-columns:1fr}.search{display:none}.sidebar{display:none}}
-
-    /* mini styles */
-    .small{font-size:12px;color:var(--muted)}
+.section-one-content ul li:hover{
+    background-color: #D3D3D3;
+    cursor: pointer;
+}
+.section-one-content ul li a{
+    display: inline-block;
+}

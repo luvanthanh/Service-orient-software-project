@@ -14,31 +14,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2 Lấy cart theo userId
   fetch(`http://localhost:8888/api/carts/getCartByUserId/${userId}`)
-    .then((response) => response.json())
-    .then((cart) => {
-      localStorage.setItem("cartId",cart.cartId);
-      const cartId = cart.cartId;
-      console.log("CartId lấy từ localStorage:", cartId);
-      // 3 Lấy danh sách cartItem theo cartId
-      return fetch(`http://localhost:8888/api/carts/${cartId}/cartItems`)
-        .then((res) => res.json())
-        .then(async (cartItems) => {
-          // 4 Gọi product-service để lấy thông tin product từng item
-          const itemsWithProduct = await Promise.all(
-            cartItems.map(async (item) => {
-              const product = await fetch(
-                `http://localhost:8888/api/products/getProductById/${item.productId}`
-              ).then((res) => res.json());
+  .then((response) => response.json())
+  .then((cart) => {
+    localStorage.setItem("cartId", cart.cartId);
+    const cartId = cart.cartId;
+    console.log("CartId lấy từ localStorage:", cartId);
 
-              return { ...item, product };
-            })
-          );
+    // 3. Lấy danh sách cartItem theo cartId
+    return fetch(`http://localhost:8888/api/carts/${cartId}/cartItems`)
+      .then((res) => res.json())
+      .then((cartItems) => {
 
-          window.cartData = itemsWithProduct;
-          renderCart(itemsWithProduct);
+        const itemsWithProduct = cartItems.map((item) => {
+          console.log("RAW cartItem từ backend:", item);
+
+          return {
+            ...item,
+            cartItemsId: item.cartItemId,
+            product: {
+              productName: item.productName,
+              productPrice: item.productPrice,
+              productImageUrl: item.imageUrl
+            }
+          };
         });
-    })
-    .catch((error) => console.error("Lỗi khi lấy giỏ hàng:", error));
+
+        window.cartData = itemsWithProduct;
+        renderCart(itemsWithProduct);
+      });
+  })
+  .catch((error) => console.error("Lỗi khi lấy giỏ hàng:", error));
+
 });
 
 // =====================================================
@@ -206,9 +212,6 @@ function minus(index) {
       }
       return response.json();
     })
-    .then((data) => {
-      console.log("Cập nhật số lượng thành công:", data);
-    })
     .catch((error) => {
       console.error("Lỗi khi cập nhật số lượng:", error);
       alert("Lỗi khi cập nhật số lượng: " + error.message);
@@ -243,7 +246,7 @@ function deleteCart(index) {
     })
     .catch((err) => {
       console.error(err);
-      alert("Không thể xóa sản phẩm!");
+      // alert("Không thể xóa sản phẩm!");
     });
 }
 
@@ -257,6 +260,7 @@ function order() {
   const note = document.getElementById("note").value;
   const paymentMethod = document.getElementById("paymentMethod").value;
   const sum_money_carts = document.getElementById("sum_money_carts").textContent;
+  const cartId = localStorage.getItem("cartId");
 
   fetch(`http://localhost:8888/api/orders`, {
     method: "POST",
@@ -271,7 +275,7 @@ function order() {
       note: note,
       paymentMethod: paymentMethod,
       totalMoney: parseInt(sum_money_carts.replace(/\D/g, "")),
-      cartId: localStorage.getItem("cartId"),
+      cartId: cartId,
       userId: localStorage.getItem("userId"),
     }),
   })
