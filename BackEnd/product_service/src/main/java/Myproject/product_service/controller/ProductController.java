@@ -4,6 +4,8 @@ package Myproject.product_service.controller;
 import Myproject.product_service.entity.Product;
 import Myproject.product_service.request.ProductCreationRequest;
 import Myproject.product_service.request.ProductUpdateRequest;
+import Myproject.product_service.response.ProductResponse;
+import Myproject.product_service.response.ResponseApi;
 import Myproject.product_service.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,26 +22,26 @@ public class ProductController {
 
 // Lấy tất cả product
     @GetMapping
-    List<Product> getAllProducts(){
+    ResponseApi<List<Product>> getAllProducts(){
         return productService.getAllProducts();
     }
 
 
 //    lấy sản phẩm theo id
     @GetMapping("/getProductById/{productId}")
-    public Product getProductById(@PathVariable int productId){
+    public ResponseApi<ProductResponse> getProductById(@PathVariable int productId){
         return productService.getProductById(productId);
     }
 
 //    thêm sản phẩm
     @PostMapping
-    Product addProduct(@RequestBody ProductCreationRequest request){
+    ResponseApi<Product> addProduct(@RequestBody ProductCreationRequest request){
         return productService.createProduct(request);
     }
 
 //    sủa sản phẩm theo id
     @PutMapping("/updateProductById/{productId}")
-    Product updateProduct(@RequestBody ProductUpdateRequest request, @PathVariable("productId") int productId){
+    ResponseApi<Product> updateProduct(@RequestBody ProductUpdateRequest request, @PathVariable("productId") int productId){
         return productService.updateProduct(request,productId);
     }
 

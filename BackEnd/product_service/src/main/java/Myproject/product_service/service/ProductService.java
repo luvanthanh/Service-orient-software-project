@@ -6,12 +6,17 @@ import Myproject.product_service.entity.Product;
 import Myproject.product_service.mapper.ProductMapper;
 import Myproject.product_service.request.ProductCreationRequest;
 import Myproject.product_service.request.ProductUpdateRequest;
+import Myproject.product_service.response.ProductResponse;
+import Myproject.product_service.response.ResponseApi;
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
+@Builder
 
 public class ProductService {
 
@@ -22,32 +27,52 @@ public class ProductService {
     private ProductMapper productMapper;
 
 //    lấy all danh sach san pham
-    public List<Product> getAllProducts(){
+    public ResponseApi<List<Product>> getAllProducts(){
         List<Product> products = productRepository.findAll();
         System.out.println(">>> Found products: " + products.size());
-        return products;
-
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message("lấy thành công")
+                .data(products)
+                .build();
     }
 
 //    lấy sản phẩm theo id
-    public Product getProductById(int productId){
-        return productRepository.findById(productId);
+    public ResponseApi<ProductResponse> getProductById(int productId){
+        Product product = productRepository.findById(productId);
+        ProductResponse productResponse = new ProductResponse();
+        productResponse = productMapper.toProductResponse(product);
+        return ResponseApi.<ProductResponse>builder()
+                .code(1000)
+                .message("đã lấy product thành công !")
+                .data(productResponse)
+                .build();
     }
 
 //tạo sản phẩm
-    public Product createProduct(ProductCreationRequest request){
+    public ResponseApi<Product> createProduct(ProductCreationRequest request){
         Product product = new Product();
         product = productMapper.toProduct(request);
-        return  productRepository.save(product);
+        product = productRepository.save(product);
+        return ResponseApi.<Product>builder()
+                .code(1000)
+                .message("đã tạo mới sản phẩm thành công !")
+                .data(product)
+                .build();
     }
 
 //    cập nhật thông tin sản phẩm
-    public Product updateProduct(ProductUpdateRequest request , int productId){
+    public ResponseApi<Product> updateProduct(ProductUpdateRequest request , int productId){
         Product product = productRepository.findById(productId);
 
         productMapper.updateProductFromRequest(request, product);
 
-        return productRepository.save(product);
+        Product productSave = productRepository.save(product);
+        return ResponseApi.<Product>builder()
+                .code(1000)
+                .message("đã cập nhật thông tin Product thành! ")
+                .data(productSave)
+                .build();
     }
 
 

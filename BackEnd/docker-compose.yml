@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  mysql-user:
+    image: mysql:8.0
+    container_name: mysql-user
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: UserDatabase
+    ports:
+      - "3306:3306"
+    networks:
+      - microservice-net
+
+  eureka-server:
+    build: ./eureka_server
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - microservice-net
+
+  user-service:
+    image: user-service
+    container_name: user-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql-user
+      - eureka-server
+    networks:
+      - microservice-net
+
+networks:
+  microservice-net:
+    driver: bridge

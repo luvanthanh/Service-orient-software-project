@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/reponse/CartItemResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/dto/reponse/ProductResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/client/CartItemClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/dto/response/CartItemResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/response/ProductResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/response/ResponseApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/CartServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/CartServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/NewsServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/NewsServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/order_service/src/main/java/com/example/order_service/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/mapper/ProductMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/javaScript/Carts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/css/HomeAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/css/HomeAdmin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/html/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/html/Home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +85,7 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/5_SubjectInSemester5/1_Service_OrientedSoftware/BackEnd&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;D:/5_SubjectInSemester5/1_Service_OrientedSoftware/BackEnd/cart_service/src/main/java/Myproject/cart_service/service/CartService.java&quot;
   }
@@ -129,7 +123,6 @@
               <entry key="EurekaServiceApplication" value="STOPPED" />
               <entry key="NewsServiceApplication" value="STOPPED" />
               <entry key="OrderServiceApplication" value="STOPPED" />
-              <entry key="ProductServiceApplication" value="STOPPED" />
               <entry key="UserServiceApplication" value="STOPPED" />
             </map>
           </value>
@@ -137,7 +130,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ProductServiceApplication">
+  <component name="RunManager" selected="Application.ApiGetWayApplication">
     <configuration name="ApiGetWayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Myproject.Api_getWay.ApiGetWayApplication" />
       <module name="Api_getWay" />
@@ -190,12 +183,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Myproject.product_service.ProductServiceApplication" />
-      <module name="product_service" />
+    <configuration name="UserServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Myproject.user_service.UserServiceApplication" />
+      <module name="user_service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Myproject.product_service.*" />
+          <option name="PATTERN" value="Myproject.user_service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -205,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ProductServiceApplication" />
-        <item itemvalue="Application.CartServiceApplication" />
-        <item itemvalue="Application.ApiGetWayApplication" />
-        <item itemvalue="Application.NewsServiceApplication" />
+        <item itemvalue="Application.UserServiceApplication" />
         <item itemvalue="Application.OrderServiceApplication" />
+        <item itemvalue="Application.NewsServiceApplication" />
+        <item itemvalue="Application.ApiGetWayApplication" />
+        <item itemvalue="Application.CartServiceApplication" />
       </list>
     </recent_temporary>
   </component>
