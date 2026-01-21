@@ -108,7 +108,7 @@ public class AuthenticationService {
         return   signedJWT;
     }
 
-    //    ckeck xem có đăng nhập đuungs không
+    //    check xem có đăng nhập đúng không
     public AuthenticationResponse login(LoginRequest request) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
         var user = userRepository.findByUserName(request.getUserName())
@@ -116,7 +116,6 @@ public class AuthenticationService {
 
 
         boolean checkPassword = passwordEncoder.matches(request.getPassword(), user.getUserPassword());
-
 
         if(!checkPassword) {
             throw new AppException(ErrorCode.PASSWORRD_INVALID);

@@ -76,41 +76,74 @@ public class ProductService {
     }
 
 
-//    xoas sản phẩm  theo id
-    public String deleteProduct(int productId){
+//    xóa sản phẩm  theo id
+    public ResponseApi<Void> deleteProduct(int productId){
         productRepository.deleteById(productId);
-        return  "Deleted product with id: " + productId;
+        return ResponseApi.<Void>builder()
+                .code(1000)
+                .message(" đã xóa thành công sản phẩm!")
+                .build();
     }
 
 
 //    lọc sản phẩm theo hãng
-    public List<Product> getProductByBrand(String productBrand){
-        return productRepository.findByProductBrand(productBrand);
+    public ResponseApi<List<Product>> getProductByBrand(String productBrand){
+        List<Product> list = productRepository.findByProductBrand(productBrand);
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message(" lấy danh sách sản phẩm theo hãng thành công !")
+                .data(list)
+                .build();
     }
 
 // lọc sản phẩm theo giá tiền
-    public List<Product> getProductByPrice(double priceMin,  double priceMax){
-        return productRepository.findByProductPriceBetween(priceMin, priceMax);
+    public ResponseApi<List<Product>> getProductByPrice(double priceMin,  double priceMax){
+
+        List<Product>  list =productRepository.findByProductPriceBetween(priceMin, priceMax);
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message("lấy danh sách sản phẩm thêm giá tiền thành công!")
+                .data(list)
+                .build();
     }
 
 //   lọc sản phẩm theo Ram
-    public List<Product> getProductByRam(int ram){
-        return productRepository.findByProductRam(ram);
+    public ResponseApi<List<Product>> getProductByRam(int ram){
+        List<Product> list = productRepository.findByProductRam(ram);
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message(" đã lấy dữ liệu thành công !")
+                .data(list)
+                .build();
     }
 
-//    lọc sản phâm theo rom
-    public List<Product> getProductByRom(int rom){
-        return productRepository.findByProductRom(rom);
+//    lọc sản phẩm theo rom
+    public ResponseApi<List<Product>> getProductByRom(int rom){
+        List<Product> list = productRepository.findByProductRom(rom);
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message(" đã lấy dữ liệu thành công!")
+                .data(list)
+                .build();
     }
 
 //    lọc sanr phẩm theo màu sắc
-    public List<Product> getProductByColor(String color){
-        return productRepository.findByProductColor(color);
+    public ResponseApi<List<Product>>  getProductByColor(String color){
+        List<Product> list = productRepository.findByProductColor(color);
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message(" đã lấy dữ liệu thành công !")
+                .data(list)
+                .build();
     }
 
 //    locj sản phẩm theo kích thước màn hình
-    public List<Product> getProductByScreenSize(float min, float max){
-        return productRepository.findByProductScreenSizeBetween(min, max);
+    public ResponseApi<List<Product>> getProductByScreenSize(float min, float max){
+        List<Product> list = productRepository.findByProductScreenSizeBetween(min, max);
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message("đã lấy dữ liệu thành công!")
+                .build();
     }
 
 }

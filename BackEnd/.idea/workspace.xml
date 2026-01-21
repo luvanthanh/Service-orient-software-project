@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/response/ProductResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/response/ResponseApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-service/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/mapper/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/mapper/ProductMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/css/HomeAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/css/HomeAdmin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/html/Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../FrontEnd/1_FrontEndOfAdmin/html/Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/CustomJwtDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/CustomJwtDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

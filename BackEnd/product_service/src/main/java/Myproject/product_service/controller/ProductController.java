@@ -48,41 +48,40 @@ public class ProductController {
 
 //    xóa sản phẩm theo id
     @DeleteMapping("/deleteProductById/{productId}")
-    String deleteProduct(@PathVariable("productId") int productId){
+    ResponseApi<Void> deleteProduct(@PathVariable("productId") int productId){
         return productService.deleteProduct(productId);
     }
-
     // lọc sản phẩm theo hãng
     @GetMapping("/getProductByBrand/{productBrand}")
-    List<Product> getProductByBrand(@PathVariable("productBrand") String productBrand){
+    ResponseApi<List<Product>> getProductByBrand(@PathVariable("productBrand") String productBrand){
         return productService.getProductByBrand(productBrand);
     }
 
 //    lọc sản phâm theo giá tiền  GET /products/price-range?min=5000000&max=15000000
     @GetMapping("/getProductByPrice")
-    List<Product> getProductByPrice(@RequestParam Double min, @RequestParam Double max){
+    ResponseApi<List<Product>> getProductByPrice(@RequestParam Double min, @RequestParam Double max){
         return productService.getProductByPrice(min,max);
     }
 
 //lọc sản phẩm theo ram product
     @GetMapping("/getProductByRam/{productRam}")
-    List<Product> getProductByRam(@PathVariable("productRam") int productRam){
+    ResponseApi<List<Product>> getProductByRam(@PathVariable("productRam") int productRam){
         return productService.getProductByRam(productRam);
     }
     //lọc sản phẩm theo rom product
     @GetMapping("/getProductByRom/{productRom}")
-    List<Product> getProductByRom(@PathVariable("productRom") int productRom){
+    ResponseApi<List<Product>> getProductByRom(@PathVariable("productRom") int productRom){
         return productService.getProductByRom(productRom);
     }
 // lọc sản phẩm theo màu sắc
     @GetMapping("/getProductByColor/{productColor}")
-    List<Product> getProductByColor(@PathVariable("productColor") String productColor){
+    ResponseApi<List<Product>> getProductByColor(@PathVariable("productColor") String productColor){
         return productService.getProductByColor(productColor);
     }
 
 //    lọc sản phẩm theo kích thước màn hình
     @GetMapping("/getProductByScreenSize")
-    List<Product> getProductByScreenSize(@RequestParam float min, @RequestParam float max){
+    ResponseApi<List<Product>> getProductByScreenSize(@RequestParam float min, @RequestParam float max){
         return productService.getProductByScreenSize(min,max);
     }
 }
