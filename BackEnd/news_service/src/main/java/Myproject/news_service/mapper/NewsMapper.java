@@ -1,5 +1,6 @@
 package Myproject.news_service.mapper;
 
+import Myproject.news_service.dto.reponse.NewsResponse;
 import Myproject.news_service.dto.request.NewsCreationRequest;
 import Myproject.news_service.dto.request.NewsUpdateRequest;
 import Myproject.news_service.entity.News;
@@ -12,5 +13,7 @@ public interface NewsMapper {
     @Mapping(target = "newsId" , ignore = true)
     News toNews(NewsCreationRequest request);
     News toNewsUpdate(NewsUpdateRequest request );
+    NewsResponse toNewsResponse(News news);
+
 
 }

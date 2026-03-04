@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6efd666-d95a-4721-a5c8-fd80aa357c44" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/dto/reponse/APIResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/dto/reponse/NewsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product_service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/product_service/src/main/java/Myproject/product_service/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/CustomJwtDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/CustomJwtDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_getWay/src/main/java/Myproject/Api_getWay/ApiGetWayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Api_getWay/src/main/java/Myproject/Api_getWay/ApiGetWayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/client/ProductClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/client/ProductClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cart_service/src/main/java/Myproject/cart_service/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/controller/NewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/controller/NewsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/mapper/NewsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/mapper/NewsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/repository/NewsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/repository/NewsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/service/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/news_service/src/main/java/Myproject/news_service/service/NewsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user_service/src/main/java/Myproject/user_service/service/AuthenticationService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +30,7 @@
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>

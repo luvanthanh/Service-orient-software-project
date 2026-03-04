@@ -27,7 +27,7 @@ public class CartService {
     @Autowired
     private CartItemRepository cartItemRepository;
 
-
+// tạo cart nếu chưa có
     public Cart createdCartByUserId(String userId){
         Cart  cart = cartRepository.getCartsByUserId( userId)
                 .orElseGet(()->{

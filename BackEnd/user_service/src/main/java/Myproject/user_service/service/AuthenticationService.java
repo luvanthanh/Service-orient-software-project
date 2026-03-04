@@ -105,7 +105,7 @@ public class AuthenticationService {
             throw new AppException(ErrorCode.NOT_AUTHENTICATED);
         }
 
-        return   signedJWT;
+        return signedJWT;
     }
 
     //    check xem có đăng nhập đúng không
@@ -121,7 +121,7 @@ public class AuthenticationService {
             throw new AppException(ErrorCode.PASSWORRD_INVALID);
         }
         else{
-            var token = generateToken(user); // dday
+            var token = generateToken(user); // sinh token khi đăng nhập với tài khoàn đúng
 
             return AuthenticationResponse.builder()
                     .token(token)
