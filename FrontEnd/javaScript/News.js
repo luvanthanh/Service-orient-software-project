@@ -11,28 +11,28 @@ fetch(`http://localhost:8888/api/news/${newsId}`)
         const newsDiv = document.getElementById("section_two_content");
         newsDiv.innerHTML = " ";
         newsDiv.innerHTML = `
-            <a href="Phone.html?id=${news.newsProductId}">
+            <a href="Phone.html?id=${news.data.newsProductId}">
             <div class="news-detail">
                 <div class="news-detail-content">
-                    <h2>${news.newsTitle}</h2>
-                    <div><b>Thời gian: </b> ${news.newsTime} </div>
-                    <div><b>Ngày đăng: </b> ${news.newsDate} </div>
-                    <img  src="${news.newsImage}" alt="${news.newsTitle}" class="news-detail-image">
-                    <p>${news.newsContent}</p>
+                    <h2>${news.data.newsTitle}</h2>
+                    <div><b>Thời gian: </b> ${news.data.newsTime} </div>
+                    <div><b>Ngày đăng: </b> ${news.data.newsDate} </div>
+                    <img  src="${news.data.newsImage}" alt="${news.data.newsTitle}" class="news-detail-image">
+                    <p>${news.data.newsContent}</p>
                 </div>
 
                 <div class="news-detail-content">
-                    <img src="${news.newsImage1}" alt="${news.newsTitle1}" class="news-detail-image">
-                    <p>${news.newsContent1}</p>
+                    <img src="${news.data.newsImage1}" alt="${news.data.newsTitle1}" class="news-detail-image">
+                    <p>${news.data.newsContent1}</p>
                 </div>
 
                 <div class="news-detail-content">
-                    <img src="${news.newsImage2}" alt="${news.newsTitle2}" class="news-detail-image">
-                    <p>${news.newsContent2}</p>
+                    <img src="${news.data.newsImage2}" alt="${news.data.newsTitle2}" class="news-detail-image">
+                    <p>${news.data.newsContent2}</p>
                 </div>
                 <div class="news-detail-content">
-                    <img src="${news.newsImage3}" alt="${news.newsTitle3}" class="news-detail-image">
-                    <p>${news.newsContent3}</p>
+                    <img src="${news.data.newsImage3}" alt="${news.data.newsTitle3}" class="news-detail-image">
+                    <p>${news.data.newsContent3}</p>
                 </div>
             </div>
             </a>

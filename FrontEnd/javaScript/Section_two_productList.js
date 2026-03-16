@@ -8,7 +8,7 @@ fetch(`http://localhost:8888/api/products`)
         const pageNumbers = document.getElementById('page-numbers');
         const productsPerPage = 8;
         let currentPage = 1;
-        let filteredProducts = products;
+        let filteredProducts = products.data;
 
         // ⚙️ HÀM HIỂN THỊ SẢN PHẨM
         function renderProducts(page, data = filteredProducts) {
@@ -16,7 +16,7 @@ fetch(`http://localhost:8888/api/products`)
             const totalPages = Math.ceil(data.length / productsPerPage);
             const start = (page - 1) * productsPerPage;
             const end = start + productsPerPage;
-            const productsToShow = data.slice(start, end);
+            const productsToShow = data.data.slice(start, end);
 
             productsToShow.forEach(product => {
                 const productDiv = document.createElement("div");
@@ -39,7 +39,7 @@ fetch(`http://localhost:8888/api/products`)
                 // nút xem thêm
                 const btn = productDiv.querySelector('.product-phone');
                 btn.addEventListener('click', function() {
-                    window.location.href = `Phone.html?id=${product.productId}`;
+                    window.location.href = `Phone.html?id=${product.data.productId}`;
                 });
                 listContainer.appendChild(productDiv);
             });

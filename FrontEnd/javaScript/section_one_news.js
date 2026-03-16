@@ -3,7 +3,7 @@ fetch("http://localhost:8888/api/news")
     .then(news => {
         let newsSection = document.getElementById("section_one_news");
         newsSection.innerHTML = " ";
-        news.slice(-3).forEach(item =>{
+        news.data.slice(-3).forEach(item =>{
             newsSection.innerHTML += `
                 <a href = "News.html?id=${item.newsId}"><img src="${item.newsImage}" alt="${item.newsTitle}" class="news-image"> </a>
             `;
@@ -18,7 +18,7 @@ fetch("http://localhost:8888/api/news")
     
     let listNews = document.getElementById("news");
     listNews.innerHTML = " ";
-    news.slice(-3).forEach(item =>{
+    news.data.slice(-3).forEach(item =>{
         listNews.innerHTML += `
             <a class="news-content" href="News.html?id=${item.newsId}"> <img src="${item.newsImage}" alt="${item.newsTitle}" class="news-image"> </a>
         `;
