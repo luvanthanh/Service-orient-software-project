@@ -16,7 +16,6 @@ import java.util.Date;
 @Builder
 @Entity
 
-
 @Table(name = "products")
 public class Product {
     @Id

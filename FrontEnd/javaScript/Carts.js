@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`http://localhost:8888/api/carts/getCartByUserId/${userId}`)
   .then((response) => response.json())
   .then((cart) => {
-    localStorage.setItem("cartId", cart.cartId);
-    const cartId = cart.cartId;
+    localStorage.setItem("cartId", cart.data.cartId);
+    const cartId = cart.data.cartId;
     console.log("CartId lấy từ localStorage:", cartId);
 
     // 3. Lấy danh sách cartItem theo cartId

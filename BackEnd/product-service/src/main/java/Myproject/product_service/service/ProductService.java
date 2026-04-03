@@ -27,7 +27,7 @@ public class ProductService {
     @Autowired
     private ProductMapper productMapper;
 
-//    lấy all danh sach san pham
+//    lấy danh sách sản phẩm
     public ResponseApi<List<Product>> getAllProducts(){
         List<Product> products = productRepository.findAll();
         System.out.println(">>> Found products: " + products.size());
@@ -155,6 +155,15 @@ public class ProductService {
         return ResponseApi.<List<Product>>builder()
                 .code(1000)
                 .message("Đã lấy dữ liệu thành công")
+                .data(list)
+                .build();
+    }
+
+    public ResponseApi<List<Product>> getAndSortByPrice2(){
+        List<Product> list = productRepository.findAll(Sort.by(Sort.Direction.DESC,"productPrice"));
+        return ResponseApi.<List<Product>>builder()
+                .code(1000)
+                .message(" sắp xếp theo giá tiền giảm dần")
                 .data(list)
                 .build();
     }

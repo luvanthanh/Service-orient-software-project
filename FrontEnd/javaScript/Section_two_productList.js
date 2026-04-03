@@ -16,7 +16,7 @@ fetch(`http://localhost:8888/api/products`)
             const totalPages = Math.ceil(data.length / productsPerPage);
             const start = (page - 1) * productsPerPage;
             const end = start + productsPerPage;
-            const productsToShow = data.data.slice(start, end);
+            const productsToShow = data.slice(start, end);
 
             productsToShow.forEach(product => {
                 const productDiv = document.createElement("div");
@@ -86,14 +86,14 @@ fetch(`http://localhost:8888/api/products`)
         //  ĐƯA filterByBrand RA NGOÀI (toàn cục)
         window.filterByBrand = function(brand) {
             if (brand === 'all') {
-                filteredProducts = products;
+                filteredProducts = products.data;
                 currentPage = 1;
                 renderProducts(currentPage, filteredProducts);
             } else {
                 fetch(`http://localhost:8888/api/products/getProductByBrand/${brand}`)
                     .then(response => response.json())
                     .then(data => {
-                        filteredProducts = data;
+                        filteredProducts = data.data;
                         renderProducts(currentPage = 1, filteredProducts);
                     })
                     .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
@@ -105,7 +105,7 @@ fetch(`http://localhost:8888/api/products`)
             fetch(`http://localhost:8888/api/products/getProductByPrice?min=${priceMin}&max=${priceMax}`)
                 .then(response => response.json())
                 .then(data => {
-                    filteredProducts = data;
+                    filteredProducts = data.data;
                     renderProducts(currentPage = 1, filteredProducts);
                 })
                 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
@@ -118,7 +118,7 @@ fetch(`http://localhost:8888/api/products`)
             fetch(`http://localhost:8888/api/products/getProductByRam/${ram}`)
                 .then(response => response.json())
                 .then(data => {
-                    filteredProducts = data;
+                    filteredProducts = data.data;
                     renderProducts(currentPage = 1, filteredProducts);
                 })
                 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
@@ -129,7 +129,7 @@ fetch(`http://localhost:8888/api/products`)
             fetch(`http://localhost:8888/api/products/getProductByRom/${rom}`)
                 .then(response => response.json())
                 .then(data => {
-                    filteredProducts = data;
+                    filteredProducts = data.data;
                     renderProducts(currentPage = 1, filteredProducts);
                 })
                 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
@@ -139,7 +139,7 @@ fetch(`http://localhost:8888/api/products`)
             fetch(`http://localhost:8888/api/products/getProductByScreenSize?min=${min}&max=${max}`)
                 .then(response => response.json())
                 .then(data =>{
-                    filteredProducts = data;
+                    filteredProducts = data.data;
                     renderProducts(currentPage = 1, filteredProducts);
                 })
                 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));
@@ -149,7 +149,7 @@ fetch(`http://localhost:8888/api/products`)
             fetch(`http://localhost:8888/api/products/getProductByColor/${color}`)
                 .then(response => response.json())
                 .then(data =>{
-                    filteredProducts = data;
+                    filteredProducts = data.data;
                     renderProducts(currentPage = 1, filteredProducts);
                 })
                 .catch(error => console.error("Lỗi khi load dữ liệu từ API:", error));

@@ -85,9 +85,15 @@ public class ProductController {
         return productService.getProductByScreenSize(min,max);
     }
 
-    @GetMapping("/getAndSortByPrice")
+    @GetMapping("/getAndSortByPrice/increase")
     ResponseApi<List<Product>> getAndSortByPrice(){
         return productService.getAndSortByPrice();
     }
+
+    @GetMapping("/getAndSortBYPrice/decrease")
+    ResponseApi<List<Product>> getAndSortBYPrice(){
+        return productService.getAndSortByPrice2();
+    }
+
 
 }
